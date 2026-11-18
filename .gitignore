@@ -1,0 +1,14 @@
+.venv/
+.bootstrap/
+__pycache__/
+.pytest_cache/
+models/
+.cache/
+results/**/traces/
+results/**/records.jsonl
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.pyc
