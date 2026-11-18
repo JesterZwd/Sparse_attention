@@ -1,0 +1,16 @@
+{"command": ["/home/zhaowd/projects/Wending/glsvlsi/.venv/bin/python", "-m", "gqa_probe.capture", "--model", "/home/zhaowd/projects/Wending/glsvlsi/models/Qwen3-4B-Instruct-2507", "--output", "/home/zhaowd/projects/Wending/glsvlsi/results/smoke_4k", "--context", "4096", "--samples", "1", "--decode-steps", "2", "--layers", "0,17,35", "--groups", "0"]}
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.23it/s]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.29it/s]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  1.89it/s]
+sample 1/1: 6 traces, answer='980'
+wrote 6 traces to /home/zhaowd/projects/Wending/glsvlsi/results/smoke_4k/traces
+{"command": ["/home/zhaowd/projects/Wending/glsvlsi/.venv/bin/python", "-m", "gqa_probe.evaluate", "/home/zhaowd/projects/Wending/glsvlsi/results/smoke_4k/traces", "--output", "/home/zhaowd/projects/Wending/glsvlsi/results/smoke_4k/evaluation"]}
+evaluated 1/6
+evaluated 2/6
+evaluated 3/6
+evaluated 4/6
+evaluated 5/6
+evaluated 6/6
+wrote 324 paired results to /home/zhaowd/projects/Wending/glsvlsi/results/smoke_4k/evaluation

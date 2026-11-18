@@ -1,0 +1,8 @@
+{
+  "python": "3.12.3",
+  "torch": "2.5.1+cu121",
+  "cuda": "12.1",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "device_properties": "_CudaDeviceProperties(name='NVIDIA GeForce RTX 3090', major=8, minor=6, total_memory=24251MB, multi_processor_count=82, uuid=65a4e9cc-fea7-ae85-8d04-6e723e80c3cf, L2_cache_size=6MB)",
+  "driver": "535.183.01"
+}

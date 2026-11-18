@@ -1,0 +1,3446 @@
+{
+  "source_kind": "real_model_custom_retrieval_pilot",
+  "quantization": {
+    "kind": "symmetric_int4_quantize_dequantize_reference",
+    "bits": 4,
+    "integer_range": [
+      -7,
+      7
+    ],
+    "zero_point": 0,
+    "axis": "per_token_per_kv_head_channel_groups",
+    "group_size": 32,
+    "scale_dtype": "float16",
+    "rounding": "nearest_even",
+    "key_position": "after_rope",
+    "cache_storage": "dequantized_bfloat16",
+    "residual_unquantized_tokens": 0,
+    "decode_attention": "float32_qk_softmax_av_then_cast_to_model_dtype",
+    "prefill_attention": "sdpa_with_quantized_dequantized_kv"
+  },
+  "model": "/home/zhaowd/projects/Wending/glsvlsi/models/Qwen3-4B-Instruct-2507",
+  "requested_revision": "main",
+  "resolved_revision": null,
+  "command": [
+    "/home/zhaowd/projects/Wending/glsvlsi/gqa_probe/capture.py",
+    "--model",
+    "/home/zhaowd/projects/Wending/glsvlsi/models/Qwen3-4B-Instruct-2507",
+    "--output",
+    "/home/zhaowd/projects/Wending/glsvlsi/results/pilot_16k",
+    "--context",
+    "16384",
+    "--samples",
+    "2",
+    "--decode-steps",
+    "4",
+    "--layers",
+    "0,7,14,21,28,35",
+    "--groups",
+    "all"
+  ],
+  "python": "3.12.3",
+  "torch": "2.5.1+cu121",
+  "transformers": "4.51.3",
+  "cuda": "12.1",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "config": {
+    "vocab_size": 151936,
+    "max_position_embeddings": 262144,
+    "hidden_size": 2560,
+    "intermediate_size": 9728,
+    "num_hidden_layers": 36,
+    "num_attention_heads": 32,
+    "use_sliding_window": false,
+    "sliding_window": null,
+    "max_window_layers": 36,
+    "num_key_value_heads": 8,
+    "head_dim": 128,
+    "hidden_act": "silu",
+    "initializer_range": 0.02,
+    "rms_norm_eps": 1e-06,
+    "use_cache": true,
+    "rope_theta": 5000000,
+    "rope_scaling": null,
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "return_dict": true,
+    "output_hidden_states": false,
+    "output_attentions": false,
+    "torchscript": false,
+    "torch_dtype": "bfloat16",
+    "use_bfloat16": false,
+    "tf_legacy_loss": false,
+    "pruned_heads": {},
+    "tie_word_embeddings": true,
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": false,
+    "is_decoder": false,
+    "cross_attention_hidden_size": null,
+    "add_cross_attention": false,
+    "tie_encoder_decoder": false,
+    "max_length": 20,
+    "min_length": 0,
+    "do_sample": false,
+    "early_stopping": false,
+    "num_beams": 1,
+    "num_beam_groups": 1,
+    "diversity_penalty": 0.0,
+    "temperature": 1.0,
+    "top_k": 50,
+    "top_p": 1.0,
+    "typical_p": 1.0,
+    "repetition_penalty": 1.0,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "encoder_no_repeat_ngram_size": 0,
+    "bad_words_ids": null,
+    "num_return_sequences": 1,
+    "output_scores": false,
+    "return_dict_in_generate": false,
+    "forced_bos_token_id": null,
+    "forced_eos_token_id": null,
+    "remove_invalid_values": false,
+    "exponential_decay_length_penalty": null,
+    "suppress_tokens": null,
+    "begin_suppress_tokens": null,
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "finetuning_task": null,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "tokenizer_class": null,
+    "prefix": null,
+    "bos_token_id": 151643,
+    "pad_token_id": null,
+    "eos_token_id": 151645,
+    "sep_token_id": null,
+    "decoder_start_token_id": null,
+    "task_specific_params": null,
+    "problem_type": null,
+    "_name_or_path": "/home/zhaowd/projects/Wending/glsvlsi/models/Qwen3-4B-Instruct-2507",
+    "_attn_implementation_autoset": true,
+    "transformers_version": "4.51.3",
+    "model_type": "qwen3"
+  },
+  "samples": [
+    {
+      "seed": 20261118,
+      "expected_answer": "98065603",
+      "target_key": "target_20261118",
+      "needle_token_offset": 12253,
+      "input_tokens": 16384,
+      "source": "custom_key_value_retrieval_pilot",
+      "generated_text": "98065",
+      "generated_token_ids": [
+        24,
+        23,
+        15,
+        21,
+        20
+      ],
+      "elapsed_seconds_including_trace_io": 107.75081565510482,
+      "sample_id": "0",
+      "input_ids_file": "sample_0_input_ids.npy",
+      "processed_decode_steps": 4
+    },
+    {
+      "seed": 20261119,
+      "expected_answer": "74556921",
+      "target_key": "target_20261119",
+      "needle_token_offset": 4095,
+      "input_tokens": 16384,
+      "source": "custom_key_value_retrieval_pilot",
+      "generated_text": "74556",
+      "generated_token_ids": [
+        22,
+        19,
+        20,
+        20,
+        21
+      ],
+      "elapsed_seconds_including_trace_io": 107.96006910409778,
+      "sample_id": "1",
+      "input_ids_file": "sample_1_input_ids.npy",
+      "processed_decode_steps": 4
+    }
+  ],
+  "records": [
+    {
+      "file": "trace_000000.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000001.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000002.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000003.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000004.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000005.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000006.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000007.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000008.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000009.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000010.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000011.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000012.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000013.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000014.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000015.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000016.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000017.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000018.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000019.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000020.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000021.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000022.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000023.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000024.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000025.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000026.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000027.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000028.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000029.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000030.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000031.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000032.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000033.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000034.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000035.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000036.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000037.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000038.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000039.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000040.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000041.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000042.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000043.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000044.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000045.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000046.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000047.npz",
+      "sample_id": "0",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000048.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000049.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000050.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000051.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000052.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000053.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000054.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000055.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000056.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000057.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000058.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000059.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000060.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000061.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000062.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000063.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000064.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000065.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000066.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000067.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000068.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000069.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000070.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000071.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000072.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000073.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000074.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000075.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000076.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000077.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000078.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000079.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000080.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000081.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000082.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000083.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000084.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000085.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000086.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000087.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000088.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000089.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000090.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000091.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000092.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000093.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000094.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000095.npz",
+      "sample_id": "0",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000096.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000097.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000098.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000099.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000100.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000101.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000102.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000103.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000104.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000105.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000106.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000107.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000108.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000109.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000110.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000111.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000112.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000113.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000114.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000115.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000116.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000117.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000118.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000119.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000120.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000121.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000122.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000123.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000124.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000125.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000126.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000127.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000128.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000129.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000130.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000131.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000132.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000133.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000134.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000135.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000136.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000137.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000138.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000139.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000140.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000141.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000142.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000143.npz",
+      "sample_id": "0",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000144.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000145.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000146.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000147.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000148.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000149.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000150.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000151.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000152.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000153.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000154.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000155.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000156.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000157.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000158.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000159.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000160.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000161.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000162.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000163.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000164.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000165.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000166.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000167.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000168.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000169.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000170.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000171.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000172.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000173.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000174.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000175.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000176.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000177.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000178.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000179.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000180.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000181.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000182.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000183.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000184.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000185.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000186.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000187.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000188.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000189.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000190.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000191.npz",
+      "sample_id": "0",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000192.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000193.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000194.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000195.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000196.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000197.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000198.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000199.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 0,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000200.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000201.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000202.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000203.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000204.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000205.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000206.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000207.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 7,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000208.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000209.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000210.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000211.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000212.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000213.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000214.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000215.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 14,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000216.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000217.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000218.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000219.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000220.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000221.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000222.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000223.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 21,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000224.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000225.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000226.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000227.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000228.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000229.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000230.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000231.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 28,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000232.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 0,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000233.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 1,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000234.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 2,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000235.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 3,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000236.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 4,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000237.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 5,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000238.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 6,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000239.npz",
+      "sample_id": "1",
+      "step": 0,
+      "layer": 35,
+      "kv_group": 7,
+      "valid_tokens": 16385
+    },
+    {
+      "file": "trace_000240.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000241.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000242.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000243.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000244.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000245.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000246.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000247.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 0,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000248.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000249.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000250.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000251.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000252.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000253.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000254.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000255.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 7,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000256.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000257.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000258.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000259.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000260.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000261.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000262.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000263.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 14,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000264.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000265.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000266.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000267.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000268.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000269.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000270.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000271.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 21,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000272.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000273.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000274.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000275.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000276.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000277.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000278.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000279.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 28,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000280.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 0,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000281.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 1,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000282.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 2,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000283.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 3,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000284.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 4,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000285.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 5,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000286.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 6,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000287.npz",
+      "sample_id": "1",
+      "step": 1,
+      "layer": 35,
+      "kv_group": 7,
+      "valid_tokens": 16386
+    },
+    {
+      "file": "trace_000288.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000289.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000290.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000291.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000292.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000293.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000294.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000295.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 0,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000296.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000297.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000298.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000299.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000300.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000301.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000302.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000303.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 7,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000304.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000305.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000306.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000307.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000308.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000309.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000310.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000311.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 14,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000312.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000313.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000314.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000315.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000316.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000317.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000318.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000319.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 21,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000320.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000321.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000322.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000323.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000324.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000325.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000326.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000327.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 28,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000328.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 0,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000329.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 1,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000330.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 2,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000331.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 3,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000332.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 4,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000333.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 5,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000334.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 6,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000335.npz",
+      "sample_id": "1",
+      "step": 2,
+      "layer": 35,
+      "kv_group": 7,
+      "valid_tokens": 16387
+    },
+    {
+      "file": "trace_000336.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000337.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000338.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000339.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000340.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000341.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000342.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000343.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 0,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000344.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000345.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000346.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000347.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000348.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000349.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000350.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000351.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 7,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000352.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000353.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000354.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000355.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000356.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000357.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000358.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000359.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 14,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000360.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000361.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000362.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000363.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000364.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000365.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000366.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000367.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 21,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000368.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000369.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000370.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000371.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000372.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000373.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000374.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000375.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 28,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000376.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 0,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000377.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 1,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000378.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 2,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000379.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 3,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000380.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 4,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000381.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 5,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000382.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 6,
+      "valid_tokens": 16388
+    },
+    {
+      "file": "trace_000383.npz",
+      "sample_id": "1",
+      "step": 3,
+      "layer": 35,
+      "kv_group": 7,
+      "valid_tokens": 16388
+    }
+  ],
+  "checkpoint_source": {
+    "repository": "Qwen/Qwen3-4B-Instruct-2507",
+    "service": "modelscope.cn",
+    "snapshot_revision": "2de2439ea21be1dc5cb21f22f88af07e43393cbb",
+    "files": [
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475454,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": false,
+        "Mode": "33188",
+        "Name": "LICENSE",
+        "Path": "LICENSE",
+        "Revision": "2bf98c551bf16e880d12db61cece039fb7f74aea",
+        "Sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+        "Size": 11343,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Update README.md",
+        "CommittedDate": 1754490528,
+        "CommitterName": "ai-modelscope",
+        "InCheck": false,
+        "IsLFS": false,
+        "Mode": "33188",
+        "Name": "README.md",
+        "Path": "README.md",
+        "Revision": "1c6db7f618589b3a51ec5981f75da13fbff11bb0",
+        "Sha256": "8e3dd0c3b5b11897cc71092ccfe517bb7a9783479baa3665aad73c8d1a2041cd",
+        "Size": 8168,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475454,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": false,
+        "Mode": "33188",
+        "Name": "config.json",
+        "Path": "config.json",
+        "Revision": "2bf98c551bf16e880d12db61cece039fb7f74aea",
+        "Sha256": "5beea1a4a34c62782bfb2f911c606741a3bab8f92d80a118fa053c28af12e8ba",
+        "Size": 727,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475454,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": false,
+        "Mode": "33188",
+        "Name": "configuration.json",
+        "Path": "configuration.json",
+        "Revision": "2bf98c551bf16e880d12db61cece039fb7f74aea",
+        "Sha256": "f888421726665e8a84b738eed42a64875aed79de8be7daade851ac8bf4c0cef9",
+        "Size": 73,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475454,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": false,
+        "Mode": "33188",
+        "Name": "generation_config.json",
+        "Path": "generation_config.json",
+        "Revision": "2bf98c551bf16e880d12db61cece039fb7f74aea",
+        "Sha256": "835fffe355c9438e7a25be099b3fccaa98350b83451f9fd2d99512e74f1ade48",
+        "Size": 238,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475454,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": true,
+        "Mode": "33188",
+        "Name": "merges.txt",
+        "Path": "merges.txt",
+        "Revision": "2bf98c551bf16e880d12db61cece039fb7f74aea",
+        "Sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+        "Size": 1671839,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475455,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": true,
+        "Mode": "33188",
+        "Name": "model-00001-of-00003.safetensors",
+        "Path": "model-00001-of-00003.safetensors",
+        "Revision": "74f64356d5145f21fd3d02f65bbb1d4a2fa0a7cf",
+        "Sha256": "75311d91bb08cf0b882913da464a1e722a31fb44db35208663487efb7a3d8ed6",
+        "Size": 3957900840,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475455,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": true,
+        "Mode": "33188",
+        "Name": "model-00002-of-00003.safetensors",
+        "Path": "model-00002-of-00003.safetensors",
+        "Revision": "74f64356d5145f21fd3d02f65bbb1d4a2fa0a7cf",
+        "Sha256": "0b48adbb1f60e901153d91907ba11ce63bd4b8b584482e730f48808d055dfba1",
+        "Size": 3987450520,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475455,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": true,
+        "Mode": "33188",
+        "Name": "model-00003-of-00003.safetensors",
+        "Path": "model-00003-of-00003.safetensors",
+        "Revision": "74f64356d5145f21fd3d02f65bbb1d4a2fa0a7cf",
+        "Sha256": "7dd39ccca5e4de123c74c14af44c9bf2eb75df33b4614382af0134528e060d5d",
+        "Size": 99630640,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475454,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": false,
+        "Mode": "33188",
+        "Name": "model.safetensors.index.json",
+        "Path": "model.safetensors.index.json",
+        "Revision": "2bf98c551bf16e880d12db61cece039fb7f74aea",
+        "Sha256": "d6c42883a895dfef5b0080ed2116a1bcd764f558406b98923d675978a1abf29c",
+        "Size": 32819,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475454,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": true,
+        "Mode": "33188",
+        "Name": "tokenizer.json",
+        "Path": "tokenizer.json",
+        "Revision": "2bf98c551bf16e880d12db61cece039fb7f74aea",
+        "Sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "Size": 11422654,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Update tokenizer_config.json",
+        "CommittedDate": 1758093231,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": false,
+        "Mode": "33188",
+        "Name": "tokenizer_config.json",
+        "Path": "tokenizer_config.json",
+        "Revision": "2de2439ea21be1dc5cb21f22f88af07e43393cbb",
+        "Sha256": "a62ff0a2472a0fa1b8eaabcb57c59b58afa42a22831dc141400b6e0cf2b65ce3",
+        "Size": 9377,
+        "Type": "blob"
+      },
+      {
+        "CommitMessage": "Upload folder using ModelScope SDK",
+        "CommittedDate": 1754475454,
+        "CommitterName": "Cherrytest",
+        "InCheck": false,
+        "IsLFS": true,
+        "Mode": "33188",
+        "Name": "vocab.json",
+        "Path": "vocab.json",
+        "Revision": "2bf98c551bf16e880d12db61cece039fb7f74aea",
+        "Sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "Size": 2776833,
+        "Type": "blob"
+      }
+    ],
+    "verified": true
+  },
+  "code_sha256": {
+    "gqa_probe/__init__.py": "92889cfae36f95b757424cb21bdbaf20c90665d8c6430f14a58c6200418141dd",
+    "gqa_probe/attention.py": "b89f24d73fc0bbb079dbd94b29be579ab4601ad99ffd6de108efa75459b1bdc6",
+    "gqa_probe/capture.py": "b9e856a84e2aff0200b8d48123ecf8580242ad61a26997a5b8e621edca305612",
+    "gqa_probe/evaluate.py": "a298245084510d52a7ad8fa29ed3e266627140c56e5f9a9c31f005442ba79ba4",
+    "gqa_probe/selection.py": "cf463243d4d5317e123d1120d4d51c8527e21fa7a26a00a79ed765ba94429b3d"
+  },
+  "peak_gpu_allocated_bytes": 11769890304
+}

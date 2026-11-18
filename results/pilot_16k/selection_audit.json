@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "paired_rows": 20736,
+  "b1_equivalence_checks": 3456,
+  "checks": [
+    "fixed_physical_budget",
+    "deduplicated_pages",
+    "sink_local_protection",
+    "finite_errors",
+    "coverage_range",
+    "nonnegative_batch_redundancy",
+    "a1_average_mass_upper_bound",
+    "a3_b1_identical_orders_coverage_errors"
+  ]
+}

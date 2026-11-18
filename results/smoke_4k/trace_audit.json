@@ -1,0 +1,7 @@
+{
+  "trace_count": 6,
+  "max_dense_output_abs_difference": 3.010283345261655e-06,
+  "allclose_atol": 2e-05,
+  "allclose_rtol": 0.0002,
+  "status": "passed"
+}
