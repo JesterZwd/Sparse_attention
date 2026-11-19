@@ -1,0 +1,22 @@
+{
+  "base_commit": "19f5bf6fb53ffd8a51cd02fcf4045a245c639810",
+  "purpose": "analysis_only: baseline/gate audit and single-exchange headroom; no new selector output-error or task-accuracy claim",
+  "focus": [
+    {
+      "target": 0.8,
+      "budget_fraction": 0.2
+    },
+    {
+      "target": 0.9,
+      "budget_fraction": 0.1
+    }
+  ],
+  "guard_delta": 0.01,
+  "out_candidates": 4,
+  "in_candidates": 8,
+  "swaps_examined": 1,
+  "protected": "sink=1 page, local=128 tokens, page_size=32",
+  "original_data": "results/pilot_16k/traces",
+  "candidate_order": "descending original A1 group mass with page ID ascending; bottom 4 selected nonprotected and top 8 unselected",
+  "unrestricted_reference": "all nonprotected selected x all unselected under same guard; offline diagnostic only"
+}

@@ -1,0 +1,57 @@
+{
+  "source_test_run": "60eefbc0918062dbdc5927ad96690aef4c4e75ef353bcbea72f5feac2bd3ef5d",
+  "selection_sha256": "7947086e2f3da79fe016127569e1862419a018054c560395427ebb7fd19a044c",
+  "benchmark_files": 384,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "torch": "2.5.1+cu121",
+  "groups_per_call": 8,
+  "warmup": 5,
+  "repetitions": 10,
+  "summaries": [
+    {
+      "setting": "primary",
+      "method": "A1",
+      "calls": 3840,
+      "median_wall_us": 743.9365,
+      "p95_wall_us": 768.2560500000001,
+      "median_cuda_event_us": 729.0880084037781,
+      "p95_cuda_event_us": 751.6160011291504,
+      "median_wall_ratio_to_a1": 1.0,
+      "median_cuda_ratio_to_a1": 1.0
+    },
+    {
+      "setting": "primary",
+      "method": "SWAP",
+      "calls": 3840,
+      "median_wall_us": 792.9545,
+      "p95_wall_us": 1856.3111,
+      "median_cuda_event_us": 776.1920094490051,
+      "p95_cuda_event_us": 1840.3199911117554,
+      "median_wall_ratio_to_a1": 1.065890032280981,
+      "median_cuda_ratio_to_a1": 1.0646067422619578
+    },
+    {
+      "setting": "stress",
+      "method": "A1",
+      "calls": 3840,
+      "median_wall_us": 747.1305,
+      "p95_wall_us": 769.07395,
+      "median_cuda_event_us": 732.2079837322235,
+      "p95_cuda_event_us": 752.8367966413498,
+      "median_wall_ratio_to_a1": 1.0,
+      "median_cuda_ratio_to_a1": 1.0
+    },
+    {
+      "setting": "stress",
+      "method": "SWAP",
+      "calls": 3840,
+      "median_wall_us": 1828.508,
+      "p95_wall_us": 1870.3512999999998,
+      "median_cuda_event_us": 1813.5039806365967,
+      "p95_cuda_event_us": 1855.4879426956177,
+      "median_wall_ratio_to_a1": 2.447374320818117,
+      "median_cuda_ratio_to_a1": 2.476760730459086
+    }
+  ],
+  "scope": "Torch selector from device-resident normalized mass to returned decision and coverage. Validation scans and selector counters are included. Timers exclude input transfer, mass scoring, output metric transfers and full-model work. CUDA event time can include host launch gaps and synchronizations. Each call processes eight KV groups."
+}

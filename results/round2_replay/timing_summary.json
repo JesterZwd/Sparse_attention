@@ -1,0 +1,170 @@
+{
+  "timing_scope": "trusted normalized mass through returned decision; lightweight online counters included; no comparator/clip/change/first-satisfied audits, mass scoring or I/O",
+  "comparison_scope": "actual cmp_to_key TimSort calls in a separate counted run, not ASIC cycles",
+  "warmup_calls_per_case_method": 1,
+  "repetitions": 5,
+  "seed": 20261118,
+  "cases": 768,
+  "summary": [
+    {
+      "spec": "a1",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 1920,
+      "median_seconds": 0.000372913,
+      "p95_seconds": 0.00039524125,
+      "median_ratio_to_a1": 1.0,
+      "p95_ratio_to_a1": 1.0
+    },
+    {
+      "spec": "a1",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 1920,
+      "median_seconds": 0.00036331250000000003,
+      "p95_seconds": 0.00038659580000000005,
+      "median_ratio_to_a1": 1.0,
+      "p95_ratio_to_a1": 1.0
+    },
+    {
+      "spec": "a3",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 1920,
+      "median_seconds": 0.0019000400000000002,
+      "p95_seconds": 0.0267531108,
+      "median_ratio_to_a1": 5.095129426970902,
+      "p95_ratio_to_a1": 67.68805330921305
+    },
+    {
+      "spec": "a3",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 1920,
+      "median_seconds": 0.0125469725,
+      "p95_seconds": 0.0135590648,
+      "median_ratio_to_a1": 34.53493204885601,
+      "p95_ratio_to_a1": 35.07297492626665
+    },
+    {
+      "spec": "a3_b8",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 1920,
+      "median_seconds": 0.0007030905,
+      "p95_seconds": 0.0037303898,
+      "median_ratio_to_a1": 1.885400884388584,
+      "p95_ratio_to_a1": 9.438260303042762
+    },
+    {
+      "spec": "a3_b8",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 1920,
+      "median_seconds": 0.002001964,
+      "p95_seconds": 0.0021624543,
+      "median_ratio_to_a1": 5.510308618613452,
+      "p95_ratio_to_a1": 5.593579392223091
+    },
+    {
+      "spec": "gate_a3",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 1920,
+      "median_seconds": 0.000385423,
+      "p95_seconds": 0.026792949150000002,
+      "median_ratio_to_a1": 1.0335466985597177,
+      "p95_ratio_to_a1": 67.78884832997569
+    },
+    {
+      "spec": "gate_a3",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 1920,
+      "median_seconds": 0.012576936,
+      "p95_seconds": 0.01361899965,
+      "median_ratio_to_a1": 34.61740512644074,
+      "p95_ratio_to_a1": 35.228007262365495
+    },
+    {
+      "spec": "swap_d00_s1",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 1920,
+      "median_seconds": 0.00038503500000000004,
+      "p95_seconds": 0.00077452955,
+      "median_ratio_to_a1": 1.0325062414021502,
+      "p95_ratio_to_a1": 1.9596374366288944
+    },
+    {
+      "spec": "swap_d00_s1",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 1920,
+      "median_seconds": 0.0006884995,
+      "p95_seconds": 0.00074638885,
+      "median_ratio_to_a1": 1.8950614140719078,
+      "p95_ratio_to_a1": 1.930669836557976
+    },
+    {
+      "spec": "swap_d01_s1",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 1920,
+      "median_seconds": 0.00038533100000000004,
+      "p95_seconds": 0.0007824736500000001,
+      "median_ratio_to_a1": 1.0332999922233874,
+      "p95_ratio_to_a1": 1.9797368063176608
+    },
+    {
+      "spec": "swap_d01_s1",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 1920,
+      "median_seconds": 0.000688614,
+      "p95_seconds": 0.0007604147000000001,
+      "median_ratio_to_a1": 1.8953765697574403,
+      "p95_ratio_to_a1": 1.966950235879438
+    },
+    {
+      "spec": "swap_d01_s2",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 1920,
+      "median_seconds": 0.0003850405000000001,
+      "p95_seconds": 0.001091873,
+      "median_ratio_to_a1": 1.032520990150518,
+      "p95_ratio_to_a1": 2.762548190503901
+    },
+    {
+      "spec": "swap_d01_s2",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 1920,
+      "median_seconds": 0.0006880555000000001,
+      "p95_seconds": 0.00105915975,
+      "median_ratio_to_a1": 1.8938393256494066,
+      "p95_ratio_to_a1": 2.7397083724137716
+    },
+    {
+      "spec": "swap_d02_s1",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 1920,
+      "median_seconds": 0.00038504800000000003,
+      "p95_seconds": 0.0007830859500000001,
+      "median_ratio_to_a1": 1.0325411020801099,
+      "p95_ratio_to_a1": 1.981285986723299
+    },
+    {
+      "spec": "swap_d02_s1",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 1920,
+      "median_seconds": 0.0006889420000000001,
+      "p95_seconds": 0.00076058415,
+      "median_ratio_to_a1": 1.8962793738173063,
+      "p95_ratio_to_a1": 1.9673885489702678
+    }
+  ]
+}

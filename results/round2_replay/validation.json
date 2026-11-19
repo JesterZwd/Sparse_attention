@@ -1,0 +1,8 @@
+{
+  "matches_first_pilot": 10368,
+  "all_records": 38016,
+  "swap_invariants": 13824,
+  "prompt_count": 2,
+  "max_reference_difference": 1.1102230246251565e-15,
+  "status": "passed"
+}

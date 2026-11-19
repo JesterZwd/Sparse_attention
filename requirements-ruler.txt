@@ -1,0 +1,11 @@
+# Extra CPU-only dependencies for pinned legacy RULER v1 data generation.
+# Install on top of requirements.lock.txt; no inference backend changes.
+nltk==3.9.2
+wonderwords==2.2.0
+PyYAML==6.0.3
+html2text==2025.4.15
+beautifulsoup4==4.14.3
+click==8.5.1
+joblib==1.6.0
+cloudpickle==3.1.2
+soupsieve==4.1.1

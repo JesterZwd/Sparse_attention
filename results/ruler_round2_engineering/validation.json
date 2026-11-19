@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "validated_generations": 64,
+  "paired_prompts": 32,
+  "checks": [
+    "unique prompt-method rows",
+    "config/data/prediction hashes",
+    "all frozen code snapshots",
+    "EOS/inclusive token limit",
+    "recomputed scores",
+    "36 layers and8 KV groups every decode",
+    "dense gold recall1",
+    "zero sparse candidate/swap work"
+  ],
+  "predictions_sha256": "f822810836d65bbcdc3161f274a1b66bc2fe9da163668d982b575720d8fb01d4",
+  "config_id": "197316788138ce5cedb515226968aa821fb478e0d972edf8ec65e14c4b9bee78"
+}

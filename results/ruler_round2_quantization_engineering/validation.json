@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "validated_generations": 64,
+  "bf16_reused_references": 32,
+  "selected_spec": "affine32",
+  "config_id": "431400c40c454f1637d4ae460c598fcc8615811c39b30ce3369ff56af4d1edcf",
+  "predictions_sha256": "235e2c72c7c9c13b4d95ff87ec149ddae90e318e8f71dc1556cae9fa3caa3433",
+  "checks": [
+    "unique matched engineering prompts",
+    "original BF16 baseline hash unchanged",
+    "canonical config hash",
+    "frozen code snapshot hashes",
+    "recomputed scores",
+    "EOS and inclusive128-token policy",
+    "all36 layers and8 KV groups every decode",
+    "zero sparse selector work",
+    "dense gold recalls1",
+    "predeclared engineering choice"
+  ]
+}

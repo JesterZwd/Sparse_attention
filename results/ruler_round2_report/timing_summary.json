@@ -1,0 +1,50 @@
+{
+  "timing_scope": "trusted normalized mass through returned decision; lightweight online counters included; no comparator/clip/change/first-satisfied audits, mass scoring or I/O",
+  "comparison_scope": "actual cmp_to_key TimSort calls in a separate counted run, not ASIC cycles",
+  "warmup_calls_per_case_method": 1,
+  "repetitions": 5,
+  "seed": 20261118,
+  "cases": 6144,
+  "summary": [
+    {
+      "spec": "a1",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 15360,
+      "median_seconds": 0.000367683,
+      "p95_seconds": 0.00038983910000000004,
+      "median_ratio_to_a1": 1.0,
+      "p95_ratio_to_a1": 1.0
+    },
+    {
+      "spec": "a1",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 15360,
+      "median_seconds": 0.00035605650000000006,
+      "p95_seconds": 0.00038394305000000005,
+      "median_ratio_to_a1": 1.0,
+      "p95_ratio_to_a1": 1.0
+    },
+    {
+      "spec": "swap",
+      "target": 0.8,
+      "budget_fraction": 0.2,
+      "calls": 15360,
+      "median_seconds": 0.000381404,
+      "p95_seconds": 0.00076913505,
+      "median_ratio_to_a1": 1.0373174718439526,
+      "p95_ratio_to_a1": 1.9729551243064125
+    },
+    {
+      "spec": "swap",
+      "target": 0.9,
+      "budget_fraction": 0.1,
+      "calls": 15360,
+      "median_seconds": 0.00037379650000000003,
+      "p95_seconds": 0.0007432129,
+      "median_ratio_to_a1": 1.0498235532843803,
+      "p95_ratio_to_a1": 1.9357373443795893
+    }
+  ]
+}

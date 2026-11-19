@@ -1,0 +1,185 @@
+{
+  "completed_generations": 64,
+  "config_id": "431400c40c454f1637d4ae460c598fcc8615811c39b30ce3369ff56af4d1edcf",
+  "elapsed_run_seconds": 302.99875191319734,
+  "expected_generations": 64,
+  "interpretation": "Engineering tuning only. Reuses original BF16 scores; numeric-reference timings and theoretical layouts do not establish packed memory or speed.",
+  "overall": {
+    "BF16_reused": {
+      "complete_correct": 1.0,
+      "complete_correct_count": 32,
+      "count": 32,
+      "decode_seconds_mean": 1.1686775554844644,
+      "official_score": 1.0,
+      "prefill_seconds_mean": 3.255772054537374,
+      "truncated_count": 0
+    },
+    "affine32": {
+      "complete_correct": 1.0,
+      "complete_correct_count": 32,
+      "count": 32,
+      "decode_seconds_mean": 1.5068811752571492,
+      "official_score": 1.0,
+      "prefill_seconds_mean": 3.3701274540653685,
+      "truncated_count": 0
+    },
+    "symmetric16": {
+      "complete_correct": 1.0,
+      "complete_correct_count": 32,
+      "count": 32,
+      "decode_seconds_mean": 1.2562205821595853,
+      "official_score": 1.0,
+      "prefill_seconds_mean": 3.3271330529241823,
+      "truncated_count": 0
+    }
+  },
+  "paired": {
+    "affine32": {
+      "complete_correct_delta_vs_bf16": 0.0,
+      "official_score_delta_vs_bf16": 0.0,
+      "paired_prompts": 32
+    },
+    "symmetric16": {
+      "complete_correct_delta_vs_bf16": 0.0,
+      "official_score_delta_vs_bf16": 0.0,
+      "paired_prompts": 32
+    }
+  },
+  "peak_gpu_allocated_bytes": 12933849600,
+  "per_task": {
+    "niah_multikey_1": {
+      "BF16_reused": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 0.45107840839773417,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.247835845540976,
+        "truncated_count": 0
+      },
+      "affine32": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 0.5147954264830332,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.371692196204094,
+        "truncated_count": 0
+      },
+      "symmetric16": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 0.46470286915428005,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.28354054511874,
+        "truncated_count": 0
+      }
+    },
+    "niah_multikey_2": {
+      "BF16_reused": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 0.46327032407862134,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.3159224631090183,
+        "truncated_count": 0
+      },
+      "affine32": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 0.49763193377293646,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.4346468019648455,
+        "truncated_count": 0
+      },
+      "symmetric16": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 0.4730764177220408,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.4074325362453237,
+        "truncated_count": 0
+      }
+    },
+    "niah_multikey_3": {
+      "BF16_reused": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 1.6122240227414295,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.1759275632502977,
+        "truncated_count": 0
+      },
+      "affine32": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 2.292548536002869,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.280336780997459,
+        "truncated_count": 0
+      },
+      "symmetric16": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 2.032233853766229,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.252776479232125,
+        "truncated_count": 0
+      }
+    },
+    "niah_multivalue": {
+      "BF16_reused": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 2.1481374667200726,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.283402346249204,
+        "truncated_count": 0
+      },
+      "affine32": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 2.722548804769758,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.3938340370950755,
+        "truncated_count": 0
+      },
+      "symmetric16": {
+        "complete_correct": 1.0,
+        "complete_correct_count": 8,
+        "count": 8,
+        "decode_seconds_mean": 2.0548691879957914,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.3647826511005405,
+        "truncated_count": 0
+      }
+    }
+  },
+  "predictions_sha256": "235e2c72c7c9c13b4d95ff87ec149ddae90e318e8f71dc1556cae9fa3caa3433",
+  "selection": {
+    "complete_correct": {
+      "affine32": 32,
+      "symmetric16": 32
+    },
+    "counts": {
+      "affine32": 32,
+      "symmetric16": 32
+    },
+    "decision": "selected",
+    "eligible": [
+      "affine32",
+      "symmetric16"
+    ],
+    "selected_spec": "affine32"
+  },
+  "status": "complete"
+}

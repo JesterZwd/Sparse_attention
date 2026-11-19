@@ -1,0 +1,99 @@
+{
+  "completed_generations": 64,
+  "config_id": "197316788138ce5cedb515226968aa821fb478e0d972edf8ec65e14c4b9bee78",
+  "elapsed_run_seconds": 304.8393952080514,
+  "expected_generations": 64,
+  "interpretation": "Engineering descriptive results only; no test labels inspected; runtime is numeric-reference timing, not packed KV4 or sparse-system speed.",
+  "overall": {
+    "BF16": {
+      "complete_correct": 1.0,
+      "count": 32,
+      "decode_seconds_mean": 1.1686775554844644,
+      "official_score": 1.0,
+      "prefill_seconds_mean": 3.255772054537374
+    },
+    "KV4": {
+      "complete_correct": 0.9375,
+      "count": 32,
+      "decode_seconds_mean": 1.7659311028255615,
+      "official_score": 0.984375,
+      "prefill_seconds_mean": 3.328103164145432
+    }
+  },
+  "paired": {
+    "bf16_correct_kv4_wrong": 2,
+    "bf16_wrong_kv4_correct": 0,
+    "complete_correct_delta_kv4_minus_bf16": -0.0625,
+    "official_score_delta_kv4_minus_bf16": -0.015625
+  },
+  "paired_prompts": 32,
+  "peak_gpu_allocated_bytes": 12940497408,
+  "per_task": {
+    "niah_multikey_1": {
+      "BF16": {
+        "complete_correct": 1.0,
+        "count": 8,
+        "decode_seconds_mean": 0.45107840839773417,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.247835845540976
+      },
+      "KV4": {
+        "complete_correct": 1.0,
+        "count": 8,
+        "decode_seconds_mean": 0.46517357157426886,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.283016505127307
+      }
+    },
+    "niah_multikey_2": {
+      "BF16": {
+        "complete_correct": 1.0,
+        "count": 8,
+        "decode_seconds_mean": 0.46327032407862134,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.3159224631090183
+      },
+      "KV4": {
+        "complete_correct": 1.0,
+        "count": 8,
+        "decode_seconds_mean": 1.0815802805882413,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.403303841681918
+      }
+    },
+    "niah_multikey_3": {
+      "BF16": {
+        "complete_correct": 1.0,
+        "count": 8,
+        "decode_seconds_mean": 1.6122240227414295,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.1759275632502977
+      },
+      "KV4": {
+        "complete_correct": 1.0,
+        "count": 8,
+        "decode_seconds_mean": 3.412256175186485,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.258340753847733
+      }
+    },
+    "niah_multivalue": {
+      "BF16": {
+        "complete_correct": 1.0,
+        "count": 8,
+        "decode_seconds_mean": 2.1481374667200726,
+        "official_score": 1.0,
+        "prefill_seconds_mean": 3.283402346249204
+      },
+      "KV4": {
+        "complete_correct": 0.75,
+        "count": 8,
+        "decode_seconds_mean": 2.104714383953251,
+        "official_score": 0.9375,
+        "prefill_seconds_mean": 3.3677515559247695
+      }
+    }
+  },
+  "predictions_sha256": "f822810836d65bbcdc3161f274a1b66bc2fe9da163668d982b575720d8fb01d4",
+  "status": "complete"
+}
