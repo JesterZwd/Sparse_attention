@@ -1,0 +1,13 @@
+{
+  "tests": {
+    "accuracy_superiority": false,
+    "absolute_p99_noninferiority": true,
+    "absolute_p99_improvement": false,
+    "accuracy_noninferiority": true,
+    "selector_cost": true
+  },
+  "quality_route_accuracy": false,
+  "quality_route_tail": false,
+  "median_cpu_cost_ratio": 1.0373174718439526,
+  "passed": false
+}

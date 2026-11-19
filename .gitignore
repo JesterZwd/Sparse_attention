@@ -6,6 +6,14 @@ models/
 .cache/
 results/**/traces/
 results/**/records.jsonl
+results/ruler_round2_data/
+# Local-only prompt transcripts, generated text, and per-prompt attention traces.
+results/ruler_round2_calibration/prompts/
+results/ruler_round2_test/prompts/
+results/ruler_round2_calibration/per_prompt_predictions.jsonl.gz
+results/ruler_round2_test/per_prompt_predictions.jsonl.gz
+results/ruler_round2_engineering/predictions.jsonl.gz
+results/ruler_round2_quantization_engineering/*.jsonl.gz
 *.safetensors
 *.pt
 *.pth

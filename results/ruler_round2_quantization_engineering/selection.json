@@ -1,0 +1,29 @@
+{
+  "complete_correct": {
+    "affine32": 32,
+    "symmetric16": 32
+  },
+  "config_id": "431400c40c454f1637d4ae460c598fcc8615811c39b30ce3369ff56af4d1edcf",
+  "counts": {
+    "affine32": 32,
+    "symmetric16": 32
+  },
+  "decision": "selected",
+  "eligible": [
+    "affine32",
+    "symmetric16"
+  ],
+  "rule": {
+    "eligible_if": "32/32 complete answers, matching frozen BF16 engineering",
+    "expected_prompts_per_variant": 32,
+    "if_none": "stop additional quantization variants; root decides next step",
+    "required_complete_correct": 32,
+    "scope": "engineering tuning only; no held-out quality claim",
+    "theoretical_bits_per_element": {
+      "affine32": 4.75,
+      "symmetric16": 5.0
+    },
+    "tie_break": "lower theoretical KV scale-plus-zero-point bits per element"
+  },
+  "selected_spec": "affine32"
+}

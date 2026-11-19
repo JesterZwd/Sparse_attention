@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_utc": "2026-11-18T12:59:44.188456+00:00",
+  "benchmark": "RULER v1 (official legacy main pipeline; not RULER v2)",
+  "configuration": {
+    "schema_version": 1,
+    "benchmark": "RULER v1 (official legacy main pipeline; not RULER v2)",
+    "generator": {
+      "repository": "https://github.com/NVIDIA/RULER",
+      "commit": "db43f92ff634bbce1c33d1fb15858aec4bba509a",
+      "source_directory": ".cache/ruler-upstream",
+      "script": "scripts/data/synthetic/niah.py",
+      "adaptation": "Only replace tokenizer import with final-Qwen-chat budget tokenizer; preserve generator RNG, task definitions and prompt contents. Map complete source spans after generation."
+    },
+    "corpus": {
+      "path": ".cache/ruler-corpus/PaulGrahamEssays.json",
+      "sha256": "58e352531a80cef2d22c205dbebfbfd64a8afe55a32434de845f200718756c65",
+      "sources_manifest": ".cache/ruler-corpus/sources.json",
+      "download_script": ".cache/ruler-download-corpus.py",
+      "construction": "Official download_paulgraham_essay.py transformations and repo-then-HTML sorted concatenation, using all 218 official URLs; HTTPS transport and raw.githubusercontent.com redirect-equivalent transport, concurrent download with no skipped sources."
+    },
+    "tokenizer_path": "models/Qwen3-4B-Instruct-2507",
+    "max_seq_length": 16384,
+    "max_new_tokens": 128,
+    "chat_policy": "One user message, tokenizer.apply_chat_template(add_generation_prompt=True), then official answer_prefix as assistant continuation; no system message or truncation.",
+    "tasks": [
+      "niah_multikey_1",
+      "niah_multikey_2",
+      "niah_multikey_3",
+      "niah_multivalue"
+    ],
+    "splits": {
+      "engineering": {
+        "count_per_task": 8,
+        "seed": 2026111801
+      },
+      "calibration": {
+        "count_per_task": 32,
+        "seed": 2026111802
+      },
+      "test": {
+        "count_per_task": 128,
+        "seed": 2026111803
+      }
+    },
+    "task_seed_stride": 100,
+    "output_directory": "results/ruler_round2_data",
+    "nltk_data_directory": ".cache/ruler-nltk",
+    "nltk_english_source_manifest": ".cache/ruler-nltk/english_source.json"
+  },
+  "config_sha256": "0e7562dc3c3603c5346d4bc20ad7657120246d3f93df3a9bb451c34fbbe4d26b",
+  "generator": {
+    "repository": "https://github.com/NVIDIA/RULER",
+    "commit": "db43f92ff634bbce1c33d1fb15858aec4bba509a",
+    "pipeline": "official legacy RULER v1 main scripts",
+    "adaptation": "Only replace tokenizer import with final-Qwen-chat budget tokenizer; preserve generator RNG, task definitions and prompt contents. Map complete source spans after generation.",
+    "patch_sha256": "8c2570dbbde901436789accec3c028141e99ff0de84483f51d5edeec4deedb62"
+  },
+  "corpus": {
+    "sha256": "58e352531a80cef2d22c205dbebfbfd64a8afe55a32434de845f200718756c65",
+    "sources_sha256": "093bb5c1bfa1e1b9f0c7c13486fd23c31eac1ab51a569f7b5a090801c359edd6",
+    "source_count": 218,
+    "construction": "Official download_paulgraham_essay.py transformations and repo-then-HTML sorted concatenation, using all 218 official URLs; HTTPS transport and raw.githubusercontent.com redirect-equivalent transport, concurrent download with no skipped sources."
+  },
+  "tokenizer": {
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "a62ff0a2472a0fa1b8eaabcb57c59b58afa42a22831dc141400b6e0cf2b65ce3",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+  },
+  "chat_template_sha256": "64f85b198065d0fba2a81f37e10ed68161ce2c19a754c7100e67e0ca2ee9c326",
+  "dependencies": {
+    "nltk": "3.9.2",
+    "wonderwords": "2.2.0",
+    "PyYAML": "6.0.3",
+    "html2text": "2025.4.15",
+    "beautifulsoup4": "4.14.3",
+    "click": "8.5.1",
+    "joblib": "1.6.0",
+    "cloudpickle": "3.1.2",
+    "soupsieve": "4.1.1"
+  },
+  "length_policy": "final Qwen chat IDs + official assistant answer prefix + 128 reserved output tokens <= 16384; upstream haystack-size search/shrink, never token truncation",
+  "gold_span_policy": "all queried source key-value association spans in final chat IDs, all value spans recorded separately; original first-answer position discarded",
+  "task_definitions": {
+    "niah_multikey_1": {
+      "task": "niah",
+      "args": {
+        "type_haystack": "essay",
+        "type_needle_k": "words",
+        "type_needle_v": "numbers",
+        "num_needle_k": 4,
+        "num_needle_v": 1,
+        "num_needle_q": 1
+      }
+    },
+    "niah_multikey_2": {
+      "task": "niah",
+      "args": {
+        "type_haystack": "needle",
+        "type_needle_k": "words",
+        "type_needle_v": "numbers",
+        "num_needle_k": 1,
+        "num_needle_v": 1,
+        "num_needle_q": 1
+      }
+    },
+    "niah_multikey_3": {
+      "task": "niah",
+      "args": {
+        "type_haystack": "needle",
+        "type_needle_k": "uuids",
+        "type_needle_v": "uuids",
+        "num_needle_k": 1,
+        "num_needle_v": 1,
+        "num_needle_q": 1
+      }
+    },
+    "niah_multivalue": {
+      "task": "niah",
+      "args": {
+        "type_haystack": "essay",
+        "type_needle_k": "words",
+        "type_needle_v": "numbers",
+        "num_needle_k": 1,
+        "num_needle_v": 4,
+        "num_needle_q": 1
+      }
+    }
+  },
+  "splits": {
+    "engineering": {
+      "path": "engineering.jsonl",
+      "count": 32,
+      "count_per_task": 8,
+      "seeds": {
+        "niah_multikey_1": 2026111801,
+        "niah_multikey_2": 2026111901,
+        "niah_multikey_3": 2026112001,
+        "niah_multivalue": 2026112101
+      },
+      "sha256": "8c2da20b909cbb835a916a6c4379340c2cae7e7ed6b021e5cfd3061f205e690b",
+      "input_tokens_min": 14268,
+      "input_tokens_max": 16256
+    },
+    "calibration": {
+      "path": "calibration.jsonl",
+      "count": 128,
+      "count_per_task": 32,
+      "seeds": {
+        "niah_multikey_1": 2026111802,
+        "niah_multikey_2": 2026111902,
+        "niah_multikey_3": 2026112002,
+        "niah_multivalue": 2026112102
+      },
+      "sha256": "4550a67e0288631228b4d539205b20fa87383a4833d84ba46de29e7d23deb836",
+      "input_tokens_min": 14278,
+      "input_tokens_max": 16256
+    },
+    "test": {
+      "path": "test.jsonl",
+      "count": 512,
+      "count_per_task": 128,
+      "seeds": {
+        "niah_multikey_1": 2026111803,
+        "niah_multikey_2": 2026111903,
+        "niah_multikey_3": 2026112003,
+        "niah_multivalue": 2026112103
+      },
+      "sha256": "c062e9f47659ced0bc51d9140708ad0c96b201a3feba7486033ed72fa296bc98",
+      "input_tokens_min": 15656,
+      "input_tokens_max": 16256
+    }
+  },
+  "total_rows": 672,
+  "unique_instances": 672,
+  "provenance_files": {
+    "provenance/LICENSES.md": "926e0db7fdd46bb6df12616a20c08b46db5efcad157d1472fb441ca3aedc720f",
+    "provenance/PaulGrahamEssays.json": "58e352531a80cef2d22c205dbebfbfd64a8afe55a32434de845f200718756c65",
+    "provenance/chat_budget.patch": "8c2570dbbde901436789accec3c028141e99ff0de84483f51d5edeec4deedb62",
+    "provenance/config.json": "0e7562dc3c3603c5346d4bc20ad7657120246d3f93df3a9bb451c34fbbe4d26b",
+    "provenance/corpus_sources.json": "093bb5c1bfa1e1b9f0c7c13486fd23c31eac1ab51a569f7b5a090801c359edd6",
+    "provenance/dependency_licenses/PyYAML/pyyaml-6.0.3.dist-info/licenses/LICENSE": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+    "provenance/dependency_licenses/beautifulsoup4/beautifulsoup4-4.14.3.dist-info/licenses/AUTHORS": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+    "provenance/dependency_licenses/beautifulsoup4/beautifulsoup4-4.14.3.dist-info/licenses/LICENSE": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+    "provenance/dependency_licenses/click/click-8.5.1.dist-info/licenses/LICENSE.txt": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+    "provenance/dependency_licenses/cloudpickle/cloudpickle-3.1.2.dist-info/licenses/LICENSE": "3029ea34173e9fdc233ad315dc6b100bd1ea71f529b1c1af97664a272fdc55f5",
+    "provenance/dependency_licenses/html2text/html2text-2025.4.15.dist-info/licenses/AUTHORS.rst": "5327676a982cd6f4c56b28534f68698d52aadbb1383121d1bdef9ab97c3698a5",
+    "provenance/dependency_licenses/html2text/html2text-2025.4.15.dist-info/licenses/COPYING": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "provenance/dependency_licenses/joblib/joblib-1.6.0.dist-info/licenses/LICENSE.txt": "42612911c1872c5e4b43f6ae0e8ee59467cd350332241cf72ce90640264fae6a",
+    "provenance/dependency_licenses/nltk/nltk-3.9.2.dist-info/licenses/AUTHORS.md": "18f253abe3956642457d40560da65e282b19767ececbb7f9cbfc7fd98dc0460f",
+    "provenance/dependency_licenses/nltk/nltk-3.9.2.dist-info/licenses/LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "provenance/dependency_licenses/nltk/nltk-3.9.2.dist-info/licenses/README.md": "8035d39cb60810062ff378d3cf81a596dc571177154d49629b4465b75cc1ab16",
+    "provenance/dependency_licenses/soupsieve/soupsieve-4.1.1.dist-info/licenses/LICENSE.md": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+    "provenance/dependency_licenses/wonderwords/wonderwords-2.2.0.dist-info/LICENSE": "0b6f4f54ceec859091f79f73dfa5ada923f4e26463d95c832aa9cdb22912ee86",
+    "provenance/download_corpus.py": "71068975c3d4af347a5219f3e1fd9f4af8a25946af2c12537e20e620896e2613",
+    "provenance/nltk_english_source.json": "aaf5f0205b84fa1cf1dfe3ab40181536e8e0c8e4679abdd931ac53a7c070c248",
+    "provenance/prepare_ruler.py": "51c1c703c540c90383b9e17fac505dd66afaac8c63cd01dcba50d8380398fe7a",
+    "provenance/punkt_tab_README": "d3251cae66a9359bd68c039e3a46172a05ca9df0b27dcdfa23ae594d68d27ec4",
+    "provenance/punkt_tab_english/abbrev_types.txt": "92a3e070f43d9b4c5534758ca40ad7343b04e7e29bfe0c2eb658a39445a4f779",
+    "provenance/punkt_tab_english/collocations.tab": "8e2da1225e4dd2cc9dba261ee231ccb134859e21b46006e7f472c5ee269af0cf",
+    "provenance/punkt_tab_english/ortho_context.tab": "4bbcca25ed3d3f06c02402abf8419b9f033b8adc06e7b482eca4e45f81a5dc4c",
+    "provenance/punkt_tab_english/sent_starters.txt": "f3f8535483e1dba487241b764945168123bca3209a9645e59acd1225dc76edac",
+    "provenance/requirements-ruler.txt": "78e437b2c2034e2cb7fc11203358dd13c217fda987d2fb920fac7ac145a95664",
+    "provenance/ruler_data.py": "21c03455371dceeb2cfacc79fdf7da8a46b6be27ce843be2a8f3ec71d1f57779",
+    "provenance/upstream/LICENSE": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+    "provenance/upstream/README.md": "f3aae5bbd58fcd7de32aab099c455dd2bbc1da23a2efee9db3071eb9fbf894a3",
+    "provenance/upstream/scripts/config_models.sh": "f59f5dd0a2e61ba430840f156af534f32a011db640881642d0093a885130cf34",
+    "provenance/upstream/scripts/config_tasks.sh": "bd2b228b303951ff6e1dba2dd551270744b50d78f5d51493b0c4abfb41a0c544",
+    "provenance/upstream/scripts/data/manifest_utils.py": "ecac79322f28ce9a12388b12e35d560ecb7cdad6b9888467a5a13b0eff2db91e",
+    "provenance/upstream/scripts/data/prepare.py": "f2d210860fbf5c640cb41ed104c7a923c9f4043f6e6c354277daacc73afc643d",
+    "provenance/upstream/scripts/data/synthetic/common_words_extraction.py": "2671d4a84a383acef2d9e8f691a0bea4da03f1632ca3f4ad3c1de6d27ccbc6b9",
+    "provenance/upstream/scripts/data/synthetic/constants.py": "6296e901d495ec6200dc3f68993ea13d8282e3c0dbe1a8c47967f111105d1fde",
+    "provenance/upstream/scripts/data/synthetic/freq_words_extraction.py": "29b7af97ffdd2122fde348df20cd02add390a21cd6d64b6fd66c8663dc487f67",
+    "provenance/upstream/scripts/data/synthetic/json/PaulGrahamEssays_URLs.txt": "9862c06b4303b7bb6fe4c4a88671c51d2d36ec65757db54730c703d9cf474099",
+    "provenance/upstream/scripts/data/synthetic/json/download_paulgraham_essay.py": "d89622edfe08d4011718bb2634da742d69a56728139fa5e236e00cca703cc84c",
+    "provenance/upstream/scripts/data/synthetic/json/download_qa_dataset.sh": "368ff4bef09af0fc94205ea4dd8559a2d051c0e33215ca92d45e31e50ea750ac",
+    "provenance/upstream/scripts/data/synthetic/json/english_words.json": "42df658acd22f38accbe379f5d1e9fa73142db803a1562e1739abc8e36de401f",
+    "provenance/upstream/scripts/data/synthetic/niah.py": "53f2e2e0c61607d3814303c7f22b2f419fd004eb3bfe92a00ecf811e31aa8451",
+    "provenance/upstream/scripts/data/synthetic/qa.py": "f00c0b59cf8698e90831bbf461c2c4f40f2a30f2469534c27455808c717281d0",
+    "provenance/upstream/scripts/data/synthetic/variable_tracking.py": "9aac483420e158d116ab63fc43b9606bdb284ac0c053288c30776d5c365530e5",
+    "provenance/upstream/scripts/data/template.py": "2e82d85152212136fffcd5624b158a2c75fd5036ec1c537f4b21eeb78fd18069",
+    "provenance/upstream/scripts/data/tokenizer.py": "c2e4bfab607eef87a86334558303c1811bc8e93f22a5c4b129f302726d2357a4",
+    "provenance/upstream/scripts/eval/evaluate.py": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c",
+    "provenance/upstream/scripts/eval/synthetic/constants.py": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f",
+    "provenance/upstream/scripts/pred/call_api.py": "949d06ae8a19266c637064c2dd18c7b3d21a0a7064bfc2ac52fe274b84d19e48",
+    "provenance/upstream/scripts/pred/client_wrappers.py": "4530a6b53f451d1af8f29f6ee794fca789feffa92b2e838af2c67a4568244b2c",
+    "provenance/upstream/scripts/pred/model_wrappers.py": "78def2b2b619e2095dee3ff8fc52e038c531c6c3bb11735e9ac4ce38cf2e0cd7",
+    "provenance/upstream/scripts/pred/serve_trt.py": "4d785ace0cfa9ea320ea351db96dcfc422ed0ad21107ec49086d0131668d529a",
+    "provenance/upstream/scripts/pred/serve_vllm.py": "57ded4db3e84b5c0f9d5394b45a965ae470282fcbbc4b13674763f4340f9e81a",
+    "provenance/upstream/scripts/run.sh": "221f90046bc39c24a357c7847ca2203e3fcacd6f8601f62ec8fbf1413006c67f",
+    "provenance/upstream/scripts/synthetic.yaml": "34bc71dcacdc41a829a170f04b528fbf48d62c616338005ab4991680fbf8cb0b",
+    "provenance/wonderwords_assets/adjectivelist.txt": "66814d46b7e292c83e839d12fe2fa083c8f66779b14b294e1be4e1342c5d4131",
+    "provenance/wonderwords_assets/nounlist.txt": "0778f51872f2aa89e0745c0cc37471a13e3d2161a79fcfdc03b6390b10604a55"
+  }
+}

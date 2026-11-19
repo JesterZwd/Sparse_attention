@@ -1,0 +1,12 @@
+{
+  "test_prompts": 512,
+  "predictions": 3072,
+  "shadow_prompt_summaries": 2048,
+  "no_decode_prompts": 0,
+  "run_id": "60eefbc0918062dbdc5927ad96690aef4c4e75ef353bcbea72f5feac2bd3ef5d",
+  "status": "passed",
+  "cost_npz_files": 384,
+  "cost_no_decode_prompts": 0,
+  "cost_group_matrices": 3072,
+  "calibration_shadow_summaries": 1280
+}

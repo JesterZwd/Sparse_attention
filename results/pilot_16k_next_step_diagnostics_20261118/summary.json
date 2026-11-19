@@ -1,0 +1,277 @@
+{
+  "scope": "exploratory diagnostic only; independent prompts=2; no Gate 1 adjudication",
+  "config": {
+    "base_commit": "19f5bf6fb53ffd8a51cd02fcf4045a245c639810",
+    "purpose": "analysis_only: baseline/gate audit and single-exchange headroom; no new selector output-error or task-accuracy claim",
+    "focus": [
+      {
+        "target": 0.8,
+        "budget_fraction": 0.2
+      },
+      {
+        "target": 0.9,
+        "budget_fraction": 0.1
+      }
+    ],
+    "guard_delta": 0.01,
+    "out_candidates": 4,
+    "in_candidates": 8,
+    "swaps_examined": 1,
+    "protected": "sink=1 page, local=128 tokens, page_size=32",
+    "original_data": "results/pilot_16k/traces",
+    "candidate_order": "descending original A1 group mass with page ID ascending; bottom 4 selected nonprotected and top 8 unselected",
+    "unrestricted_reference": "all nonprotected selected x all unselected under same guard; offline diagnostic only"
+  },
+  "results": [
+    {
+      "diagnostics": {
+        "target": 0.8,
+        "budget_fraction": 0.2,
+        "traces": 384,
+        "active_traces": 110,
+        "a1_pass_traces": 274,
+        "passing_trace_selection_sets_differ": 26,
+        "gain_eval_saved_by_gate_fraction": 0.2091877612941502,
+        "active_with_individually_impossible_head": 100,
+        "active_with_positive_restricted_swap": 103,
+        "active_with_positive_full_swap": 108,
+        "total_a1_deficit": 27.695688140853896,
+        "sum_individual_infeasibility_lower_bound": 22.803353509843955,
+        "total_restricted_deficit_reduction": 0.11975687935179147,
+        "total_full_single_swap_deficit_reduction": 0.19788634032873353,
+        "individual_lower_bound_fraction_of_a1_deficit": 0.823353924043026,
+        "restricted_single_swap_a1_deficit_reduction_fraction": 0.004324026135141887,
+        "restricted_gain_fraction_of_full_single_swap": 0.6051801208352656
+      },
+      "baseline_gate_metrics": {
+        "A1": {
+          "all": {
+            "records": 384,
+            "abs_p95": 1.1905466370323725,
+            "abs_p99": 2.188262988994345,
+            "rel_p95": 0.25053100570931136,
+            "rel_p99": 0.42132505843294993,
+            "deficit_mean": 0.07212418786680702
+          },
+          "without_l0": {
+            "records": 320,
+            "abs_p95": 1.3933804266543988,
+            "abs_p99": 2.309532355470714,
+            "rel_p95": 0.24842520257501702,
+            "rel_p99": 0.4377427067808235,
+            "deficit_mean": 0.01800468004566474
+          },
+          "prompt_0": {
+            "records": 192,
+            "abs_p95": 0.9031771175851984,
+            "abs_p99": 2.0012822935865464,
+            "rel_p95": 0.2531851650730076,
+            "rel_p99": 0.4336496477870559,
+            "deficit_mean": 0.07097031933961673
+          },
+          "prompt_1": {
+            "records": 192,
+            "abs_p95": 1.3787375475339518,
+            "abs_p99": 2.2997133645071175,
+            "rel_p95": 0.2391186900676801,
+            "rel_p99": 0.4193022985955314,
+            "deficit_mean": 0.07327805639399732
+          }
+        },
+        "A3": {
+          "all": {
+            "records": 384,
+            "abs_p95": 1.1905466370323725,
+            "abs_p99": 2.1400413579420996,
+            "rel_p95": 0.2443822032478371,
+            "rel_p99": 0.42419520519162207,
+            "deficit_mean": 0.06994961149288469
+          },
+          "without_l0": {
+            "records": 320,
+            "abs_p95": 1.3933804266543988,
+            "abs_p99": 2.4823164601744483,
+            "rel_p95": 0.24374602912053722,
+            "rel_p99": 0.44000818883965787,
+            "deficit_mean": 0.016494208327987186
+          },
+          "prompt_0": {
+            "records": 192,
+            "abs_p95": 0.9031771175851984,
+            "abs_p99": 2.0012822935865464,
+            "rel_p95": 0.24669822721949086,
+            "rel_p99": 0.4296272562888764,
+            "deficit_mean": 0.06877808107065922
+          },
+          "prompt_1": {
+            "records": 192,
+            "abs_p95": 1.3787375475339518,
+            "abs_p99": 2.3795125234125054,
+            "rel_p95": 0.23976614914690697,
+            "rel_p99": 0.4063956771385236,
+            "deficit_mean": 0.07112114191511015
+          }
+        },
+        "gate_A3": {
+          "all": {
+            "records": 384,
+            "abs_p95": 1.1905466370323725,
+            "abs_p99": 2.1400413579420996,
+            "rel_p95": 0.2443822032478371,
+            "rel_p99": 0.42419520519162207,
+            "deficit_mean": 0.06994961149288469
+          },
+          "without_l0": {
+            "records": 320,
+            "abs_p95": 1.3933804266543988,
+            "abs_p99": 2.309532355470714,
+            "rel_p95": 0.24374602912053722,
+            "rel_p99": 0.44000818883965787,
+            "deficit_mean": 0.016494208327987186
+          },
+          "prompt_0": {
+            "records": 192,
+            "abs_p95": 0.9031771175851984,
+            "abs_p99": 2.0012822935865464,
+            "rel_p95": 0.24668622287991562,
+            "rel_p99": 0.4296272562888764,
+            "deficit_mean": 0.06877808107065922
+          },
+          "prompt_1": {
+            "records": 192,
+            "abs_p95": 1.3787375475339518,
+            "abs_p99": 2.2997133645071175,
+            "rel_p95": 0.23976614914690697,
+            "rel_p99": 0.4063956771385236,
+            "deficit_mean": 0.07112114191511015
+          }
+        }
+      }
+    },
+    {
+      "diagnostics": {
+        "target": 0.9,
+        "budget_fraction": 0.1,
+        "traces": 384,
+        "active_traces": 199,
+        "a1_pass_traces": 185,
+        "passing_trace_selection_sets_differ": 16,
+        "gain_eval_saved_by_gate_fraction": 0.11338421180787048,
+        "active_with_individually_impossible_head": 191,
+        "active_with_positive_restricted_swap": 144,
+        "active_with_positive_full_swap": 152,
+        "total_a1_deficit": 94.39440732127582,
+        "sum_individual_infeasibility_lower_bound": 86.37572345929797,
+        "total_restricted_deficit_reduction": 0.18102793462102407,
+        "total_full_single_swap_deficit_reduction": 0.28952358756351676,
+        "individual_lower_bound_fraction_of_a1_deficit": 0.915051282278982,
+        "restricted_single_swap_a1_deficit_reduction_fraction": 0.001917782416969757,
+        "restricted_gain_fraction_of_full_single_swap": 0.6252614377448935
+      },
+      "baseline_gate_metrics": {
+        "A1": {
+          "all": {
+            "records": 384,
+            "abs_p95": 2.1347463628503403,
+            "abs_p99": 4.169763163165159,
+            "rel_p95": 0.3906843391094285,
+            "rel_p99": 0.6326247108528494,
+            "deficit_mean": 0.24581876906582245
+          },
+          "without_l0": {
+            "records": 320,
+            "abs_p95": 2.4605170453490444,
+            "abs_p99": 4.398225363736083,
+            "rel_p95": 0.3862557789653001,
+            "rel_p99": 0.6553866327003531,
+            "deficit_mean": 0.10574459167802477
+          },
+          "prompt_0": {
+            "records": 192,
+            "abs_p95": 1.7178445099564308,
+            "abs_p99": 4.057430945156984,
+            "rel_p95": 0.3947920525554504,
+            "rel_p99": 0.6247130854752021,
+            "deficit_mean": 0.2427710176378501
+          },
+          "prompt_1": {
+            "records": 192,
+            "abs_p95": 2.583558965487382,
+            "abs_p99": 4.167930508029826,
+            "rel_p95": 0.3689193170131467,
+            "rel_p99": 0.6344003987327697,
+            "deficit_mean": 0.24886652049379476
+          }
+        },
+        "A3": {
+          "all": {
+            "records": 384,
+            "abs_p95": 2.3004741168029623,
+            "abs_p99": 4.1096136436918895,
+            "rel_p95": 0.4077586165476913,
+            "rel_p99": 0.6938017767510919,
+            "deficit_mean": 0.24351607457430627
+          },
+          "without_l0": {
+            "records": 320,
+            "abs_p95": 2.591978190281134,
+            "abs_p99": 4.1530310887076425,
+            "rel_p95": 0.4055715096097175,
+            "rel_p99": 0.7070006104524309,
+            "deficit_mean": 0.10342980590842568
+          },
+          "prompt_0": {
+            "records": 192,
+            "abs_p95": 1.9433307488893747,
+            "abs_p99": 3.9904731293870492,
+            "rel_p95": 0.40802852101940185,
+            "rel_p99": 0.705846844287197,
+            "deficit_mean": 0.24039876977815786
+          },
+          "prompt_1": {
+            "records": 192,
+            "abs_p95": 2.616481523096648,
+            "abs_p99": 4.087525275212125,
+            "rel_p95": 0.407433452250134,
+            "rel_p99": 0.6591792629739064,
+            "deficit_mean": 0.2466333793704547
+          }
+        },
+        "gate_A3": {
+          "all": {
+            "records": 384,
+            "abs_p95": 2.3004741168029623,
+            "abs_p99": 4.1096136436918895,
+            "rel_p95": 0.4077586165476913,
+            "rel_p99": 0.6938017767510919,
+            "deficit_mean": 0.24351607457430627
+          },
+          "without_l0": {
+            "records": 320,
+            "abs_p95": 2.591915924440033,
+            "abs_p99": 4.1530310887076425,
+            "rel_p95": 0.4055715096097175,
+            "rel_p99": 0.7070006104524309,
+            "deficit_mean": 0.10342980590842568
+          },
+          "prompt_0": {
+            "records": 192,
+            "abs_p95": 1.9433307488893747,
+            "abs_p99": 3.9904731293870492,
+            "rel_p95": 0.40802852101940185,
+            "rel_p99": 0.705846844287197,
+            "deficit_mean": 0.24039876977815786
+          },
+          "prompt_1": {
+            "records": 192,
+            "abs_p95": 2.616481523096648,
+            "abs_p99": 4.087525275212125,
+            "rel_p95": 0.407433452250134,
+            "rel_p99": 0.6591792629739064,
+            "deficit_mean": 0.2466333793704547
+          }
+        }
+      }
+    }
+  ]
+}
