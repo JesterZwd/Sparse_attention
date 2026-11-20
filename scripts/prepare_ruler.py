@@ -74,31 +74,34 @@ def prepare(config_path: Path, output_override: Path | None = None) -> None:
         'evaluation; no relicensing is asserted.\n'
         'Python dependency license files are preserved in dependency_licenses/.\n'
     )
-    adapted = ROOT / '.cache/ruler-adapted'
-    if adapted.exists():
-        shutil.rmtree(adapted)
+    adapted = output / 'adapted'
     shutil.copytree(source / 'scripts/data', adapted / 'data')
-    script = adapted / 'data/synthetic/niah.py'
-    before = script.read_text()
-    old_import = 'from tokenizer import select_tokenizer'
-    if before.count(old_import) != 1:
-        raise ValueError('unexpected upstream generator import; adaptation requires review')
-    after = before.replace(old_import, 'from gqa_probe.ruler_data import select_chat_tokenizer as select_tokenizer')
-    script.write_text(after)
-    patch = ''.join(difflib.unified_diff(before.splitlines(keepends=True), after.splitlines(keepends=True),
-                                         fromfile='upstream/scripts/data/synthetic/niah.py',
-                                         tofile='adapted/scripts/data/synthetic/niah.py'))
-    (provenance / 'chat_budget.patch').write_text(patch)
-    shutil.copy2(corpus, adapted / 'data/synthetic/json/PaulGrahamEssays.json')
     task_definitions = yaml.safe_load((source / 'scripts/synthetic.yaml').read_text())
+    families = sorted({task_definitions[task]['task'] for task in config['tasks']})
+    patches = []
+    for family in families:
+        relative = f'data/synthetic/{family}.py'
+        script = adapted / relative
+        before = script.read_text()
+        old_import = 'from tokenizer import select_tokenizer'
+        if before.count(old_import) != 1:
+            raise ValueError(f'unexpected generator import in {family}')
+        after = before.replace(old_import, 'from gqa_probe.ruler_data import select_chat_tokenizer as select_tokenizer')
+        script.write_text(after)
+        patches.extend(difflib.unified_diff(before.splitlines(keepends=True), after.splitlines(keepends=True),
+                                            fromfile=f'upstream/scripts/{relative}',
+                                            tofile=f'adapted/scripts/{relative}'))
+    (provenance / 'chat_budget.patch').write_text(''.join(patches))
+    shutil.copy2(corpus, adapted / 'data/synthetic/json/PaulGrahamEssays.json')
     constants = {}
     exec(compile((source / 'scripts/data/synthetic/constants.py').read_text(), 'official_constants', 'exec'), constants)
-    niah = constants['TASKS']['niah']
     tokenizer_path = ROOT / config['tokenizer_path']
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, local_files_only=True)
     dependencies = {}
     license_dir = provenance / 'dependency_licenses'
-    for line in (ROOT / 'requirements-ruler.txt').read_text().splitlines():
+    requirement_lines = (ROOT / 'requirements-ruler.txt').read_text().splitlines()
+    requirement_lines.extend(config.get('extra_requirements', []))
+    for line in requirement_lines:
         if '==' not in line or line.startswith('#'):
             continue
         package, expected = line.split('==')
@@ -138,8 +141,8 @@ def prepare(config_path: Path, output_override: Path | None = None) -> None:
         'tokenizer': {name: sha256(tokenizer_path / name) for name in ['tokenizer.json', 'tokenizer_config.json', 'vocab.json', 'merges.txt']},
         'chat_template_sha256': hashlib.sha256(tokenizer.chat_template.encode()).hexdigest(),
         'dependencies': dependencies,
-        'length_policy': 'final Qwen chat IDs + official assistant answer prefix + 128 reserved output tokens <= 16384; upstream haystack-size search/shrink, never token truncation',
-        'gold_span_policy': 'all queried source key-value association spans in final chat IDs, all value spans recorded separately; original first-answer position discarded',
+        'length_policy': 'final Qwen chat IDs including official assistant prefix plus task output reserve within configured context length; no token truncation',
+        'gold_span_policy': 'NIAH association and value spans in final chat IDs; no gold spans for VT, CWE or FWE',
         'task_definitions': {task: task_definitions[task] for task in config['tasks']},
         'splits': {},
     }
@@ -152,15 +155,19 @@ def prepare(config_path: Path, output_override: Path | None = None) -> None:
     for split, split_config in config['splits'].items():
         split_rows, seeds = [], {}
         for task_index, task in enumerate(config['tasks']):
+            family = task_definitions[task]['task']
+            task_spec = constants['TASKS'][family]
+            max_new_tokens = config.get('task_max_new_tokens', {}).get(task, config['max_new_tokens'])
+            script = adapted / f'data/synthetic/{family}.py'
             seed = split_config['seed'] + config['task_seed_stride'] * task_index
             seeds[task] = seed
             command = [sys.executable, str(script), '--save_dir', str(output / 'official_raw'),
                        '--save_name', task, '--subset', split,
                        '--tokenizer_path', str(tokenizer_path), '--tokenizer_type', 'hf',
                        '--max_seq_length', str(config['max_seq_length']),
-                       '--tokens_to_generate', str(config['max_new_tokens']),
+                       '--tokens_to_generate', str(max_new_tokens),
                        '--num_samples', str(split_config['count_per_task']),
-                       '--random_seed', str(seed), '--template', niah['template'] + niah['answer_prefix']]
+                       '--random_seed', str(seed), '--template', task_spec['template'] + task_spec['answer_prefix']]
             for key, value in task_definitions[task]['args'].items():
                 command.extend([f'--{key}', str(value)])
             log = output / 'official_raw' / f'{split}_{task}.log'
@@ -175,11 +182,11 @@ def prepare(config_path: Path, output_override: Path | None = None) -> None:
                 raise ValueError('official generator returned the wrong row count')
             for raw in raw_rows:
                 row = finalize_row(raw, tokenizer, task=task, split=split, seed=seed,
-                                   max_seq_length=config['max_seq_length'], max_new_tokens=config['max_new_tokens'],
+                                   max_seq_length=config['max_seq_length'], max_new_tokens=max_new_tokens,
                                    source_metadata={'generator_commit': commit, 'corpus_sha256': config['corpus']['sha256'],
                                                     'official_raw_file': str(raw_path.relative_to(output)),
                                                     'official_raw_sha256': raw_hash})
-                if row['input_tokens'] + config['max_new_tokens'] != raw['length']:
+                if row['input_tokens'] + max_new_tokens != raw['length']:
                     raise ValueError('generator budget tokenizer and final chat tokenization disagree')
                 split_rows.append(row)
         all_rows.extend(split_rows)
