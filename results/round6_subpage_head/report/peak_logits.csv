@@ -1,0 +1,10 @@
+cohort,policy,peak_padded_token_slots_group,padded_fp16_logits_bytes_group,padded_fp32_logits_bytes_group,peak_effective_fp32_group,pm_peak_k_pages
+baseline,dense,32710,261680,523360,522656,0
+baseline,static,1888,15104,30208,29760,59
+baseline,dynamic,2752,22016,44032,43072,85
+baseline,single_68,2176,17408,34816,34784,68
+baseline,single_74,2368,18944,37888,37856,74
+baseline,single_78,2496,19968,39936,39904,78
+compact,compact_q4,672,5376,10752,10592,21
+compact,compact_mr25,672,5376,10752,10592,21
+compact,compact_q6,256,2048,4096,3712,8
