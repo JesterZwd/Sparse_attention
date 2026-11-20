@@ -1,0 +1,8 @@
+# Fixed K and shared V page skipping
+
+- Base 4fd60cac0f62295c499e7d0e708ef2f2073fa01a. Use Qwen3-4B, affine32, one physical K set per KV group. INT8/6/4 Quest use outward extrema and the same head-softmax aggregation, layout at 272/208/144 B.
+- Calibrate the original 16K Multi-Value P32 10% point and P64 15% control. Add fresh 32K Multi-Value (16 prompts), with FWE as a second screen if needed. Preserve independent seeds when running held-out.
+- Replay candidate-only FP32 QK and unpruned PV on the same states. Candidate probabilities sum to one per query head. Sweep cumulative page mass limits 0/.005/.01/.02/.05, streamed running-peak BLASST, and exact SPARTA token mass for the same limits. Caps and head mask refer to final retained tokens. The protected set always stays in V.
+- Audit at steps 0,1,3,7,15,31,63 and layers 0,7,14,21,28,35. Store per-group pages/bytes, maximum head mass loss, PV MAC and per-head errors. Compare full batch and microbatches b=1/4/8 using same QK, Quest traversal and local physical ordering. Serialize modeled 32 B burst addresses and replay an explicit open-page geometry. Charge buffer footprints and K-to-V barriers by schedule.
+- At 16K 0006, compare teacher-forced common-prefix page ranks and exact mass, peak and concentration across all layers at the first divergence. One Mean6+Radius2 calibration, alpha .25/.5, and one progressive 6+2 residual replay. Use static comparisons as the control for adding candidates using certified V savings.
+- Freeze primary workpoint, thresholds and disjoint test IDs after calibration. Keep statistical and traffic results tied to paired prompts. Gate expansion and RTL on observed held-out quality and replay savings.

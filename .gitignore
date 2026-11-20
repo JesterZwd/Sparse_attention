@@ -23,3 +23,7 @@ results/ruler_round2_quantization_engineering/*.jsonl.gz
 
 results/round3_summary_bytes/data/
 results/round3_summary_bytes/*/prompts/
+
+results/round4_fixed_k_v/data/
+results/round4_fixed_k_v/**/bundles/
+results/round4_fixed_k_v/**/*.npz
