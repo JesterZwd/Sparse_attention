@@ -27,3 +27,6 @@ results/round3_summary_bytes/*/prompts/
 results/round4_fixed_k_v/data/
 results/round4_fixed_k_v/**/bundles/
 results/round4_fixed_k_v/**/*.npz
+
+results/round5_shared_refill/data/
+results/round5_shared_refill/**/bundles/
