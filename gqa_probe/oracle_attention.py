@@ -106,7 +106,10 @@ class OracleAttention:
 
     def __init__(self, algorithm="dense", budget_fraction=.2, target=.8, delta=.01,
                  max_swaps=1, shadow_specs=None, sample_layers=None,
-                 sample_steps=None, callback=None, gold_spans=None):
+                 sample_steps=None, callback=None, gold_spans=None, page_size=PAGE_SIZE):
+        if not isinstance(page_size, Integral) or page_size < 1:
+            raise ValueError("page_size must be a positive integer")
+        self.page_size = page_size
         self.spec = _validate_spec(dict(algorithm=algorithm, budget_fraction=budget_fraction,
                                        target=target, delta=delta, max_swaps=max_swaps))
         self.algorithm = algorithm
@@ -131,7 +134,7 @@ class OracleAttention:
         gold_tokens = {token for start, end in self.gold_spans for token in range(start, end)}
         self._gold_page_tokens = {}
         for token in gold_tokens:
-            page = token // PAGE_SIZE
+            page = token // self.page_size
             self._gold_page_tokens[page] = self._gold_page_tokens.get(page, 0) + 1
         self._gold_device_indices = {}
         self.step = -1
@@ -188,7 +191,7 @@ class OracleAttention:
     def _selection(self, mass, spec, tokens):
         pages = mass.shape[1]
         budget = math.floor(pages * spec["budget_fraction"])
-        protection = protected_pages(tokens)
+        protection = protected_pages(tokens, page_size=self.page_size)
         if budget < len(protection) or budget == 0:
             raise ValueError(f"physical page budget {budget} cannot cover {len(protection)} protected pages")
         return select_torch(mass, protection, budget, spec["target"], spec["algorithm"],
@@ -197,7 +200,7 @@ class OracleAttention:
     def _record_actual(self, logits, value, selection=None):
         groups, heads, tokens = logits.shape
         dimension = value.shape[-1]
-        pages = (tokens + PAGE_SIZE - 1) // PAGE_SIZE
+        pages = (tokens + self.page_size - 1) // self.page_size
         self._add("decode_layer_calls", 1)
         self._add("kv_group_calls", groups)
         self._add("executed_qk_multiply_adds", groups * heads * tokens * dimension)
@@ -211,8 +214,8 @@ class OracleAttention:
             self._add("logical_selected_softmax_elements", groups * heads * tokens)
             return
         self._add("selected_pages", selection.mask.sum())
-        sizes = torch.full((pages,), PAGE_SIZE, device=logits.device, dtype=torch.int64)
-        sizes[-1] = tokens - PAGE_SIZE * (pages - 1)
+        sizes = torch.full((pages,), self.page_size, device=logits.device, dtype=torch.int64)
+        sizes[-1] = tokens - self.page_size * (pages - 1)
         selected_tokens = (selection.mask * sizes).sum()
         self._add("logical_selected_av_multiply_adds", selected_tokens * heads * dimension)
         self._add("logical_selected_softmax_elements", selected_tokens * heads)
@@ -259,7 +262,7 @@ class OracleAttention:
         selected_gold = mask[:, page_ids]
         self._add("gold_page_hits", selected_gold.sum())
         self._add("gold_token_hits", (selected_gold * token_counts).sum())
-        span_hits = torch.stack([mask[:, start // PAGE_SIZE:(end - 1) // PAGE_SIZE + 1].all(-1)
+        span_hits = torch.stack([mask[:, start // self.page_size:(end - 1) // self.page_size + 1].all(-1)
                                  for start, end in self.gold_spans], -1)
         self._add("gold_span_hits", span_hits.sum())
         self._add("all_gold_spans_group_hits", span_hits.all(-1).sum())
@@ -271,11 +274,11 @@ class OracleAttention:
         if any(end > tokens for _, end in self.gold_spans):
             raise ValueError("gold span exceeds the final token history")
         gold_tokens = {token for start, end in self.gold_spans for token in range(start, end)}
-        gold_pages = {token // PAGE_SIZE for token in gold_tokens}
-        span_hits = [all(page in chosen for page in range(start // PAGE_SIZE, (end - 1) // PAGE_SIZE + 1))
+        gold_pages = {token // self.page_size for token in gold_tokens}
+        span_hits = [all(page in chosen for page in range(start // self.page_size, (end - 1) // self.page_size + 1))
                      for start, end in self.gold_spans]
         return dict(gold_span_recall=sum(span_hits) / len(span_hits),
-                    gold_token_recall=sum(token // PAGE_SIZE in chosen for token in gold_tokens) / len(gold_tokens),
+                    gold_token_recall=sum(token // self.page_size in chosen for token in gold_tokens) / len(gold_tokens),
                     gold_page_recall=len(gold_pages & chosen) / len(gold_pages),
                     all_gold_spans_retained=all(span_hits),
                     all_gold_pages_retained=gold_pages <= chosen)
@@ -283,14 +286,14 @@ class OracleAttention:
     def _audit(self, module, logits, value, dense):
         groups, heads, tokens = logits.shape
         dimension = value.shape[-1]
-        mass = torch_page_mass(logits)
+        mass = torch_page_mass(logits, self.page_size)
         self.shadow_work["page_mass_evaluations"] += groups
         dense64 = None
         for spec in self.shadow_specs:
             if spec["algorithm"] == "dense":
                 raise ValueError("shadow spec must select A1 or SWAP")
             selected = self._selection(mass, spec, tokens)
-            output = grouped_output(logits, value, selected.mask)
+            output = grouped_output(logits, value, selected.mask, self.page_size)
             absolute = torch.linalg.vector_norm(output - dense, dim=-1)
             relative = absolute / (torch.linalg.vector_norm(dense, dim=-1) + 1e-12)
             # Only compact page selections, per-head metrics and counters transfer.
@@ -305,14 +308,14 @@ class OracleAttention:
                 if dense64 is None:
                     dense64 = grouped_output(logits.double(), value)
                     self.shadow_work["float64_audit_av_multiply_adds"] += groups * heads * tokens * dimension
-                out64 = grouped_output(logits.double(), value, selected.mask)
+                out64 = grouped_output(logits.double(), value, selected.mask, self.page_size)
                 absolute64 = torch.linalg.vector_norm(out64 - dense64, dim=-1)
                 relative64 = absolute64 / (torch.linalg.vector_norm(dense64, dim=-1) + 1e-12)
                 audit_errors = torch.stack([absolute64, relative64], -1).cpu().tolist()
                 self.shadow_work["float64_audit_av_multiply_adds"] += groups * heads * tokens * dimension
             for group in range(groups):
                 chosen = [page for page, present in enumerate(mask[group]) if present]
-                n_selected_tokens = sum(min(PAGE_SIZE, tokens - page * PAGE_SIZE) for page in chosen)
+                n_selected_tokens = sum(min(self.page_size, tokens - page * self.page_size) for page in chosen)
                 swaps, pairs, executed, gate = metrics[group]
                 record = dict(spec=spec["name"], algorithm=spec["algorithm"],
                               budget_fraction=spec["budget_fraction"], target=spec["target"],
@@ -361,8 +364,8 @@ class OracleAttention:
         logits = grouped_logits(query, key, scaling)
         selection = None
         if self.algorithm != "dense":
-            selection = self._selection(torch_page_mass(logits), self.spec, logits.shape[-1])
-        output = grouped_output(logits, value, None if selection is None else selection.mask)
+            selection = self._selection(torch_page_mass(logits, self.page_size), self.spec, logits.shape[-1])
+        output = grouped_output(logits, value, None if selection is None else selection.mask, self.page_size)
         self._record_actual(logits, value, selection)
         layer = getattr(module, "layer_idx", None)
         sample = (self.shadow_specs and (self.sample_layers is None or layer in self.sample_layers)

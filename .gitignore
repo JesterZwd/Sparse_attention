@@ -20,3 +20,6 @@ results/ruler_round2_quantization_engineering/*.jsonl.gz
 *.ckpt
 *.bin
 *.pyc
+
+results/round3_summary_bytes/data/
+results/round3_summary_bytes/*/prompts/

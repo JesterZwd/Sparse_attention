@@ -12,6 +12,11 @@ from collections.abc import Iterable
 from typing import Any
 
 ANSWER_PREFIX_START = ' The special magic'
+ADDITIONAL_PREFIXES = {
+    'vt': ' Answer: According to the chain(s) of variable assignment',
+    'cwe': ' Answer: The top 10 words that appear most often in the list are:',
+    'fwe': ' Answer: According to the coded text above, the three most frequently appeared words are:',
+}
 
 
 def render_chat(tokenizer, user_input: str, answer_prefix: str) -> str:
@@ -28,7 +33,7 @@ class ChatBudgetTokenizer:
         self.tokenizer = tokenizer
 
     def text_to_tokens(self, text: str) -> list[int]:
-        prefix_at = text.rfind(ANSWER_PREFIX_START)
+        prefix_at = max(text.rfind(marker) for marker in (ANSWER_PREFIX_START, *ADDITIONAL_PREFIXES.values()))
         if prefix_at < 0:
             # Upstream also calls this for its obsolete first-answer position.
             user_input, answer_prefix = text, ''
@@ -75,6 +80,21 @@ def finalize_row(raw: dict, tokenizer, *, task: str, split: str, seed: int,
     if not references or any(not isinstance(value, str) or not value for value in references):
         raise ValueError('nonempty official references are required')
     prefix = raw['answer_prefix']
+    if task in ADDITIONAL_PREFIXES:
+        if not prefix.startswith(ADDITIONAL_PREFIXES[task]):
+            raise ValueError(f'unsupported official answer prefix for {task}')
+        text = render_chat(tokenizer, raw['input'], prefix)
+        ids = tokenizer.encode(text, add_special_tokens=False)
+        if len(ids) + max_new_tokens > max_seq_length:
+            raise ValueError('final chat/output budget exceeded')
+        metadata = dict(source_metadata or {}, seed=seed, official_index=raw['index'],
+                        instance_sha256=_sha256_json([task, raw['input'], references]),
+                        final_chat_sha256=hashlib.sha256(text.encode()).hexdigest(),
+                        input_ids_sha256=_sha256_json(ids),
+                        gold_evidence=[], gold_span_semantics='unavailable for this task')
+        return dict(sample_id=f'{split}/{task}/{raw["index"]:04d}', task=task, split=split,
+                    input_ids=ids, references=references, gold_spans=[], input_tokens=len(ids),
+                    max_new_tokens=max_new_tokens, source_metadata=metadata)
     query_match = re.fullmatch(
         r' The special magic (?:number|numbers|uuid|uuids|word|words) for (.+?) '
         r'mentioned in the provided text (?:is|are)', prefix,
@@ -151,5 +171,6 @@ def validate_splits(rows: Iterable[dict], max_seq_length: int = 16384) -> None:
         n = len(row['input_ids'])
         if n != row['input_tokens'] or n + row['max_new_tokens'] > max_seq_length:
             raise ValueError('final chat/output budget exceeded')
-        if not row['gold_spans'] or any(not (0 <= a < b <= n) for a, b in row['gold_spans']):
+        if ((not row['gold_spans'] and row['task'] not in ADDITIONAL_PREFIXES)
+                or any(not (0 <= a < b <= n) for a, b in row['gold_spans'])):
             raise ValueError('invalid final gold span')
