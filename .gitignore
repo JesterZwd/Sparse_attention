@@ -33,3 +33,7 @@ results/round5_shared_refill/**/bundles/
 
 results/round6_subpage_head/data/
 results/round6_subpage_head/**/bundles/
+
+results/round7_budget_gates/data/
+results/round7_budget_gates/**/bundles/
+results/round7_budget_gates/*.log

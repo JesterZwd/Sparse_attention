@@ -1,0 +1,1 @@
+{"alternatives":[{"control_sram_reduction":0.0,"cycle_reduction":-0.05633008591601406,"passes":false,"policy":"fixed_checked_8","read_delta":-0.007956617746387229,"score_delta":0.0}],"anchor":"single_hist64","pass_thresholds":{"cycle_or_control_margin":0.05,"quality_margin":0.01,"read_tolerance":0.01},"selected":null}

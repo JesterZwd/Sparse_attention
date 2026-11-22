@@ -71,7 +71,7 @@ def value_runs(mask,count,base):
     return [(a+32*l,32*(r-l)) for a,part in regions for l,r in runs(part)]
 
 
-def transaction_trace(h,initial,added,mask,meta_bytes,*,width=1,index=True):
+def transaction_trace(h,initial,added,mask,meta_bytes,*,width=1,index=True,refill_index=False):
     """No repeated K page or V bursts; reads are in phase order."""
     ids=[int(p) for p in (*initial,*added)]
     if len(ids)!=len(set(ids)) or not set(mask).issubset(ids):
@@ -81,7 +81,10 @@ def transaction_trace(h,initial,added,mask,meta_bytes,*,width=1,index=True):
         return min(h.page_size,h.tokens-p*h.page_size)
     def k(seq):
         return merge(((1<<22)+int(p)*stride,vector_burst(n(int(p)))) for p in seq)
-    p0=merge([(0,burst_round(meta_bytes)),(1<<20,burst_round(4*len(ids)) if index else 0)])
+    total_index = burst_round(4*len(ids)) if index else 0
+    first_index = burst_round(4*len(initial)) if index and refill_index else total_index
+    p0=merge([(0,burst_round(meta_bytes)),(1<<20,first_index)])
+    p2=merge([((1<<20)+first_index,total_index-first_index),*k(added)])
     rr=[]
     expanded=0
     for p,pv in sorted(mask.items()):
@@ -90,16 +93,19 @@ def transaction_trace(h,initial,added,mask,meta_bytes,*,width=1,index=True):
         new=expansion(old,width,val)
         expanded+=int(new.sum()-old.sum())
         rr.extend(value_runs(new,n(p),(1<<25)+p*stride))
-    return [p0,k(initial),k(added),merge(rr)],expanded
+    return [p0,k(initial),p2,merge(rr)],expanded
 
 
-def simulate(h,initial,added,mask,meta_bytes,wait,*,width=1,index=True):
-    phases,expanded=transaction_trace(h,initial,added,mask,meta_bytes,width=width,index=index)
+def simulate(h,initial,added,mask,meta_bytes,wait,*,width=1,index=True,refill_index=False):
+    phases,expanded=transaction_trace(h,initial,added,mask,meta_bytes,width=width,index=index,
+                                      refill_index=refill_index)
     timing=read_phases(phases,wait)
     raw=read_phases(phases,(0,0,0,0))
+    index_refill = ((burst_round(4*(len(initial)+len(added)))-burst_round(4*len(initial)))//32
+                    if refill_index and index else 0)
     return dict(bursts=timing[4],reads_bytes=32*timing[4],lpddr_ck=timing[3],
                 lpddr_reads_and_drains_ck=raw[3],summary_index_ck=timing[0],
-                before_first_v_ck=timing[2]+wait[3],added_k_bursts=sum(s//32 for _,s in phases[2]),
+                before_first_v_ck=timing[2]+wait[3],added_k_bursts=sum(s//32 for _,s in phases[2])-index_refill,
                 read_runs=sum(map(len,phases)),v_runs=len(phases[3]),
                 expanded_tokens=expanded,row_hits=timing[5],activations=timing[6],
                 extra_v_bytes=sum(s for _,s in phases[3])-sum(s for _,s in

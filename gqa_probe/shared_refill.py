@@ -140,8 +140,12 @@ def locked_sparta(p, old_keep, n, epsilon):
     return torch.zeros_like(keep).scatter_(-1,order,keep).reshape_as(p[...,n:,:])
 
 
-def run_shared(policy, q, key, ranks, tokens, scaling, *, audit=False):
+def run_shared(policy, q, key, ranks, tokens, scaling, *, audit=False, max_pages=None):
     h,cap,n=quota(tokens,policy.budget_bp)
+    if max_pages is not None:
+        if max_pages<len(h.protected):
+            raise ValueError("K page limit excludes protection")
+        n=min(n,max_pages)
     ids, perm=ranks[:,:n].sort(dim=-1)
     order=perm.argsort(-1)
     z,pos,valid,protect=candidate_qk(q,key,ids,h,scaling)
@@ -154,6 +158,8 @@ def run_shared(policy, q, key, ranks, tokens, scaling, *, audit=False):
     used=ledger(first,h)["total"]
     # Initial full-read quota leaves less than one full page's reservation room.
     max_add=min(h.pages-n,(n-len(h.protected))//2+1)
+    if max_pages is not None:
+        max_add=min(max_add,max_pages-n)
     if max_add<=0:
         return Outcome(first,first,n,zeros,cap,zeros.bool(),zeros.bool())
     extra=reserve(used,n,cap,max_add)
