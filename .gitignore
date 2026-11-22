@@ -37,3 +37,5 @@ results/round6_subpage_head/**/bundles/
 results/round7_budget_gates/data/
 results/round7_budget_gates/**/bundles/
 results/round7_budget_gates/*.log
+
+results/round8_pagepack/**/bundles/
