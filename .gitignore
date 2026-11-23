@@ -39,3 +39,7 @@ results/round7_budget_gates/**/bundles/
 results/round7_budget_gates/*.log
 
 results/round8_pagepack/**/bundles/
+
+results/round9_fused_scorer/**/bundles/
+results/round9_fused_scorer/local_inputs/
+results/round9_fused_scorer/report/**/group_steps.jsonl.gz

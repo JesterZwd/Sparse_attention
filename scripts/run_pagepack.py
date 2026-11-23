@@ -11,6 +11,7 @@ import torch
 import transformers
 
 from gqa_probe.pagepack_attention import CompressionAttention, Policy, build_prefix
+from gqa_probe.independent_gate import independent_decision
 from gqa_probe.paired_statistics import paired_bootstrap
 from gqa_probe.quantization_round2 import prefill_for_quantization
 from gqa_probe.round7_attention import Attention
@@ -29,7 +30,8 @@ NI=.01
 
 def source_hashes():
     modules=sorted(Path("gqa_probe").glob("pagepack*.py"))
-    return {str(p):_sha(p) for p in [Path("scripts/run_pagepack.py"),*modules]}
+    return {str(p):_sha(p) for p in [Path("scripts/run_pagepack.py"),
+                                     Path("gqa_probe/independent_gate.py"),*modules]}
 
 
 def variants(candidate,budget):
@@ -45,12 +47,13 @@ def pack_bundle(data,root):
 
 
 @torch.inference_mode()
-def run(root,data,phase,policies,*,count=None,support=False,dense=True,freeze=None):
+def run(root,data,phase,policies,*,count=None,start=0,support=False,dense=True,freeze=None,
+        score_factory=None,run_sources=None,base_commit=BASE):
     split="test" if phase=="independent" else "calibration"
     manifest,context,rows=load_rows(data/split,split)
     if context!=32768 or len(rows)!=(128 if split=="test" else 16):
         raise ValueError("unexpected 32K cohort")
-    rows=rows[:count]
+    rows=rows[start:None if count is None else start+count]
     torch.set_num_threads(4)
     torch.backends.cuda.matmul.allow_tf32=False
     torch.backends.cudnn.allow_tf32=False
@@ -58,7 +61,8 @@ def run(root,data,phase,policies,*,count=None,support=False,dense=True,freeze=No
     out=root/phase
     bundles=out/"bundles"
     bundles.mkdir(parents=True,exist_ok=True)
-    setup=dict(base=BASE,phase=phase,sources=source_hashes(),model=hashes,device=torch.cuda.get_device_name(),
+    setup=dict(base=base_commit,phase=phase,sources=source_hashes() if run_sources is None else run_sources,
+               model=hashes,device=torch.cuda.get_device_name(),
                policies=list(map(asdict,policies)),support=asdict(SUPPORT) if support else None,
                dense=dense,ids=[x["sample_id"] for x in rows],
                manifest_sha256=_sha(data/split/"manifest.json"))
@@ -88,7 +92,9 @@ def run(root,data,phase,policies,*,count=None,support=False,dense=True,freeze=No
             order=([DENSE] if dense else [])+opts
             for p in order:
                 gold=row["gold_spans"]
-                attn=Attention(DENSE,None,gold) if p==DENSE else CompressionAttention(p,prefix,gold,audit=True)
+                scorer=score_factory(row,p) if score_factory is not None and p!=DENSE else None
+                attn=(Attention(DENSE,None,gold) if p==DENSE else
+                      CompressionAttention(p,prefix,gold,audit=True,scorer=scorer))
                 result=generate_from_prefill(model,base,row["max_new_tokens"],eos,attn)
                 r=make_answer(p,result,tokenizer,row,eos)
                 if r["decode_layer_calls"]!=r["decode_tokens"]*model.config.num_hidden_layers:
@@ -260,10 +266,21 @@ def program(root,data):
                     manifest_sha256=_sha(data/"test"/"manifest.json"),sources=source_hashes())
         _write_json(root/"frozen_test.json",freeze)
         run(root,data,"independent",[reference,final],freeze=freeze)
-        _,pred=report(root,"independent")
+        tables,pred=report(root,"independent")
         paired=pairing(root/"report"/"independent"/"pair.json",pred,reference.name,final.name)
         score=paired["official_score"]
-        outcome.update(status="independent_complete",heldout=True,passes=score["ci_low"]>=-NI,
+        total=paired["read"]
+        by_policy={r["policy"]:r for r in tables}
+        reference_cost,candidate_cost=(by_policy[p.name] for p in (reference,final))
+        result=independent_decision(score_delta=score["point_delta"],score_ci_low=score["ci_low"],
+                   reference_bytes=reference_cost["bytes_per_decode"],
+                   candidate_bytes=candidate_cost["bytes_per_decode"],
+                   answer_read_relative_delta=total["relative_delta"],
+                   answer_read_relative_hi=total["relative_ci_high"],
+                   reference_over=reference_cost["over_budget"],candidate_over=candidate_cost["over_budget"],
+                   ni_margin=NI,min_answer_saving=.05,min_cycle_reduction=.05,
+                   cycle_reduction=gain(candidate_cost,reference_cost,"banked_ck"))
+        outcome.update(status="independent_complete",heldout=True,passes=result["passes"],physics=result,
                        score_delta=score["point_delta"],ci_low=score["ci_low"],ci_high=score["ci_high"])
     pack_bundle(outcome,root/"finished.json")
 

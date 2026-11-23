@@ -167,10 +167,11 @@ def sampled_cycles(h,p,alloc,mask,ledger,pv,reductions,fallback,rank_prefix,head
 
 
 class CompressionAttention(Attention):
-    def __init__(self,policy,prefix,gold,*,audit=False):
+    def __init__(self,policy,prefix,gold,*,audit=False,scorer=None):
         super().__init__(policy,prefix,gold,audit=audit)
         self.spec=policy.spec
         self.group_steps=[]
+        self.scorer=scorer
 
     def attention(self,module,query,key,value,attention_mask,**kwargs):
         if self.step<0 or query.shape[-2]!=1:
@@ -184,7 +185,8 @@ class CompressionAttention(Attention):
             self.online[layer]=StaticOnline(self.prefix[layer].summary,(p.summary,))
         record=self.online[layer].append(key[0,:,-1],t)[p.summary]
         q=query.reshape(g,-1,d).float()
-        score=weights(q,record,p.summary,scale)
+        score=(weights(q,record,p.summary,scale) if self.scorer is None else
+               self.scorer(q,record,p.summary,scale,step=self.step,layer=layer))
         rank=ranked_pages(score,h)
         kl,vl=layouts(self.prefix[layer],self.spec,h,rank)
         alloc=plan_pages(rank,h,kl,vl,summary_bytes=METHOD_BYTES[p.summary],budget_percent=p.budget,

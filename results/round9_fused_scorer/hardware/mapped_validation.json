@@ -1,0 +1,41 @@
+{
+  "source": "captured pilot Qwen pages re-encoded with the common 22-bit coefficients",
+  "vectors_sha256": {
+    "quest_vectors.json": "a017b4dd0e236cb1935acd72defa4633ab03f4450b3e274b28a6c56fdde491ca",
+    "mr_vectors.json": "5fd65dd92627f36f6929b3b59fbcbf3009816d27ba8c47e40fd14a8e222b2892"
+  },
+  "cases": [
+    {
+      "top": "score_quest",
+      "pages": 128,
+      "ii_min": 8,
+      "ii_max": 8,
+      "latency_min": 9,
+      "latency_max": 9
+    },
+    {
+      "top": "score_mr_serial",
+      "pages": 128,
+      "ii_min": 16,
+      "ii_max": 16,
+      "latency_min": 17,
+      "latency_max": 17
+    },
+    {
+      "top": "score_mr_fused",
+      "pages": 128,
+      "ii_min": 8,
+      "ii_max": 8,
+      "latency_min": 9,
+      "latency_max": 9
+    },
+    {
+      "top": "score_mr_serial_equal",
+      "pages": 128,
+      "ii_min": 8,
+      "ii_max": 8,
+      "latency_min": 17,
+      "latency_max": 17
+    }
+  ]
+}
