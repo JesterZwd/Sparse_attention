@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "benchmark": "RULER v1 (official legacy main pipeline; not RULER v2)",
+  "generator": {
+    "repository": "https://github.com/NVIDIA/RULER",
+    "commit": "db43f92ff634bbce1c33d1fb15858aec4bba509a",
+    "source_directory": ".cache/ruler-upstream",
+    "script": "see task_definitions and chat_budget.patch",
+    "adaptation": "replace only tokenizer import per official task family"
+  },
+  "corpus": {
+    "path": ".cache/ruler-corpus/PaulGrahamEssays.json",
+    "sha256": "58e352531a80cef2d22c205dbebfbfd64a8afe55a32434de845f200718756c65",
+    "sources_manifest": ".cache/ruler-corpus/sources.json",
+    "download_script": ".cache/ruler-download-corpus.py",
+    "construction": "Official download_paulgraham_essay.py transformations and repo-then-HTML sorted concatenation, using all 218 official URLs; HTTPS transport and raw.githubusercontent.com redirect-equivalent transport, concurrent download with no skipped sources."
+  },
+  "tokenizer_path": "models/Qwen3-4B-Instruct-2507",
+  "max_seq_length": 65536,
+  "max_new_tokens": 128,
+  "chat_policy": "One user message, tokenizer.apply_chat_template(add_generation_prompt=True), then official answer_prefix as assistant continuation; no system message or truncation.",
+  "tasks": [
+    "niah_multivalue"
+  ],
+  "splits": {
+    "calibration": {
+      "seed": 2026121301,
+      "count_per_task": 12
+    },
+    "test": {
+      "seed": 2026121320,
+      "count_per_task": 128
+    }
+  },
+  "task_seed_stride": 100,
+  "output_directory": "results/round10_summary_64k/data/64k",
+  "nltk_data_directory": ".cache/ruler-nltk",
+  "nltk_english_source_manifest": ".cache/ruler-nltk/english_source.json",
+  "task_max_new_tokens": {
+    "fwe": 50
+  },
+  "extra_requirements": []
+}
