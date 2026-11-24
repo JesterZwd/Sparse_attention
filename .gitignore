@@ -48,3 +48,8 @@ results/round10_summary_64k/data/
 results/round10_summary_64k/**/bundles/
 results/round10_summary_64k/local_inputs/
 results/round10_summary_64k/*.log
+
+results/round11_workpoints/data/
+results/round11_workpoints/**/bundles/
+results/round11_workpoints/*.log
+results/round11_workpoints/*/replay/group_timing.csv.gz

@@ -1,0 +1,47 @@
+{
+  "independent": {
+    "32k": {
+      "prompts": 128,
+      "predictions": 512,
+      "policies": [
+        "A",
+        "B",
+        "C",
+        "M"
+      ],
+      "sparse_group_steps": 6880896,
+      "over_budget_group_steps": 0,
+      "verified_replay_rows": 480690,
+      "whole_step_inputs": 3,
+      "freeze_sha256": "2ff3fdd8a410b21e953f604dce480fd0bf476b0c9870032f64b84bfa969e9082",
+      "paired_sha256": "1d4af3216fc2b3b47f2b6d9340a61290f063b3251db9c3e8d58194b13d918e18",
+      "energy_model_sha256": "dd7f195b6b0bd708e13a125b0fedc6da8acd334a669f9f175304f62c0a1e0f6a",
+      "timing_receipt_sha256": "047d8a56508197ad751b1bfb7c85be342be75cdf03771afc345ef7ec1ae4a774"
+    },
+    "64k": {
+      "prompts": 64,
+      "predictions": 128,
+      "policies": [
+        "A",
+        "M"
+      ],
+      "sparse_group_steps": 1886400,
+      "over_budget_group_steps": 0,
+      "verified_replay_rows": 277050,
+      "whole_step_inputs": 3,
+      "freeze_sha256": "bf255bb8ebfb6be2656e10aa828bda8f5cd91f452ccda327dc403a641c87ab41",
+      "paired_sha256": "531abde746d6c5f40ef56e3c1a0d4316051ebbf5e021c38554e3f196dc884d26",
+      "energy_model_sha256": "06d25d7088e9b853641febe6cca2018811b82885ac1840a0dee22209054f24d8",
+      "timing_receipt_sha256": "7b90891cafd20a80c315478ef613dc315f5635239dc182271a472d6e2d3364c7"
+    }
+  },
+  "tests": {
+    "passed": 374,
+    "skipped": 4
+  },
+  "round10_regression_prompts": 4,
+  "cross_task_screened_prompts": {
+    "32k_vt": 8,
+    "16k_fwe": 8
+  }
+}

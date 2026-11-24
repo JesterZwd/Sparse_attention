@@ -1,0 +1,213 @@
+{
+  "candidate_modes": [
+    "serial_one_slot",
+    "summary_stream",
+    "double_buffer"
+  ],
+  "configuration": {
+    "coefficient_ii": 1,
+    "coefficient_latency": 2,
+    "groups": 8,
+    "ii6": true,
+    "lanes": [
+      32,
+      64,
+      128
+    ],
+    "layers": 36,
+    "modes": [
+      "serial",
+      "serial_one_slot",
+      "summary_stream",
+      "double_buffer",
+      "dependency_bound"
+    ],
+    "periods": [
+      1.25,
+      2.385448
+    ],
+    "policies": [],
+    "sram_capacity_bytes": 65536
+  },
+  "dependency_lower_bound": "per phase max of ideal burst bandwidth, MAC issue, and unpack service; preserves normalization, TopK, gate and optional rerun",
+  "fallback_workset": "the hist64 rerun reuses full initial logits and the same mask/histogram scratch; it does not reload K or issue provisional V",
+  "files": {
+    "group_timing.csv.gz": "70054360698ac1e45bbcd15b2a394d611b71d757f069c546d16191f6cb4a4631",
+    "paired_modes.csv": "224979da9f4d5f7d5b17144ffed103318d4a36e5b18b96ba388b5be3b6548579",
+    "paired_timing.csv": "099fdfb5b0d544f0e83926c52740ceb211d80c0542c79030243eada533f39ce8",
+    "step_timing.csv": "05192cd5322816e8b4a307a0e0f5cf113528517c655eb4403e5c02aeda81cb54",
+    "step_timing_summary.csv": "9193bfbb8b86df76e9ab8318f4e501cc7accb41bae4828b756c48e3fda4be5c0",
+    "timing_summary.csv": "5ea39e5be2273b28d93774b0f24d82a2be40b7d9c23ded35ff0838665c527db6"
+  },
+  "group_captures": [
+    {
+      "cohort": "32k",
+      "groups": 398,
+      "policy": "A",
+      "scope": "fallback_pressure",
+      "whole_step": false
+    },
+    {
+      "cohort": "32k",
+      "groups": 21,
+      "policy": "A",
+      "scope": "fallback_pressure",
+      "whole_step": true
+    },
+    {
+      "cohort": "32k",
+      "groups": 1027,
+      "policy": "A",
+      "scope": "regular",
+      "whole_step": false
+    },
+    {
+      "cohort": "32k",
+      "groups": 843,
+      "policy": "A",
+      "scope": "regular",
+      "whole_step": true
+    },
+    {
+      "cohort": "32k",
+      "groups": 398,
+      "policy": "B",
+      "scope": "fallback_pressure",
+      "whole_step": false
+    },
+    {
+      "cohort": "32k",
+      "groups": 21,
+      "policy": "B",
+      "scope": "fallback_pressure",
+      "whole_step": true
+    },
+    {
+      "cohort": "32k",
+      "groups": 1027,
+      "policy": "B",
+      "scope": "regular",
+      "whole_step": false
+    },
+    {
+      "cohort": "32k",
+      "groups": 843,
+      "policy": "B",
+      "scope": "regular",
+      "whole_step": true
+    },
+    {
+      "cohort": "32k",
+      "groups": 398,
+      "policy": "C",
+      "scope": "fallback_pressure",
+      "whole_step": false
+    },
+    {
+      "cohort": "32k",
+      "groups": 21,
+      "policy": "C",
+      "scope": "fallback_pressure",
+      "whole_step": true
+    },
+    {
+      "cohort": "32k",
+      "groups": 1027,
+      "policy": "C",
+      "scope": "regular",
+      "whole_step": false
+    },
+    {
+      "cohort": "32k",
+      "groups": 843,
+      "policy": "C",
+      "scope": "regular",
+      "whole_step": true
+    },
+    {
+      "cohort": "32k",
+      "groups": 398,
+      "policy": "M",
+      "scope": "fallback_pressure",
+      "whole_step": false
+    },
+    {
+      "cohort": "32k",
+      "groups": 21,
+      "policy": "M",
+      "scope": "fallback_pressure",
+      "whole_step": true
+    },
+    {
+      "cohort": "32k",
+      "groups": 1027,
+      "policy": "M",
+      "scope": "regular",
+      "whole_step": false
+    },
+    {
+      "cohort": "32k",
+      "groups": 843,
+      "policy": "M",
+      "scope": "regular",
+      "whole_step": true
+    }
+  ],
+  "group_timing_rows": 480690,
+  "inputs": [
+    {
+      "file": "results/round11_workpoints/32k/common/states.jsonl.gz",
+      "sha256": "a8b80ff5a196ec48578758c9b3573ec41e722345b55916e7a406ff1ece65ecea"
+    }
+  ],
+  "isolated_population": "ordinary and fallback-pressure group captures from a cold command controller; reports strata independently",
+  "metrics": "relative group nanoseconds, earliest actual V command/RD, nearest-rank observed p95; no population weighting",
+  "model_source_sha256": {
+    "gqa_probe/round11_timing.py": "14f87a7ab2c89202f56d1b31adb7f19bf1b7efd14e841c3859534c73b5dad5dd",
+    "scripts/replay_round11.py": "772d3a7934030ec5ccab20ecea54e966f65feedf1c3f7a18582992a63cf38848",
+    "sim/lpddr5_banked.cpp": "1c9180cc84874e43c1eb2dc1acc9ca6e077dde7e428ccf99f1c77743f5a8a583",
+    "sim/round11_timing.cpp": "fef51fe45934142b5676e86390a5208c278d4f89d0807f671ca12c65e22d6584"
+  },
+  "modes": {
+    "dependency_bound": "same bank replay with all slots admissible; relaxed_dependency is the separate strict resource lower bound",
+    "double_buffer": "two summary records and two K or V tile slots, held through QK or PV; one shared MAC backend",
+    "serial": "all summary reads before scoring, all K or V reads before backend work; reports bulk-buffer requirement",
+    "serial_one_slot": "single summary slot waits through scorer result, one tile waits through QK or PV",
+    "summary_stream": "two summary records, release at scorer input service completion; K and V use one tile each"
+  },
+  "overlap_and_backpressure": "overlap intersects scheduled burst data intervals with scorer or MAC activity; queue wait is elapsed time at the request cap with an eligible next descriptor; slot wait is elapsed time with an unissued item behind a full slot window",
+  "pe_clock_reference": "1.25 ns is an 800 MHz model scenario; 2.385448 ns is a rounded Round 9 pre-layout scorer-only clock reference",
+  "peak_sram": "simultaneous score, logits, masks, histograms, rank IDs, tiles, raw/quantized query, PV weights/accumulators and queue stage footprint; finite tile banks reserve capacity for a full page each, and the independently reported live peak counts only occupied bytes",
+  "ports": {
+    "LPDDR": "one x16 LPDDR5-6400 channel, 32 B burst, 1.25 ns CK, 16 banks, four groups, 2 KiB rows",
+    "bank_scheduler": "FIFO per bank, ready RD priority, then oldest ready bank head",
+    "coefficient_supply": "two scale operands per prepared record, one separate frontend issue and configurable result latency",
+    "descriptor_interlaunch_ck": 2,
+    "packed_slots": "independent 1R1W banks, 32 B per DRAM CK write and 32 B per PE cycle read",
+    "physical_limits": "read-only, open-row commands, no refresh, writes, WCK switches, or co-issued queries",
+    "port_contention": "zero under independent slot banks with the listed widths; no timed SRAM macros",
+    "qk_broadcast": "one K element can serve four head lanes, with 16/32/64 B per PE cycle unpacked read",
+    "read_window_bursts": 32,
+    "score_and_histogram": "16 B logits per PE cycle for gate, one bank per head and one bin per head per PE cycle",
+    "unpacked_slots": "independent 1R1W banks, 64 B/PE cycle write, 64/128/256 B/PE cycle PV read for 32/64/128 lanes"
+  },
+  "post_scorer_compute_ns": "sum of planner, normalization, ranking, histogram and byte guard, unpack, MAC, PV weight and finalization service; can include simultaneous service on distinct engines",
+  "primary": {
+    "lanes": 64,
+    "mode": "double_buffer",
+    "pe_period_ns": 1.25,
+    "scorer_variant": "common_ii8"
+  },
+  "queue_accounting": "32 16-byte request slots and 16-byte per outstanding descriptor without duplicated summary bursts",
+  "scope": "CPU event projection of attention only",
+  "stage_sram_reuse": "the summary/score, K, gate and V stages can reuse SRAM after their predecessor retires; packed and unpacked buffering occupy separately ported banks",
+  "step_timing_rows": 630,
+  "whole_step_address_layout": {
+    "cyclic_bank_rotation_row_bytes": 2048,
+    "region_bytes": 67108864
+  },
+  "whole_step_execution": "all captured layers and groups execute in layer/group order, on one shared resource and continuous bank/clock state",
+  "whole_step_policy_captures": 12,
+  "whole_step_population": "all groups in each selected endpoint, including naturally occurring fallback; excludes isolated pressure enrichment",
+  "whole_steps": 3
+}

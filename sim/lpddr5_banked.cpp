@@ -33,6 +33,26 @@ struct Bank {
     Clock last_precharge = past;
 };
 
+struct ScheduledAction {
+    Action action;
+    Clock ready;
+};
+
+ScheduledAction bank_action(const Bank& bank, int64_t row, Clock last_read,
+                            Clock group_read, Clock last_precharge, Clock last_act,
+                            Clock fourth_last_act) {
+    if (bank.open_row == row) {
+        return {Action::read, std::max({bank.last_act + rcd, last_read + ccd_s, group_read + ccd_l})};
+    }
+    if (bank.open_row >= 0) {
+        return {Action::precharge, std::max({bank.last_act + ras, bank.last_read + rtp,
+                                             last_precharge + ppd})};
+    }
+    // ACT2 carries the timing constraints; ACT1 takes the preceding command slot.
+    return {Action::activate, std::max({bank.last_precharge + rp, bank.last_act + rc,
+                                        last_act + rrd, fourth_last_act + faw}) - 1};
+}
+
 struct Candidate {
     int bank = -1;
     Action action = Action::activate;
@@ -100,22 +120,9 @@ extern "C" void replay_banked(const int64_t* starts, const int64_t* counts,
                 const int id = __builtin_ctz(pending);
                 const auto& bank = banks[id];
                 const auto& request = bank.fifo.front();
-                Action action;
-                Clock ready;
-                if (bank.open_row == request.row) {
-                    action = Action::read;
-                    ready = std::max({bank.last_act + rcd, last_read + ccd_s,
-                                      group_read[id % bank_group_count] + ccd_l});
-                } else if (bank.open_row >= 0) {
-                    action = Action::precharge;
-                    ready = std::max({bank.last_act + ras, bank.last_read + rtp, last_precharge + ppd});
-                } else {
-                    action = Action::activate;
-                    // The timing constraints apply to ACT2; ACT1 occupies the
-                    // immediately preceding CK on the shared command bus.
-                    ready = std::max({bank.last_precharge + rp, bank.last_act + rc,
-                                      last_act + rrd, act_window[activations % 4] + faw}) - 1;
-                }
+                const auto [action, ready] = bank_action(
+                    bank, request.row, last_read, group_read[id % bank_group_count],
+                    last_precharge, last_act, act_window[activations % 4]);
                 if (ready > now) {
                     next = std::min(next, ready);
                 } else if (chosen.prefers(action, request.number)) {

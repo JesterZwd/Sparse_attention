@@ -1,0 +1,11 @@
+{
+  "before_source_sha256": "eee8dac4a28763933c9f440ecb2c22e82e82aba0ad4840a1d70ad7e51e1e1806",
+  "after_source_sha256": "50bccc24292cd86282b118ac1c6ad09c5c4805d868a471d4ed5b68d904d9b5dd",
+  "prior_common_config_sha256": "ef8942a028f6ff6d8f530c2d8ab044633f49973e538d042d2b4ac62b80a0f1c1",
+  "root_cause": "The common-state generation argument tuple retained the previous prompt's preallocated KV cache.",
+  "memory_change": "Release argument tuple alongside the state at the end of each prompt.",
+  "reused_calibration_sha256": "0be6efddbd453fb646eea7e154d8b02f31390f0f2944f83f2f676b062017e24c",
+  "screen_change": "Apply -1 pp point threshold in transfer calibration, preserving final independent quality CI gates.",
+  "initial_screen_sha256": "ba9105cb4c39ce8a1908242fd490944002ee5b1f32a3e42f4ffa10b8e364d34f",
+  "first_round32_freeze_sha256": "2ff3fdd8a410b21e953f604dce480fd0bf476b0c9870032f64b84bfa969e9082"
+}
