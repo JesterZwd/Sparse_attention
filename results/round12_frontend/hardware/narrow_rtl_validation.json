@@ -1,0 +1,1255 @@
+{
+  "designs": {
+    "patched80_dual": {
+      "calibration": {
+        "accepted_boundary_shared_beats": 0,
+        "accepted_input_beats": 306,
+        "clock_edge_convention": "accepted rising-edge cycle difference; all four results share one handshake",
+        "coefficient_lanes": 2,
+        "coefficient_record_issue_cycles": 4,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 91,
+              "2": 11
+            },
+            "max": 2,
+            "mean": 1.107843137254902,
+            "min": 1
+          },
+          "coefficient_first_issue_to_all_ready": {
+            "histogram": {
+              "12": 102
+            },
+            "max": 12,
+            "mean": 12.0,
+            "min": 12
+          },
+          "coefficient_last_issue_to_all_ready": {
+            "histogram": {
+              "9": 102
+            },
+            "max": 9,
+            "mean": 9.0,
+            "min": 9
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 69,
+              "15": 1,
+              "16": 10,
+              "25": 1,
+              "28": 1,
+              "29": 2,
+              "31": 1,
+              "34": 2,
+              "37": 2,
+              "38": 1,
+              "39": 2,
+              "40": 2,
+              "43": 2,
+              "44": 1,
+              "46": 1,
+              "47": 1,
+              "50": 2,
+              "52": 1
+            },
+            "max": 52,
+            "mean": 19.568627450980394,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "18": 69,
+              "19": 1,
+              "20": 10,
+              "29": 1,
+              "32": 1,
+              "33": 2,
+              "35": 1,
+              "38": 2,
+              "41": 2,
+              "42": 1,
+              "43": 2,
+              "44": 2,
+              "47": 2,
+              "48": 1,
+              "50": 1,
+              "51": 1,
+              "54": 2,
+              "56": 1
+            },
+            "max": 56,
+            "mean": 23.568627450980394,
+            "min": 18
+          },
+          "complete_to_output": {
+            "histogram": {
+              "28": 45,
+              "29": 5,
+              "30": 5,
+              "31": 1,
+              "32": 1,
+              "36": 1,
+              "39": 1,
+              "43": 1,
+              "44": 1,
+              "45": 1,
+              "46": 1,
+              "47": 1,
+              "48": 2,
+              "49": 2,
+              "50": 1,
+              "51": 2,
+              "52": 2,
+              "53": 2,
+              "54": 3,
+              "55": 1,
+              "57": 4,
+              "58": 2,
+              "59": 1,
+              "60": 3,
+              "61": 1,
+              "63": 1,
+              "64": 4,
+              "66": 3,
+              "71": 1,
+              "73": 2,
+              "74": 1
+            },
+            "max": 74,
+            "mean": 40.61764705882353,
+            "min": 28
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "10": 69,
+              "11": 6,
+              "12": 2,
+              "13": 1,
+              "15": 1,
+              "18": 1,
+              "28": 2,
+              "31": 1,
+              "32": 1,
+              "34": 1,
+              "36": 1,
+              "37": 2,
+              "38": 1,
+              "39": 1,
+              "41": 1,
+              "42": 2,
+              "44": 1,
+              "45": 1,
+              "46": 2,
+              "48": 1,
+              "53": 1,
+              "55": 2,
+              "56": 1
+            },
+            "max": 56,
+            "mean": 17.04901960784314,
+            "min": 10
+          },
+          "dot_start_interval": {
+            "histogram": {
+              "10": 2,
+              "11": 3,
+              "12": 2,
+              "13": 2,
+              "14": 5,
+              "15": 4,
+              "16": 5,
+              "17": 1,
+              "18": 8,
+              "19": 5,
+              "20": 3,
+              "23": 1,
+              "31": 2,
+              "34": 1,
+              "39": 1,
+              "40": 1,
+              "41": 1,
+              "42": 1,
+              "46": 1,
+              "47": 1,
+              "48": 1,
+              "49": 1,
+              "5": 24,
+              "6": 6,
+              "7": 7,
+              "8": 3,
+              "9": 4
+            },
+            "max": 49,
+            "mean": 14.21875,
+            "min": 5
+          },
+          "output_interval": {
+            "histogram": {
+              "1": 11,
+              "10": 2,
+              "11": 3,
+              "12": 2,
+              "13": 8,
+              "14": 7,
+              "15": 2,
+              "16": 5,
+              "17": 1,
+              "18": 8,
+              "19": 2,
+              "20": 4,
+              "23": 1,
+              "3": 1,
+              "4": 2,
+              "49": 1,
+              "5": 16,
+              "50": 1,
+              "55": 1,
+              "56": 2,
+              "57": 1,
+              "6": 5,
+              "7": 5,
+              "8": 2,
+              "9": 3
+            },
+            "max": 57,
+            "mean": 12.75,
+            "min": 1
+          },
+          "record_completion_interval": {
+            "histogram": {
+              "10": 2,
+              "11": 4,
+              "12": 3,
+              "13": 5,
+              "14": 8,
+              "15": 4,
+              "17": 1,
+              "18": 8,
+              "19": 2,
+              "20": 4,
+              "22": 1,
+              "27": 1,
+              "3": 11,
+              "30": 1,
+              "31": 1,
+              "38": 1,
+              "4": 1,
+              "42": 1,
+              "44": 1,
+              "45": 1,
+              "46": 1,
+              "49": 1,
+              "5": 2,
+              "50": 1,
+              "55": 1,
+              "6": 6,
+              "7": 9,
+              "8": 7,
+              "9": 7
+            },
+            "max": 55,
+            "mean": 14.166666666666666,
+            "min": 3
+          },
+          "record_start_to_complete": {
+            "histogram": {
+              "2": 51,
+              "3": 3,
+              "4": 15,
+              "5": 9,
+              "6": 18,
+              "7": 4,
+              "9": 2
+            },
+            "max": 9,
+            "mean": 3.627450980392157,
+            "min": 2
+          },
+          "record_start_to_output": {
+            "histogram": {
+              "30": 17,
+              "31": 4,
+              "32": 15,
+              "33": 5,
+              "34": 11,
+              "35": 4,
+              "37": 1,
+              "38": 1,
+              "45": 2,
+              "46": 1,
+              "47": 1,
+              "50": 1,
+              "51": 1,
+              "52": 1,
+              "53": 2,
+              "54": 3,
+              "55": 4,
+              "56": 1,
+              "57": 1,
+              "58": 1,
+              "59": 2,
+              "60": 3,
+              "61": 3,
+              "62": 2,
+              "63": 1,
+              "64": 1,
+              "65": 1,
+              "66": 3,
+              "68": 2,
+              "69": 1,
+              "71": 2,
+              "73": 1,
+              "77": 1,
+              "79": 2
+            },
+            "max": 79,
+            "mean": 44.245098039215684,
+            "min": 30
+          }
+        },
+        "exact_steady_record_cadence": null,
+        "first_record_latencies": [
+          {
+            "complete_to_first_output": 36,
+            "first_burst_to_complete": 2,
+            "first_burst_to_first_output": 38,
+            "first_query_load_to_first_output": 43
+          },
+          {
+            "complete_to_first_output": 52,
+            "first_burst_to_complete": 6,
+            "first_burst_to_first_output": 58,
+            "first_query_load_to_first_output": 68
+          },
+          {
+            "complete_to_first_output": 55,
+            "first_burst_to_complete": 2,
+            "first_burst_to_first_output": 57,
+            "first_query_load_to_first_output": 64
+          },
+          {
+            "complete_to_first_output": 60,
+            "first_burst_to_complete": 2,
+            "first_burst_to_first_output": 62,
+            "first_query_load_to_first_output": 72
+          },
+          {
+            "complete_to_first_output": 50,
+            "first_burst_to_complete": 4,
+            "first_burst_to_first_output": 54,
+            "first_query_load_to_first_output": 63
+          },
+          {
+            "complete_to_first_output": 59,
+            "first_burst_to_complete": 2,
+            "first_burst_to_first_output": 61,
+            "first_query_load_to_first_output": 70
+          }
+        ],
+        "group_heads": 4,
+        "log_sha256": "ef1f4e693412818ff60c8d715c5e423459969f0f887d6cb8e849119aada17b0c",
+        "observed_peak_inflight_or_buffered_results": 2,
+        "observed_peak_record_slots": 2,
+        "observed_peak_result_fifo_entries": 2,
+        "pages": 102,
+        "raw_dot_service_cycles": 5,
+        "record_release": "dot_last edge; slot can accept bytes on following edge",
+        "record_slots": 2,
+        "result_fifo_slots": 2,
+        "stalled_input_cycles": 843,
+        "stalled_output_cycles": 413,
+        "steady_edge_metrics": {
+          "coefficient_record_issue_interval": {
+            "histogram": {
+              "10": 2,
+              "11": 3,
+              "12": 3,
+              "13": 5,
+              "14": 6,
+              "15": 2,
+              "17": 2,
+              "18": 5,
+              "19": 4,
+              "21": 1,
+              "27": 1,
+              "30": 1,
+              "31": 1,
+              "38": 1,
+              "4": 6,
+              "42": 1,
+              "43": 1,
+              "45": 1,
+              "46": 1,
+              "49": 1,
+              "5": 2,
+              "50": 1,
+              "55": 1,
+              "6": 6,
+              "7": 7,
+              "8": 6,
+              "9": 7
+            },
+            "max": 55,
+            "mean": 15.064102564102564,
+            "min": 4
+          },
+          "dot_start_interval": {
+            "histogram": {
+              "10": 2,
+              "11": 2,
+              "12": 2,
+              "13": 2,
+              "14": 5,
+              "15": 2,
+              "16": 5,
+              "17": 1,
+              "18": 8,
+              "19": 4,
+              "20": 3,
+              "23": 1,
+              "39": 1,
+              "42": 1,
+              "46": 1,
+              "47": 1,
+              "48": 1,
+              "49": 1,
+              "5": 18,
+              "6": 6,
+              "7": 5,
+              "8": 2,
+              "9": 4
+            },
+            "max": 49,
+            "mean": 13.794871794871796,
+            "min": 5
+          },
+          "output_interval": {
+            "histogram": {
+              "1": 5,
+              "10": 2,
+              "11": 2,
+              "12": 2,
+              "13": 5,
+              "14": 4,
+              "15": 2,
+              "16": 4,
+              "17": 1,
+              "18": 7,
+              "19": 2,
+              "20": 4,
+              "23": 1,
+              "3": 1,
+              "4": 2,
+              "49": 1,
+              "5": 14,
+              "50": 1,
+              "55": 1,
+              "56": 2,
+              "57": 1,
+              "6": 5,
+              "7": 4,
+              "8": 2,
+              "9": 3
+            },
+            "max": 57,
+            "mean": 13.782051282051283,
+            "min": 1
+          },
+          "record_completion_interval": {
+            "histogram": {
+              "10": 2,
+              "11": 3,
+              "12": 3,
+              "13": 5,
+              "14": 6,
+              "15": 2,
+              "17": 1,
+              "18": 6,
+              "19": 1,
+              "20": 3,
+              "22": 1,
+              "27": 1,
+              "3": 6,
+              "30": 1,
+              "31": 1,
+              "38": 1,
+              "42": 1,
+              "44": 1,
+              "45": 1,
+              "46": 1,
+              "49": 1,
+              "5": 2,
+              "50": 1,
+              "55": 1,
+              "6": 6,
+              "7": 7,
+              "8": 6,
+              "9": 7
+            },
+            "max": 55,
+            "mean": 15.064102564102564,
+            "min": 3
+          }
+        },
+        "verified_head_scores": 408,
+        "verified_query_epochs": 6
+      },
+      "calibration_fixtures": [
+        {
+          "file": "d080_0003_l07_s000.npz",
+          "sha256": "343de87acda6f6477cb1fa94ccaeb7662d294538750a2b10be80f752cd3b681d"
+        },
+        {
+          "file": "d080_0003_l21_s000.npz",
+          "sha256": "d93fa07b8942adc00339164abb4e1dea0e089cc35f534910984371484d84158b"
+        },
+        {
+          "file": "d080_0003_l35_s000.npz",
+          "sha256": "e14a76106e4deddcf45aa6fb0b9a53a91e82d686202fc0dacd41593cd6fb0ab1"
+        },
+        {
+          "file": "d080_0004_l07_s003.npz",
+          "sha256": "defa4a35ebff6d0ac647158143f0d06c9747c2fa4133ca1a67f6172f012aff42"
+        },
+        {
+          "file": "d080_0004_l21_s003.npz",
+          "sha256": "41d67aea62f1e85faae7a04da937b3f49e20416ae95138d84db79bf61a973a01"
+        },
+        {
+          "file": "d080_0004_l35_s003.npz",
+          "sha256": "4073320261b8c688f0d8aa90ee134fdb54c4390fe33febe30d1e836659cf1ba2"
+        }
+      ],
+      "continuous": {
+        "accepted_boundary_shared_beats": 0,
+        "accepted_input_beats": 393,
+        "clock_edge_convention": "accepted rising-edge cycle difference; all four results share one handshake",
+        "coefficient_lanes": 2,
+        "coefficient_record_issue_cycles": 4,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 129,
+              "2": 2
+            },
+            "max": 2,
+            "mean": 1.015267175572519,
+            "min": 1
+          },
+          "coefficient_first_issue_to_all_ready": {
+            "histogram": {
+              "12": 131
+            },
+            "max": 12,
+            "mean": 12.0,
+            "min": 12
+          },
+          "coefficient_last_issue_to_all_ready": {
+            "histogram": {
+              "9": 131
+            },
+            "max": 9,
+            "mean": 9.0,
+            "min": 9
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 129,
+              "16": 2
+            },
+            "max": 16,
+            "mean": 14.030534351145038,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "18": 129,
+              "20": 2
+            },
+            "max": 20,
+            "mean": 18.03053435114504,
+            "min": 18
+          },
+          "complete_to_output": {
+            "histogram": {
+              "28": 129,
+              "30": 2
+            },
+            "max": 30,
+            "mean": 28.03053435114504,
+            "min": 28
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "10": 131
+            },
+            "max": 10,
+            "mean": 10.0,
+            "min": 10
+          },
+          "dot_start_interval": {
+            "histogram": {
+              "16": 64,
+              "5": 65
+            },
+            "max": 16,
+            "mean": 10.457364341085272,
+            "min": 5
+          },
+          "output_interval": {
+            "histogram": {
+              "16": 64,
+              "5": 65
+            },
+            "max": 16,
+            "mean": 10.457364341085272,
+            "min": 5
+          },
+          "record_completion_interval": {
+            "histogram": {
+              "16": 62,
+              "18": 2,
+              "3": 2,
+              "5": 63
+            },
+            "max": 18,
+            "mean": 10.457364341085272,
+            "min": 3
+          },
+          "record_start_to_complete": {
+            "histogram": {
+              "2": 131
+            },
+            "max": 2,
+            "mean": 2.0,
+            "min": 2
+          },
+          "record_start_to_output": {
+            "histogram": {
+              "30": 129,
+              "32": 2
+            },
+            "max": 32,
+            "mean": 30.03053435114504,
+            "min": 30
+          }
+        },
+        "exact_steady_record_cadence": {
+          "effective_ii_cycles": 10.5,
+          "interval_pattern": [
+            5,
+            16
+          ]
+        },
+        "first_record_latencies": [
+          {
+            "complete_to_first_output": 28,
+            "first_burst_to_complete": 2,
+            "first_burst_to_first_output": 30,
+            "first_query_load_to_first_output": 35
+          },
+          {
+            "complete_to_first_output": 28,
+            "first_burst_to_complete": 2,
+            "first_burst_to_first_output": 30,
+            "first_query_load_to_first_output": 35
+          }
+        ],
+        "group_heads": 4,
+        "log_sha256": "4ee2a71a457aaa1295d15cc42ad2943ae393c2f8dccfc7314270e34e0e66162b",
+        "observed_peak_inflight_or_buffered_results": 2,
+        "observed_peak_record_slots": 2,
+        "observed_peak_result_fifo_entries": 1,
+        "pages": 131,
+        "raw_dot_service_cycles": 5,
+        "record_release": "dot_last edge; slot can accept bytes on following edge",
+        "record_slots": 2,
+        "result_fifo_slots": 2,
+        "stalled_input_cycles": 962,
+        "stalled_output_cycles": 0,
+        "steady_edge_metrics": {
+          "coefficient_record_issue_interval": {
+            "histogram": {
+              "16": 61,
+              "5": 62
+            },
+            "max": 16,
+            "mean": 10.455284552845528,
+            "min": 5
+          },
+          "dot_start_interval": {
+            "histogram": {
+              "16": 61,
+              "5": 62
+            },
+            "max": 16,
+            "mean": 10.455284552845528,
+            "min": 5
+          },
+          "output_interval": {
+            "histogram": {
+              "16": 61,
+              "5": 62
+            },
+            "max": 16,
+            "mean": 10.455284552845528,
+            "min": 5
+          },
+          "record_completion_interval": {
+            "histogram": {
+              "16": 61,
+              "5": 62
+            },
+            "max": 16,
+            "mean": 10.455284552845528,
+            "min": 5
+          }
+        },
+        "verified_head_scores": 524,
+        "verified_query_epochs": 2
+      },
+      "preloaded_coefficients": false,
+      "record_channels": 80,
+      "stalled": {
+        "accepted_boundary_shared_beats": 0,
+        "accepted_input_beats": 393,
+        "clock_edge_convention": "accepted rising-edge cycle difference; all four results share one handshake",
+        "coefficient_lanes": 2,
+        "coefficient_record_issue_cycles": 4,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 122,
+              "2": 9
+            },
+            "max": 2,
+            "mean": 1.0687022900763359,
+            "min": 1
+          },
+          "coefficient_first_issue_to_all_ready": {
+            "histogram": {
+              "12": 131
+            },
+            "max": 12,
+            "mean": 12.0,
+            "min": 12
+          },
+          "coefficient_last_issue_to_all_ready": {
+            "histogram": {
+              "9": 131
+            },
+            "max": 9,
+            "mean": 9.0,
+            "min": 9
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 94,
+              "15": 1,
+              "16": 8,
+              "21": 1,
+              "27": 1,
+              "33": 1,
+              "36": 2,
+              "37": 2,
+              "38": 1,
+              "39": 2,
+              "40": 2,
+              "43": 3,
+              "44": 1,
+              "46": 3,
+              "47": 1,
+              "50": 3,
+              "51": 3,
+              "52": 1,
+              "58": 1
+            },
+            "max": 58,
+            "mean": 20.251908396946565,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "18": 94,
+              "19": 1,
+              "20": 8,
+              "25": 1,
+              "31": 1,
+              "37": 1,
+              "40": 2,
+              "41": 2,
+              "42": 1,
+              "43": 2,
+              "44": 2,
+              "47": 3,
+              "48": 1,
+              "50": 3,
+              "51": 1,
+              "54": 3,
+              "55": 3,
+              "56": 1,
+              "62": 1
+            },
+            "max": 62,
+            "mean": 24.251908396946565,
+            "min": 18
+          },
+          "complete_to_output": {
+            "histogram": {
+              "28": 59,
+              "29": 6,
+              "30": 6,
+              "31": 2,
+              "32": 1,
+              "35": 1,
+              "36": 1,
+              "41": 1,
+              "42": 1,
+              "47": 1,
+              "48": 1,
+              "50": 2,
+              "51": 1,
+              "52": 2,
+              "53": 2,
+              "54": 3,
+              "55": 1,
+              "56": 1,
+              "57": 4,
+              "58": 3,
+              "59": 1,
+              "60": 4,
+              "61": 1,
+              "63": 2,
+              "64": 4,
+              "65": 3,
+              "66": 4,
+              "69": 1,
+              "71": 4,
+              "72": 1,
+              "73": 2,
+              "74": 2,
+              "75": 2,
+              "79": 1
+            },
+            "max": 79,
+            "mean": 42.2442748091603,
+            "min": 28
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "10": 88,
+              "11": 9,
+              "12": 2,
+              "13": 2,
+              "15": 1,
+              "18": 1,
+              "24": 1,
+              "30": 1,
+              "35": 1,
+              "36": 1,
+              "37": 1,
+              "38": 1,
+              "39": 2,
+              "41": 1,
+              "42": 1,
+              "44": 1,
+              "45": 2,
+              "46": 2,
+              "48": 1,
+              "51": 1,
+              "53": 4,
+              "55": 2,
+              "56": 2,
+              "57": 2,
+              "61": 1
+            },
+            "max": 61,
+            "mean": 17.99236641221374,
+            "min": 10
+          },
+          "dot_start_interval": {
+            "histogram": {
+              "10": 3,
+              "11": 6,
+              "12": 2,
+              "13": 3,
+              "14": 9,
+              "15": 5,
+              "16": 7,
+              "17": 1,
+              "18": 10,
+              "19": 8,
+              "20": 6,
+              "21": 1,
+              "23": 1,
+              "27": 1,
+              "38": 1,
+              "39": 1,
+              "40": 1,
+              "41": 1,
+              "42": 2,
+              "44": 1,
+              "46": 1,
+              "47": 1,
+              "48": 1,
+              "49": 1,
+              "5": 28,
+              "56": 2,
+              "6": 7,
+              "7": 9,
+              "8": 3,
+              "9": 6
+            },
+            "max": 56,
+            "mean": 14.906976744186046,
+            "min": 5
+          },
+          "output_interval": {
+            "histogram": {
+              "1": 14,
+              "10": 2,
+              "11": 5,
+              "12": 2,
+              "13": 10,
+              "14": 11,
+              "15": 3,
+              "16": 6,
+              "17": 1,
+              "18": 9,
+              "19": 5,
+              "20": 4,
+              "23": 2,
+              "3": 1,
+              "4": 5,
+              "48": 1,
+              "49": 2,
+              "5": 18,
+              "50": 1,
+              "51": 1,
+              "52": 1,
+              "53": 1,
+              "55": 1,
+              "56": 2,
+              "57": 1,
+              "6": 6,
+              "68": 1,
+              "7": 6,
+              "70": 1,
+              "8": 2,
+              "9": 4
+            },
+            "max": 70,
+            "mean": 14.689922480620154,
+            "min": 1
+          },
+          "record_completion_interval": {
+            "histogram": {
+              "10": 4,
+              "11": 7,
+              "12": 7,
+              "13": 6,
+              "14": 13,
+              "15": 5,
+              "17": 1,
+              "18": 8,
+              "19": 6,
+              "20": 6,
+              "22": 1,
+              "23": 2,
+              "25": 1,
+              "3": 9,
+              "38": 2,
+              "39": 1,
+              "4": 1,
+              "41": 1,
+              "42": 1,
+              "43": 1,
+              "45": 1,
+              "46": 1,
+              "48": 1,
+              "49": 1,
+              "5": 5,
+              "50": 1,
+              "55": 1,
+              "56": 1,
+              "6": 8,
+              "7": 11,
+              "8": 7,
+              "9": 8
+            },
+            "max": 56,
+            "mean": 14.906976744186046,
+            "min": 3
+          },
+          "record_start_to_complete": {
+            "histogram": {
+              "2": 54,
+              "3": 3,
+              "4": 19,
+              "5": 15,
+              "6": 29,
+              "7": 9,
+              "9": 2
+            },
+            "max": 9,
+            "mean": 3.9923664122137406,
+            "min": 2
+          },
+          "record_start_to_output": {
+            "histogram": {
+              "30": 21,
+              "31": 4,
+              "32": 18,
+              "33": 6,
+              "34": 17,
+              "35": 6,
+              "37": 2,
+              "38": 1,
+              "41": 1,
+              "43": 1,
+              "48": 1,
+              "50": 1,
+              "52": 1,
+              "53": 1,
+              "54": 1,
+              "55": 1,
+              "56": 2,
+              "58": 2,
+              "59": 3,
+              "60": 3,
+              "61": 3,
+              "62": 2,
+              "63": 2,
+              "64": 1,
+              "65": 4,
+              "66": 4,
+              "67": 1,
+              "68": 2,
+              "69": 2,
+              "70": 1,
+              "71": 4,
+              "73": 1,
+              "74": 1,
+              "75": 1,
+              "76": 1,
+              "77": 3,
+              "78": 1,
+              "79": 2,
+              "82": 1,
+              "85": 1
+            },
+            "max": 85,
+            "mean": 46.23664122137404,
+            "min": 30
+          }
+        },
+        "exact_steady_record_cadence": null,
+        "first_record_latencies": [
+          {
+            "complete_to_first_output": 36,
+            "first_burst_to_complete": 2,
+            "first_burst_to_first_output": 38,
+            "first_query_load_to_first_output": 43
+          },
+          {
+            "complete_to_first_output": 48,
+            "first_burst_to_complete": 2,
+            "first_burst_to_first_output": 50,
+            "first_query_load_to_first_output": 60
+          }
+        ],
+        "group_heads": 4,
+        "log_sha256": "e84bcf3cd62961cce56e0358b9fc90f391fa9645179735a58bd885c0fd0fcd27",
+        "observed_peak_inflight_or_buffered_results": 2,
+        "observed_peak_record_slots": 2,
+        "observed_peak_result_fifo_entries": 2,
+        "pages": 131,
+        "raw_dot_service_cycles": 5,
+        "record_release": "dot_last edge; slot can accept bytes on following edge",
+        "record_slots": 2,
+        "result_fifo_slots": 2,
+        "stalled_input_cycles": 1167,
+        "stalled_output_cycles": 613,
+        "steady_edge_metrics": {
+          "coefficient_record_issue_interval": {
+            "histogram": {
+              "10": 4,
+              "11": 6,
+              "12": 7,
+              "13": 6,
+              "14": 12,
+              "15": 4,
+              "17": 3,
+              "18": 6,
+              "19": 10,
+              "20": 2,
+              "21": 1,
+              "22": 2,
+              "25": 1,
+              "38": 2,
+              "39": 1,
+              "4": 10,
+              "41": 1,
+              "42": 1,
+              "45": 1,
+              "46": 1,
+              "48": 1,
+              "49": 1,
+              "5": 5,
+              "50": 1,
+              "55": 1,
+              "56": 1,
+              "6": 8,
+              "7": 10,
+              "8": 6,
+              "9": 8
+            },
+            "max": 56,
+            "mean": 14.83739837398374,
+            "min": 4
+          },
+          "dot_start_interval": {
+            "histogram": {
+              "10": 3,
+              "11": 5,
+              "12": 2,
+              "13": 3,
+              "14": 9,
+              "15": 4,
+              "16": 7,
+              "17": 1,
+              "18": 10,
+              "19": 8,
+              "20": 5,
+              "21": 1,
+              "23": 1,
+              "38": 1,
+              "39": 1,
+              "40": 1,
+              "41": 1,
+              "42": 2,
+              "44": 1,
+              "46": 1,
+              "47": 1,
+              "48": 1,
+              "49": 1,
+              "5": 28,
+              "56": 2,
+              "6": 7,
+              "7": 8,
+              "8": 2,
+              "9": 6
+            },
+            "max": 56,
+            "mean": 14.91869918699187,
+            "min": 5
+          },
+          "output_interval": {
+            "histogram": {
+              "1": 12,
+              "10": 2,
+              "11": 4,
+              "12": 2,
+              "13": 9,
+              "14": 10,
+              "15": 3,
+              "16": 6,
+              "17": 1,
+              "18": 9,
+              "19": 4,
+              "20": 4,
+              "23": 2,
+              "3": 1,
+              "4": 5,
+              "48": 1,
+              "49": 2,
+              "5": 18,
+              "50": 1,
+              "51": 1,
+              "52": 1,
+              "53": 1,
+              "55": 1,
+              "56": 2,
+              "57": 1,
+              "6": 6,
+              "68": 1,
+              "7": 6,
+              "70": 1,
+              "8": 2,
+              "9": 4
+            },
+            "max": 70,
+            "mean": 14.926829268292684,
+            "min": 1
+          },
+          "record_completion_interval": {
+            "histogram": {
+              "10": 4,
+              "11": 6,
+              "12": 7,
+              "13": 6,
+              "14": 12,
+              "15": 4,
+              "17": 1,
+              "18": 8,
+              "19": 6,
+              "20": 6,
+              "22": 1,
+              "23": 2,
+              "25": 1,
+              "3": 9,
+              "38": 2,
+              "39": 1,
+              "4": 1,
+              "41": 1,
+              "42": 1,
+              "45": 1,
+              "46": 1,
+              "48": 1,
+              "49": 1,
+              "5": 5,
+              "50": 1,
+              "55": 1,
+              "56": 1,
+              "6": 8,
+              "7": 10,
+              "8": 6,
+              "9": 8
+            },
+            "max": 56,
+            "mean": 14.83739837398374,
+            "min": 3
+          }
+        },
+        "verified_head_scores": 524,
+        "verified_query_epochs": 2
+      },
+      "stride_bytes": 96
+    }
+  },
+  "hardware_storage": {
+    "bank_indexed_read_bytes": 16,
+    "bank_write_bytes": 32,
+    "boundary_beat": "one 16-byte write to each bank, no separate duplicated transfer",
+    "burst_bytes": 32,
+    "coefficient_storage": "8 \u00d7 22 bits per bank; one/two words written on coefficient result per cycle",
+    "length_bias": "Q24 ln(count), micro-ROM for counts 1\u201332. Count 0 is masked; counts 33\u2013255 are out of contract.",
+    "query_storage": "CHUNKS \u00d7 512 BITS raw plus the same for unsigned magnitude; four 64-bit g factors",
+    "record_bank_capacity": "channels + 16 bytes per bank",
+    "record_bank_ports": "one aggregate 32 B beat per cycle; one independent selected 16 B chunk read; trailing fields held directly",
+    "record_slots": 2,
+    "result_storage": "two entries, 192-bit group Q24 score + 32-bit tag + 8-bit count; 1R1W, credits include the dot/score pipeline",
+    "summary_ingress": "ordered pre-reassembled DRAM burst stream, no addressed reorder FIFO or CDC"
+  },
+  "sources_sha256": {
+    "rtl/round12_coeff.sv": "159ea88345d7968a008d247df03fca141f1f4419b28cbed789b99ba8f467f85d",
+    "rtl/round12_frontend.sv": "9fcd3f44e4b1da6893c514e8ccb3cf9d418d430e66600f133cf85159fb2fbfa2",
+    "rtl/round12_gqa_core.sv": "ffc786df77caa4ece2f723bed337e4a8e463df0a0fdf8023cb955cd5b1089b59",
+    "rtl/score_datapaths.sv": "0668ea19c01a958ecfe8fe482890f3b24d3e8fc1d327420e1f542059c2730ca9",
+    "scripts/check_round12_rtl.py": "25fc98c70e520f94b21756c1d4fae32e6fb1ddaef375d596c648f95da10609f7",
+    "sim/round12_frontend_tb.sv": "ce9a52097b2f915a8cc4f8b2a53b0a2e83f167c3373165e32cabe6da0c4ec544"
+  },
+  "stimulus_seed": "120012 + DIM deterministic Python PRNG"
+}

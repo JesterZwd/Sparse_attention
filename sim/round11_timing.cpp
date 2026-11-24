@@ -18,7 +18,10 @@ enum Config {
     lanes, pe, mode, scorer_ii, scorer_latency, coeff_ii, coeff_latency, query_cycles,
     summary_address, summary_bursts, summary_stride, history_pages, heads, dim,
     key_tiles, value_tiles, normalize_cycles, topk_cycles, planner_cycles,
-    gate_cycles, gate_scratch, context_records, pv_final_cycles, unpack_lanes, tile_capacity
+    gate_cycles, gate_scratch, context_records, pv_final_cycles, unpack_lanes, tile_capacity,
+    frontend_period, dot_ii, dot_tail, whole_coeff_service, whole_coeff_latency, record_slots, beat_cycles,
+    ingress_cdc, result_cdc, frontend_aux_bytes, result_slots, query_load_cycles,
+    burst_fifo_slots, legacy_dot_period, legacy_burst_fifo_slots
 };
 enum Metric {
     start, completion, score_first, score_done, summary_read_done, normalized_topk_done,
@@ -30,7 +33,9 @@ enum Metric {
     sram_gate_peak, sram_v_peak, summary_slots_peak, key_slots_peak, value_slots_peak,
     packed_peak, unpacked_peak, relaxed_bound, coefficient_busy, score_data_overlap, qk_data_overlap,
     pv_data_overlap, request_window_wait, summary_slot_wait, key_slot_wait, value_slot_wait,
-    live_sram_peak, pv_weights_sram_peak, metric_count
+    live_sram_peak, pv_weights_sram_peak, first_record, last_record, last_frontend_result,
+    ingress_queue_wait, record_service_wait, result_cdc_wait, ingress_busy, frontend_reservation_peak,
+    metric_count
 };
 
 struct Stats {
@@ -61,6 +66,7 @@ struct Return {
 struct Activity {
     std::array<Clock, stages> data_overlap{};
     std::array<Clock, stages> slot_wait{};
+    std::deque<std::pair<Clock, Clock>> scheduled_compute;
     Clock window_wait = 0, accounted = 0, compute_start = 0, compute_end = 0;
     Stage stage = summary;
     bool slot_blocked = false;
@@ -75,7 +81,8 @@ struct Dram {
     std::vector<int64_t> remaining;
     std::vector<Clock> tile_ready;
     std::vector<bool> summary_received;
-    int64_t summary_base = 0, summary_prefix = 0, summary_limit = 0;
+    std::vector<Clock> summary_return_time;
+    int64_t summary_base = 0, summary_prefix = 0, summary_limit = 0, summary_returned = 0;
     int64_t phase_remaining = 0, run_offset = 0, arrivals = 0, outstanding = 0;
     Clock time = 0, command_free = 0, launch_free = 0;
     Clock first_command = -1, first_read = -1, first_return = -1, last_return = -1;
@@ -108,7 +115,14 @@ struct Dram {
             const auto left = std::max({from, end - bl * ck_fs, activity.compute_start});
             const auto right = std::min({until, end, activity.compute_end});
             activity.data_overlap[activity.stage] += std::max<Clock>(0, right - left);
+            for (const auto& span : activity.scheduled_compute) {
+                const auto a = std::max({from, end - bl * ck_fs, span.first});
+                const auto b = std::min({until, end, span.second});
+                activity.data_overlap[activity.stage] += std::max<Clock>(0, b - a);
+            }
         }
+        while (!activity.scheduled_compute.empty() && activity.scheduled_compute.front().second <= until)
+            activity.scheduled_compute.pop_front();
     }
 
     void start_phase(Stage phase, int count) {
@@ -143,7 +157,10 @@ struct Dram {
             if (req.job >= 0) {
                 if (--remaining[req.job] == 0) tile_ready[req.job] = time;
             } else {
-                summary_received[req.burst - summary_base] = true;
+                const auto index = req.burst - summary_base;
+                summary_received[index] = true;
+                ++summary_returned;
+                if (!summary_return_time.empty()) summary_return_time[index] = time;
                 while (summary_prefix < static_cast<int64_t>(summary_received.size()) &&
                        summary_received[summary_prefix]) {
                     ++summary_prefix;
@@ -255,6 +272,41 @@ struct Tile {
     int64_t records, macs, packed, first_run, last_run;
 };
 
+struct FrontendRecord {
+    Clock dot_first, reusable, result, queued;
+};
+
+struct FrontendSchedule {
+    Clock period, coefficient_free = 0, dot_free = 0;
+    int64_t coefficient_service, coefficient_latency, dot_service, tail, credits;
+    std::deque<Clock> results;
+
+    explicit FrontendSchedule(const int64_t* c)
+        : period(c[frontend_period]), coefficient_service(c[whole_coeff_service]),
+          coefficient_latency(c[whole_coeff_latency]), dot_service(c[dot_ii]),
+          tail(c[dot_tail]), credits(c[result_slots]) {}
+
+    FrontendRecord schedule(Clock complete) {
+        // The complete marker registers the record before its first coefficient issue.
+        const auto coefficient_start = std::max(complete + period, coefficient_free);
+        coefficient_free = coefficient_start + coefficient_service * period;
+        // The coefficient bank becomes readable on the edge after the final write.
+        const auto prepared = coefficient_start + (coefficient_latency + 1) * period;
+        auto dot = std::max(prepared, dot_free);
+        if (static_cast<int64_t>(results.size()) >= credits) dot = std::max(dot, results.front());
+        while (!results.empty() && results.front() <= dot) results.pop_front();
+        dot_free = dot + dot_service * period;
+        const auto result = dot + (dot_service - 1 + tail) * period;
+        results.push_back(result);
+        return {dot, dot_free, result, dot - complete - (coefficient_latency + 2) * period};
+    }
+};
+
+int64_t beat_records(int64_t beats, int64_t stride, int64_t count) {
+    // A nonterminal straddle needs access to both adjacent record slots.
+    return std::min(count, ceil_div(beats * burst_bytes, stride));
+}
+
 struct Group {
     Dram& dram;
     const int64_t* c;
@@ -270,7 +322,8 @@ struct Group {
           fixed_sram(c[heads] * c[dim] * 2 + queue_depth * 16 + c[key_tiles] * 8 + 64) {
         std::fill(out, out + metric_count, 0);
         for (auto field : {score_first, k_first_command, qk_first, v_first_command,
-                           v_first_rd, v_first_return, pv_first}) out[field] = -1;
+                           v_first_rd, v_first_return, pv_first, first_record, last_record,
+                           last_frontend_result}) out[field] = -1;
         out[start] = group_start;
         dram.group_peak = dram.pending_peak = dram.descriptor_count = 0;
         dram.activity = {};
@@ -280,6 +333,9 @@ struct Group {
     Clock now() const { return dram.time - group_start; }
     Clock cycles(int64_t n) const { return n * c[pe]; }
     Clock edge(Clock moment) const { return ceil_div(moment, c[pe]) * c[pe]; }
+    Clock front_cycles(int64_t n) const { return n * c[frontend_period]; }
+    Clock front_edge(Clock moment) const { return ceil_div(moment, c[frontend_period]) * c[frontend_period]; }
+    Clock legacy_period() const { return c[legacy_dot_period] ? c[legacy_dot_period] : c[pe]; }
 
     void sram(Metric stage_peak, int64_t usable, int64_t idle_reservation = 0) {
         const auto bytes = fixed_sram + usable + 16 * dram.runs.size();
@@ -288,16 +344,31 @@ struct Group {
         out[sram_peak] = std::max(out[sram_peak], out[stage_peak]);
     }
 
-    bool summaries() {
+    void start_summaries(bool measured) {
+        dram.start_phase(summary, 0);
+        dram.summary_base = c[summary_address];
+        dram.summary_prefix = dram.summary_limit = dram.summary_returned = 0;
+        dram.summary_received.assign(c[summary_bursts], false);
+        dram.summary_return_time.assign(measured ? c[summary_bursts] : 0, 0);
+        dram.submit(c[summary_address], c[summary_bursts], -1);
+    }
+
+    void finish_summaries() {
+        out[summary_read_done] = dram.last_return - group_start;
+        out[score_done] = now();
+        // The FP32 page scores survive through normalization and heap/rank scan.
+        sram(sram_summary_peak, c[history_pages] * c[heads] * 4 + c[heads] * 16);
+        dram.time += cycles(c[normalize_cycles] + c[topk_cycles] + c[planner_cycles]);
+        out[normalized_topk_done] = now();
+    }
+
+    bool legacy_summaries() {
         const int64_t n = c[history_pages];
         const bool barrier = c[mode] == serial;
         const int64_t capacity = barrier || c[mode] == dependency_bound ? n :
                                  c[mode] == serial_one_slot ? 1 : 2;
-        dram.start_phase(summary, 0);
-        dram.summary_base = c[summary_address];
-        dram.summary_prefix = dram.summary_limit = 0;
-        dram.summary_received.assign(c[summary_bursts], false);
-        dram.submit(c[summary_address], c[summary_bursts], -1);
+        const auto fifo_bytes = c[legacy_burst_fifo_slots] * burst_bytes;
+        start_summaries(false);
         const Clock query_ready = edge(group_start) + cycles(c[query_cycles]);
         Clock coefficient_free = group_start, score_free = query_ready, last_result = group_start;
         std::vector<Clock> prepared;
@@ -310,14 +381,20 @@ struct Group {
                 ++released;
             }
             const int64_t credited = std::min(n, released + capacity);
-            dram.summary_limit = std::min(c[summary_bursts], ceil_div(credited * c[summary_stride], burst_bytes));
+            dram.summary_limit = std::min(c[summary_bursts],
+                ceil_div(credited * c[summary_stride], burst_bytes) + c[legacy_burst_fifo_slots]);
             const int64_t available = std::min({n, credited,
                                                dram.summary_prefix * burst_bytes / c[summary_stride]});
             const int64_t packed = std::min(c[summary_bursts] * burst_bytes,
                 (credited - released) * c[summary_stride] + (credited > released ? burst_bytes : 0));
+            const auto fifo_live = std::clamp<int64_t>(dram.summary_returned * burst_bytes -
+                                                      credited * c[summary_stride], 0, fifo_bytes);
+            const auto metadata = (credited - released) * (2 * 4 + 8);
+            if (fifo_bytes) out[frontend_reservation_peak] = std::max(out[frontend_reservation_peak],
+                                                                      packed + metadata + fifo_bytes);
             out[summary_slots_peak] = std::max(out[summary_slots_peak], credited - released);
             sram(sram_summary_peak, packed + accepted * c[heads] * 4 +
-                 (credited - released) * (2 * 4 + 8) + c[heads] * c[dim]);
+                 metadata + c[heads] * c[dim] + fifo_live, fifo_bytes - fifo_live);
             if (!barrier || !dram.phase_remaining) {
                 for (auto p = static_cast<int64_t>(prepared.size()); p < available; ++p) {
                     const Clock launched = std::max(coefficient_free, edge(dram.time));
@@ -328,14 +405,15 @@ struct Group {
             Clock next = held.empty() ? never : held.front();
             if (accepted == n && !dram.phase_remaining) next = std::min(next, last_result);
             if (accepted < static_cast<int64_t>(prepared.size())) {
-                const Clock can_start = std::max(score_free, prepared[accepted]);
+                Clock can_start = std::max(score_free, prepared[accepted]);
+                if (c[legacy_dot_period]) can_start = ceil_div(can_start, legacy_period()) * legacy_period();
                 if (can_start <= dram.time) {
                     if (out[score_first] < 0) out[score_first] = now();
                     out[summary_wait] += std::max<Clock>(0, dram.time - score_free);
-                    score_free = dram.time + cycles(c[scorer_ii]);
+                    score_free = dram.time + c[scorer_ii] * legacy_period();
                     dram.activity.compute_start = dram.time;
                     dram.activity.compute_end = score_free;
-                    last_result = dram.time + cycles(c[scorer_latency]);
+                    last_result = dram.time + c[scorer_latency] * legacy_period();
                     held.push_back(c[mode] == serial_one_slot ? last_result : score_free);
                     ++accepted;
                     continue;
@@ -346,14 +424,82 @@ struct Group {
             if (next <= dram.time) next = never;
             if (!dram.advance(next)) return false;
         }
-        out[summary_read_done] = dram.last_return - group_start;
-        out[score_done] = now();
-        out[score_busy] = cycles(n * c[scorer_ii]);
+        if (c[legacy_dot_period]) dram.time = edge(dram.time);
+        out[score_busy] = n * c[scorer_ii] * legacy_period();
         out[coefficient_busy] = cycles(n * c[coeff_ii]);
-        // The FP32 page scores survive through normalization and heap/rank scan.
-        sram(sram_summary_peak, n * c[heads] * 4 + c[heads] * 16);
-        dram.time += cycles(c[normalize_cycles] + c[topk_cycles] + c[planner_cycles]);
-        out[normalized_topk_done] = now();
+        finish_summaries();
+        return true;
+    }
+
+    bool measured_summaries() {
+        start_summaries(true);
+        const auto n = c[history_pages], stride = c[summary_stride];
+        const auto capacity = std::min(n, c[mode] == serial_one_slot ? 1L : c[record_slots]);
+        const auto packed_reservation = capacity * stride + burst_bytes;
+        const auto reservation = packed_reservation + capacity * 32 + c[frontend_aux_bytes] +
+                                 c[burst_fifo_slots] * burst_bytes;
+        const auto query_ready = front_edge(edge(group_start) + cycles(c[query_cycles])) +
+                                 front_cycles(c[ingress_cdc] + c[query_load_cycles]);
+        Clock ingress_free = query_ready, last_result = group_start, dot_free = query_ready;
+        FrontendSchedule schedule(c);
+        std::deque<Clock> held;
+        int64_t beats = 0, accepted = 0, released = 0;
+
+        while (true) {
+            while (!held.empty() && held.front() <= dram.time) {
+                held.pop_front();
+                ++released;
+            }
+            const auto credited = std::min(n, released + capacity);
+            dram.summary_limit = std::min(c[summary_bursts], ceil_div(credited * stride, burst_bytes) + c[burst_fifo_slots]);
+            const auto live_packed = std::clamp<int64_t>(dram.summary_returned * burst_bytes - released * stride,
+                                                        0, packed_reservation + c[burst_fifo_slots] * burst_bytes);
+            const auto live = live_packed + (credited - released) * 32 + c[frontend_aux_bytes];
+            out[summary_slots_peak] = std::max(out[summary_slots_peak], credited - released);
+            out[frontend_reservation_peak] = reservation;
+            sram(sram_summary_peak, live + accepted * c[heads] * 4 + c[heads] * c[dim], reservation - live);
+
+            Clock next = held.empty() ? never : held.front();
+            if (beats < dram.summary_prefix && beat_records(beats + 1, stride, n) <= credited) {
+                const auto visible = front_edge(dram.summary_return_time[beats]) + front_cycles(c[ingress_cdc]);
+                const auto launch = std::max(ingress_free, visible);
+                const auto done = launch + front_cycles(c[beat_cycles] - 1);
+                if (done <= dram.time) {
+                    out[ingress_queue_wait] += std::max<Clock>(0, dram.time - visible - front_cycles(c[beat_cycles] - 1));
+                    ingress_free = dram.time + front_cycles(1);
+                    ++beats;
+                    if (accepted < std::min(n, beats * burst_bytes / stride)) {
+                        const auto item = schedule.schedule(dram.time);
+                        if (out[first_record] < 0) {
+                            out[first_record] = now();
+                            out[score_first] = item.dot_first - group_start;
+                        }
+                        out[last_record] = now();
+                        out[record_service_wait] += item.queued;
+                        out[summary_wait] += std::max<Clock>(0, item.dot_first - dot_free);
+                        dot_free = item.reusable;
+                        dram.activity.scheduled_compute.emplace_back(item.dot_first, dot_free);
+                        last_result = item.result;
+                        held.push_back(item.reusable);
+                        ++accepted;
+                    }
+                    continue;
+                }
+                next = std::min(next, done);
+            }
+            if (accepted == n && beats == c[summary_bursts] && held.empty()) {
+                const auto returned = edge(last_result) + cycles(c[result_cdc]);
+                if (dram.time >= returned) break;
+                next = std::min(next, returned);
+            }
+            if (!dram.advance(next)) return false;
+        }
+        out[last_frontend_result] = last_result - group_start;
+        out[result_cdc_wait] = edge(last_result) + cycles(c[result_cdc]) - last_result;
+        out[score_busy] = front_cycles(n * c[dot_ii]);
+        out[coefficient_busy] = front_cycles(n * c[whole_coeff_service]);
+        out[ingress_busy] = front_cycles(beats * c[beat_cycles]);
+        finish_summaries();
         return true;
     }
 
@@ -452,7 +598,7 @@ struct Group {
 
     bool run() {
         const auto first = dram.stats;
-        if (!summaries()) return false;
+        if (c[frontend_period] ? !measured_summaries() : !legacy_summaries()) return false;
         out[summary_rd] = dram.stats.reads - first.reads;
         if (!replay_tiles(key, c[key_tiles], tiles)) return false;
         out[k_rd] = dram.stats.reads - first.reads - out[summary_rd];
@@ -483,10 +629,14 @@ struct Group {
         out[descriptor_peak] = dram.pending_peak;
         out[descriptors] = dram.descriptor_count;
 
-        const auto ideal_summary = std::max(out[summary_rd] * bl * ck_fs,
-            std::max(cycles(c[query_cycles]), ceil_div(c[summary_stride], burst_bytes) * bl * ck_fs) +
-            cycles(c[coeff_latency] + (c[history_pages] - 1) * std::max(c[scorer_ii], c[coeff_ii]) +
-                   c[scorer_latency]));
+        const auto first_summary_ready = std::max(cycles(c[query_cycles]),
+                                                  ceil_div(c[summary_stride], burst_bytes) * bl * ck_fs);
+        const auto serve_summaries = c[frontend_period]
+            ? front_cycles((c[history_pages] - 1) * std::max(c[dot_ii], c[whole_coeff_service]) +
+                           c[whole_coeff_latency] + 2 + c[dot_ii] - 1 + c[dot_tail])
+            : cycles(c[coeff_latency]) + (c[history_pages] - 1) *
+              std::max(c[scorer_ii] * legacy_period(), cycles(c[coeff_ii])) + c[scorer_latency] * legacy_period();
+        const auto ideal_summary = std::max(out[summary_rd] * bl * ck_fs, first_summary_ready + serve_summaries);
         out[relaxed_bound] = ideal_summary + cycles(c[normalize_cycles] + c[topk_cycles] +
             c[planner_cycles] + c[gate_cycles] + (c[value_tiles] ? c[pv_final_cycles] : 0)) +
             std::max({out[k_rd] * bl * ck_fs, out[qk_busy], out[k_unpack]}) +
@@ -498,6 +648,38 @@ struct Group {
 
 extern "C" void* round11_open() { return new Dram; }
 extern "C" void round11_close(void* handle) { delete static_cast<Dram*>(handle); }
+
+extern "C" void round12_saturated_frontend(const int64_t* args, int64_t count, int64_t stride,
+                                          int64_t* output) {
+    int64_t c[legacy_dot_period + 1]{};
+    std::copy(args, args + legacy_dot_period - frontend_period, c + frontend_period);
+    FrontendSchedule schedule(c);
+    const auto cycle = c[frontend_period];
+    std::deque<Clock> held;
+    int64_t accepted = 0, released = 0, beats = 0;
+    Clock now = (c[beat_cycles] - 1) * cycle;
+    while (accepted < count) {
+        while (!held.empty() && held.front() <= now) {
+            held.pop_front();
+            ++released;
+        }
+        if (beat_records(beats + 1, stride, count) > released + c[record_slots]) {
+            now = held.front();
+            continue;
+        }
+        ++beats;
+        if (accepted < beats * burst_bytes / stride) {
+            const auto item = schedule.schedule(now);
+            output[4 * accepted] = now / cycle;
+            output[4 * accepted + 1] = item.dot_first / cycle;
+            output[4 * accepted + 2] = item.reusable / cycle;
+            output[4 * accepted + 3] = item.result / cycle;
+            held.push_back(item.reusable);
+            ++accepted;
+        }
+        now += c[beat_cycles] * cycle;
+    }
+}
 
 extern "C" int replay_round11(void* handle, const int64_t* config, const int64_t* ranges,
                               const int64_t* tile_data, int64_t* output) {

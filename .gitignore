@@ -53,3 +53,9 @@ results/round11_workpoints/data/
 results/round11_workpoints/**/bundles/
 results/round11_workpoints/*.log
 results/round11_workpoints/*/replay/group_timing.csv.gz
+
+results/round12_frontend/data/
+results/round12_frontend/local_inputs/
+results/round12_frontend/**/bundles/
+results/round12_frontend/**/group_timing.csv.gz
+results/round12_frontend/32k/extended/states.jsonl.gz

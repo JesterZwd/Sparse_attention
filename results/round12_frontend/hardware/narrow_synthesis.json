@@ -1,0 +1,335 @@
+{
+  "area_stage_attribution": "Mapped cells grouped by flop Q names and transitive logic cones to their FF D inputs. Shared cones and unassigned output logic remain separate.",
+  "constraints": {
+    "input_drive": "BUF_X1",
+    "io_delays_ns": 0,
+    "output_load_ff": 5.0,
+    "period_ns": 1.25,
+    "reset_false_path": true
+  },
+  "designs": {
+    "patched80_dual": {
+      "area_um2": 181390.986,
+      "cell_count": 109881,
+      "cells_by_type": {
+        "AND2_X1": 3868,
+        "AND2_X2": 120,
+        "AND2_X4": 15,
+        "AND3_X1": 1472,
+        "AND3_X2": 29,
+        "AND3_X4": 2,
+        "AND4_X1": 2389,
+        "AND4_X2": 30,
+        "AND4_X4": 1,
+        "AOI211_X1": 50,
+        "AOI21_X1": 5881,
+        "AOI21_X2": 108,
+        "AOI21_X4": 4,
+        "AOI221_X1": 15,
+        "AOI222_X1": 128,
+        "AOI22_X1": 2888,
+        "AOI22_X2": 6,
+        "BUF_X1": 5297,
+        "BUF_X2": 258,
+        "BUF_X4": 111,
+        "BUF_X8": 9,
+        "CLKBUF_X1": 884,
+        "CLKBUF_X2": 30,
+        "CLKBUF_X3": 1,
+        "DFF_X1": 14673,
+        "INV_X1": 5765,
+        "INV_X2": 8,
+        "INV_X4": 1,
+        "MUX2_X1": 15089,
+        "MUX2_X2": 4,
+        "NAND2_X1": 10900,
+        "NAND2_X2": 1,
+        "NAND3_X1": 1873,
+        "NAND4_X1": 390,
+        "NOR2_X1": 7117,
+        "NOR2_X2": 84,
+        "NOR2_X4": 25,
+        "NOR3_X1": 2442,
+        "NOR4_X1": 56,
+        "OAI211_X1": 240,
+        "OAI21_X1": 9583,
+        "OAI21_X2": 154,
+        "OAI21_X4": 7,
+        "OAI221_X1": 32,
+        "OAI22_X1": 828,
+        "OAI33_X1": 115,
+        "OR2_X1": 2020,
+        "OR2_X2": 63,
+        "OR2_X4": 10,
+        "OR3_X1": 1444,
+        "OR3_X2": 98,
+        "OR3_X4": 2,
+        "OR4_X1": 28,
+        "XNOR2_X1": 8954,
+        "XNOR2_X2": 38,
+        "XOR2_X1": 4209,
+        "XOR2_X2": 32
+      },
+      "coefficient_lanes": 2,
+      "critical_paths": [
+        {
+          "endpoint": "_210523_",
+          "endpoint_signal": "\\core.result [92]",
+          "endpoint_stage": "score_sum",
+          "setup_slack_ns": -0.496854007,
+          "start": "_213182_",
+          "start_signal": "\\core.head[1].pipelined_tail.compress_carry [2]",
+          "start_stage": "score_sum"
+        },
+        {
+          "endpoint": "_213069_",
+          "endpoint_signal": "\\core.head[2].pipelined_tail.partial_product_a_high [31]",
+          "endpoint_stage": "score_scale",
+          "setup_slack_ns": -0.492987454,
+          "start": "_212828_",
+          "start_signal": "\\core.head[2].sum_a [5]",
+          "start_stage": "dot_accumulate"
+        },
+        {
+          "endpoint": "_213070_",
+          "endpoint_signal": "\\core.head[2].pipelined_tail.partial_product_a_high [32]",
+          "endpoint_stage": "score_scale",
+          "setup_slack_ns": -0.492987454,
+          "start": "_212828_",
+          "start_signal": "\\core.head[2].sum_a [5]",
+          "start_stage": "dot_accumulate"
+        }
+      ],
+      "critical_period_ns": 1.746854007,
+      "dimension": 80,
+      "estimated_clock_mhz": 572.4576844961263,
+      "flop_bits": 14673,
+      "group_mrecords_s_at_sta": 54.51977947582155,
+      "group_mrecords_s_at_target": null,
+      "head_mscores_s_at_sta": 218.0791179032862,
+      "heads": 4,
+      "latch_bits": 0,
+      "library_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+      "mapped_sha256": "dbb59ccf44201a6a86d329522f1b23b23c43f1333dd1d2ea3335ffbf84fffd69",
+      "mapping_period_ns": 1.25,
+      "mapping_tools": {
+        "abc": "ABC command line: \"version\".\n\nUC Berkeley, ABC 1.01 (compiled Apr  1 2024 04:53:45)",
+        "yosys": "Yosys 0.33 (git sha1 2584903a060)"
+      },
+      "measured_group_ii_cycles": 10.5,
+      "measured_native_first_input_to_result_cycles": 30,
+      "passes_target": false,
+      "rate_scope": "one four-head record per output handshake; two record slots",
+      "raw_sta_sha256": "21e836c1aa1f0cca4ab5aeef37e09539dbecdd63cb9fcc4060fb134d84e2d290",
+      "setup_wns_ns": -0.496854007,
+      "source_snapshot_sha256": "74aa2bf1b7bd4ce07cde96d9bca2f93b131e0c266fc7ee98c92f91d767216cb5",
+      "sources_sha256": {
+        "rtl/round12_coeff.sv": "159ea88345d7968a008d247df03fca141f1f4419b28cbed789b99ba8f467f85d",
+        "rtl/round12_frontend.sv": "9fcd3f44e4b1da6893c514e8ccb3cf9d418d430e66600f133cf85159fb2fbfa2",
+        "rtl/round12_gqa_core.sv": "ffc786df77caa4ece2f723bed337e4a8e463df0a0fdf8023cb955cd5b1089b59"
+      },
+      "stage_critical_paths": {
+        "coefficient": {
+          "endpoint": "_217811_",
+          "endpoint_signal": "\\generated_coefficients.pipe[1].transform.pp3 [24]",
+          "endpoint_stage": "coefficient",
+          "setup_slack_ns": -0.297053605,
+          "start": "_207816_",
+          "start_signal": "\\generated_coefficients.pipe[1].transform.half_sig1 [3]",
+          "start_stage": "coefficient"
+        },
+        "dot_accumulate": {
+          "endpoint": "_212093_",
+          "endpoint_signal": "\\core.head[1].accumulated_b [20]",
+          "endpoint_stage": "dot_accumulate",
+          "setup_slack_ns": -0.177206367,
+          "start": "_209499_",
+          "start_signal": "\\core.tree_first ",
+          "start_stage": "dot_reduce"
+        },
+        "dot_input": {
+          "endpoint": "_207967_",
+          "endpoint_signal": "\\core.read_q [12]",
+          "endpoint_stage": "dot_input",
+          "setup_slack_ns": 0.680070937,
+          "start": "_206793_",
+          "start_signal": "dot_chunk[0]",
+          "start_stage": "flow_control"
+        },
+        "dot_products": {
+          "endpoint": "_211772_",
+          "endpoint_signal": "\\core.head[1].product_a[5] [13]",
+          "endpoint_stage": "dot_products",
+          "setup_slack_ns": -0.058733687,
+          "start": "_210343_",
+          "start_signal": "\\core.read_codes [41]",
+          "start_stage": "dot_input"
+        },
+        "dot_reduce": {
+          "endpoint": "_211366_",
+          "endpoint_signal": "\\core.head[0].tree_a [17]",
+          "endpoint_stage": "dot_reduce",
+          "setup_slack_ns": 0.012408963,
+          "start": "_211211_",
+          "start_signal": "\\core.head[0].quad_a[2] [2]",
+          "start_stage": "dot_reduce"
+        },
+        "flow_control": {
+          "endpoint": "_206827_",
+          "endpoint_signal": "input_tag[31]",
+          "endpoint_stage": "flow_control",
+          "setup_slack_ns": 0.168147057,
+          "start": "_206789_",
+          "start_signal": "write_slot",
+          "start_stage": "flow_control"
+        },
+        "output_ports": {
+          "endpoint": "output_scores[0]",
+          "endpoint_signal": "output_scores[0]",
+          "endpoint_stage": "unclassified_register",
+          "setup_slack_ns": 0.941921234,
+          "start": "_218662_",
+          "start_signal": "_000002_",
+          "start_stage": "unclassified_register"
+        },
+        "query_load": {
+          "endpoint": "_204380_",
+          "endpoint_signal": "\\query_cache[4] [37]",
+          "endpoint_stage": "query_load",
+          "setup_slack_ns": 0.679183722,
+          "start": "_206828_",
+          "start_signal": "epoch_open",
+          "start_stage": "flow_control"
+        },
+        "record_assembly": {
+          "endpoint": "_205280_",
+          "endpoint_signal": "\\banks[1].pieces[5].data [37]",
+          "endpoint_stage": "record_assembly",
+          "setup_slack_ns": 0.593346655,
+          "start": "_205015_",
+          "start_signal": "half_index[1]",
+          "start_stage": "flow_control"
+        },
+        "result_fifo": {
+          "endpoint": "_206653_",
+          "endpoint_signal": "fifo_count[0]",
+          "endpoint_stage": "result_fifo",
+          "setup_slack_ns": 0.868774831,
+          "start": "_206654_",
+          "start_signal": "fifo_count[1]",
+          "start_stage": "result_fifo"
+        },
+        "score_scale": {
+          "endpoint": "_213069_",
+          "endpoint_signal": "\\core.head[2].pipelined_tail.partial_product_a_high [31]",
+          "endpoint_stage": "score_scale",
+          "setup_slack_ns": -0.492987454,
+          "start": "_212828_",
+          "start_signal": "\\core.head[2].sum_a [5]",
+          "start_stage": "dot_accumulate"
+        },
+        "score_sum": {
+          "endpoint": "_210523_",
+          "endpoint_signal": "\\core.result [92]",
+          "endpoint_stage": "score_sum",
+          "setup_slack_ns": -0.496854007,
+          "start": "_213182_",
+          "start_signal": "\\core.head[1].pipelined_tail.compress_carry [2]",
+          "start_stage": "score_sum"
+        },
+        "unclassified_register": {
+          "endpoint": "_217580_",
+          "endpoint_signal": "_014449_",
+          "endpoint_stage": "unclassified_register",
+          "setup_slack_ns": 0.506748319,
+          "start": "_205015_",
+          "start_signal": "half_index[1]",
+          "start_stage": "flow_control"
+        }
+      },
+      "stages_by_area": {
+        "coefficient": {
+          "area_um2": 16557.17,
+          "cells": 10418,
+          "endpoint_flops": 1303
+        },
+        "dot_accumulate": {
+          "area_um2": 4712.988,
+          "cells": 2205,
+          "endpoint_flops": 579
+        },
+        "dot_input": {
+          "area_um2": 17372.46,
+          "cells": 7887,
+          "endpoint_flops": 1333
+        },
+        "dot_products": {
+          "area_um2": 34595.162,
+          "cells": 25531,
+          "endpoint_flops": 1717
+        },
+        "dot_reduce": {
+          "area_um2": 14220.36,
+          "cells": 9322,
+          "endpoint_flops": 1046
+        },
+        "flow_control": {
+          "area_um2": 426.132,
+          "cells": 226,
+          "endpoint_flops": 54
+        },
+        "output_or_unattributed": {
+          "area_um2": 2110.976,
+          "cells": 2186,
+          "endpoint_flops": 0
+        },
+        "query_load": {
+          "area_um2": 34096.678,
+          "cells": 13470,
+          "endpoint_flops": 5056
+        },
+        "record_assembly": {
+          "area_um2": 11216.688,
+          "cells": 4080,
+          "endpoint_flops": 1424
+        },
+        "result_fifo": {
+          "area_um2": 2993.032,
+          "cells": 944,
+          "endpoint_flops": 468
+        },
+        "score_scale": {
+          "area_um2": 33848.234,
+          "cells": 26626,
+          "endpoint_flops": 1014
+        },
+        "score_sum": {
+          "area_um2": 5854.394,
+          "cells": 3237,
+          "endpoint_flops": 626
+        },
+        "shared_cones": {
+          "area_um2": 2785.286,
+          "cells": 3342,
+          "endpoint_flops": 0
+        },
+        "unclassified_register": {
+          "area_um2": 601.426,
+          "cells": 407,
+          "endpoint_flops": 53
+        }
+      },
+      "target_period_ns": 1.25,
+      "top": "r12_frontend"
+    }
+  },
+  "library_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+  "performance_scope": "Technology-mapped pre-layout STA, without physical place/route or timed SRAM macros",
+  "rtl_validation_sha256": "641c7685dad7e1b19039debfd47524e2923e164aa567bc6f4b4f418201ec1aa9",
+  "script_sha256": "e52428b699eae15c22a16b1635868aca281db07aebf089a629c3c59e4067a508",
+  "tools": {
+    "abc": "ABC command line: \"version\".\n\nUC Berkeley, ABC 1.01 (compiled Apr  1 2024 04:53:45)",
+    "sta": "3.2.0",
+    "yosys": "Yosys 0.33 (git sha1 2584903a060)"
+  }
+}

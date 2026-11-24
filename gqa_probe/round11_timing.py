@@ -4,6 +4,7 @@ import ctypes
 from dataclasses import dataclass
 from functools import lru_cache, reduce
 from hashlib import sha256
+from math import isfinite
 from operator import or_
 from pathlib import Path
 import subprocess
@@ -45,6 +46,12 @@ METRICS = (
     "qk_data_overlap_ns", "pv_data_overlap_ns", "request_window_wait_ns",
     "summary_slot_wait_ns", "k_slot_wait_ns", "v_slot_wait_ns", "peak_live_sram_bytes",
     "peak_pv_weight_sram_bytes",
+)
+
+FRONTEND_METRICS = (
+    "frontend_first_record_ns", "frontend_last_record_ns", "frontend_last_result_ns",
+    "frontend_ingress_queue_wait_ns", "frontend_record_service_wait_ns", "frontend_result_cdc_ns",
+    "frontend_ingress_port_busy_ns", "peak_frontend_reserved_bytes",
 )
 
 
@@ -101,6 +108,8 @@ def _engine():
     lib.round11_close.restype = None
     lib.replay_round11.argtypes = [ctypes.c_void_p, vector, vector, vector, vector]
     lib.replay_round11.restype = ctypes.c_int
+    lib.round12_saturated_frontend.argtypes = [vector, ctypes.c_int64, ctypes.c_int64, vector]
+    lib.round12_saturated_frontend.restype = None
     return lib
 
 
@@ -121,12 +130,12 @@ class BankSession:
     def run(self, config, ranges, tiles):
         if not self.handle:
             raise ValueError("bank session has closed")
-        output = np.zeros(len(METRICS), dtype=np.int64)
+        output = np.zeros(len(METRICS) + len(FRONTEND_METRICS), dtype=np.int64)
         if self.lib.replay_round11(self.handle, config, ranges, tiles, output):
             raise RuntimeError("the pipeline reached a state without a future event")
         return {
             name: (None if n < 0 else n / 1_000_000) if name.endswith("_ns") else n
-            for name, n in zip(METRICS, output.tolist(), strict=True)
+            for name, n in zip((*METRICS, *FRONTEND_METRICS), output.tolist(), strict=True)
         }
 
 
@@ -136,6 +145,68 @@ class PreparedGroup:
     ranges: np.ndarray
     tiles: np.ndarray
     stats: dict
+
+
+@dataclass(frozen=True)
+class FrontendTiming:
+    """Equivalent per-record timing obtained from an integrated external prefix.
+
+    The measured minimum record and sustainable intervals are calibration metadata.
+    The recurrence derives each page's milestones from the coefficient/dot stages.
+    """
+
+    profile: str
+    clock_period_ns: float
+    record_interval_cycles: float
+    record_to_dot_cycles: int
+    record_to_result_cycles: int
+    record_release_cycles: int
+    dot_ii_cycles: int
+    dot_tail_cycles: int
+    coefficient_service_cycles: int
+    coefficient_latency_cycles: int
+    record_slots: int
+    ingress_bytes_per_cycle: int
+    ingress_cdc_cycles: int
+    result_cdc_pe_cycles: int
+    auxiliary_bytes: int
+    result_fifo_slots: int = 2
+    query_load_cycles: int = 0
+    burst_fifo_slots: int = 0
+
+    def __post_init__(self):
+        if not self.profile or not isfinite(self.clock_period_ns) or self.clock_period_ns < .000001:
+            raise ValueError("frontend requires a name and a positive scorer clock")
+        positive = (self.record_to_result_cycles, self.dot_ii_cycles, self.dot_tail_cycles,
+                    self.coefficient_service_cycles, self.coefficient_latency_cycles,
+                    self.record_slots, self.ingress_bytes_per_cycle, self.result_fifo_slots)
+        nonnegative = (self.record_to_dot_cycles, self.record_release_cycles, self.ingress_cdc_cycles,
+                       self.result_cdc_pe_cycles, self.auxiliary_bytes, self.query_load_cycles, self.burst_fifo_slots)
+        if (any(type(value) is not int or value < 1 for value in positive) or
+                any(type(value) is not int or value < 0 for value in nonnegative) or
+                not isfinite(self.record_interval_cycles) or
+                self.record_interval_cycles < max(self.dot_ii_cycles, self.coefficient_service_cycles) or
+                self.record_to_dot_cycles != self.coefficient_latency_cycles + 2 or
+                self.record_release_cycles != self.record_to_dot_cycles + self.dot_ii_cycles or
+                self.record_to_result_cycles != self.record_release_cycles - 1 + self.dot_tail_cycles or
+                BURST_BYTES % self.ingress_bytes_per_cycle):
+            raise ValueError("inconsistent measured frontend service or ingress resources")
+
+    def config(self):
+        return (round(self.clock_period_ns * 1_000_000), self.dot_ii_cycles, self.dot_tail_cycles, self.coefficient_service_cycles,
+                self.coefficient_latency_cycles, self.record_slots,
+                ceil_div(BURST_BYTES, self.ingress_bytes_per_cycle), self.ingress_cdc_cycles,
+                self.result_cdc_pe_cycles, self.auxiliary_bytes, self.result_fifo_slots,
+                self.query_load_cycles, self.burst_fifo_slots)
+
+
+def saturated_frontend_schedule(frontend, count, stride):
+    """Return complete, first dot, reusable and output cycles under continuous ingress."""
+    if count < 1 or stride < BURST_BYTES or (stride % BURST_BYTES and frontend.record_slots < 2):
+        raise ValueError("a straddling stream needs two slots and at least one whole record")
+    output = np.zeros(4 * count, dtype=np.int64)
+    _engine().round12_saturated_frontend(np.array(frontend.config(), dtype=np.int64), count, stride, output)
+    return output.reshape((count, 4))
 
 
 @lru_cache(maxsize=4096)
@@ -304,7 +375,8 @@ def group_address_offset(ordinal):
 
 def replay_group(row, *, mode="double_buffer", lanes=64, pe_period_ns=PRIMARY_PE_NS,
                  scorer_variant=BASE_SCORER, coefficient_ii=1, coefficient_latency=2,
-                 sram_capacity_bytes=SRAM_BYTES, session=None, address_offset=0):
+                 sram_capacity_bytes=SRAM_BYTES, session=None, address_offset=0, frontend=None,
+                 legacy_scorer_period_ns=None, legacy_burst_fifo_slots=0):
     """Replay one matched state and return stage times, work counts, and simultaneous peaks."""
     prepared = row if isinstance(row, PreparedGroup) else prepare_group(row)
     raw, stat = prepared.raw, prepared.stats
@@ -314,6 +386,18 @@ def replay_group(row, *, mode="double_buffer", lanes=64, pe_period_ns=PRIMARY_PE
     scorer_channels = raw.get("scorer_channels", 128)
     if scorer_variant not in (BASE_SCORER, FAST_SCORER) or (scorer_variant == FAST_SCORER and scorer_channels != 96):
         raise ValueError("the II=6 scorer sensitivity requires 96 summary channels")
+    if frontend is not None and (mode in ("serial", "dependency_bound") or scorer_variant != BASE_SCORER or
+                                 coefficient_ii != 1 or coefficient_latency != 2 or
+                                 legacy_scorer_period_ns is not None or legacy_burst_fifo_slots):
+        raise ValueError("measured frontend needs finite slots and replaces legacy scorer timing")
+    if frontend is not None and raw["summary_stride"] % BURST_BYTES and (
+        frontend.record_slots < 2 or mode == "serial_one_slot"
+    ):
+        raise ValueError("the integrated straddling input requires two record slots")
+    if legacy_scorer_period_ns is not None and (not isfinite(legacy_scorer_period_ns) or legacy_scorer_period_ns < .000001):
+        raise ValueError("legacy scorer clock must be positive")
+    if type(legacy_burst_fifo_slots) is not int or legacy_burst_fifo_slots < 0:
+        raise ValueError("legacy burst FIFO size must be a nonnegative integer")
     if address_offset < 0 or address_offset % BURST_BYTES:
         raise ValueError("group address remap must be burst aligned")
     if session is None:
@@ -322,7 +406,9 @@ def replay_group(row, *, mode="double_buffer", lanes=64, pe_period_ns=PRIMARY_PE
                                 scorer_variant=scorer_variant, coefficient_ii=coefficient_ii,
                                 coefficient_latency=coefficient_latency,
                                 sram_capacity_bytes=sram_capacity_bytes, session=cold,
-                                address_offset=address_offset)
+                                address_offset=address_offset, frontend=frontend,
+                                legacy_scorer_period_ns=legacy_scorer_period_ns,
+                                legacy_burst_fifo_slots=legacy_burst_fifo_slots)
 
     pe_fs = round(pe_period_ns * 1_000_000)
     if not pe_fs:
@@ -340,6 +426,9 @@ def replay_group(row, *, mode="double_buffer", lanes=64, pe_period_ns=PRIMARY_PE
         len(raw["k_pages"]), stat["logical_v_tiles"], norm, topk, planner,
         stat["gate_pe_cycles"] + stat["gate_budget_pe_cycles"], stat["gate_control_sram_bytes"],
         stat["gate_tokens"], 12 * h, unpack_lanes, raw["page_size"],
+        *(frontend.config() if frontend is not None else (0,) * 13),
+        round(legacy_scorer_period_ns * 1_000_000) if legacy_scorer_period_ns is not None else 0,
+        legacy_burst_fifo_slots,
     ], dtype=np.int64)
     address_runs = (prepared.ranges + (address_offset, 0)) // BURST_BYTES
     out = session.run(config, address_runs.flatten(), prepared.tiles)
@@ -386,4 +475,34 @@ def replay_group(row, *, mode="double_buffer", lanes=64, pe_period_ns=PRIMARY_PE
         sram_port_contention_wait_ns=0,
         **stat, **out,
     )
+    if frontend is None:
+        for key in FRONTEND_METRICS:
+            del records[key]
+        if legacy_scorer_period_ns is not None:
+            records.update(scorer_clock_period_ns=config[-2] / 1_000_000,
+                           scorer_latency_pe_cycles=None, scorer_latency_cycles=ii + 1)
+        if legacy_burst_fifo_slots:
+            records.update(frontend_burst_fifo_slots=legacy_burst_fifo_slots,
+                           peak_frontend_reserved_bytes=out["peak_frontend_reserved_bytes"])
+    else:
+        records.update(
+            scorer_variant=frontend.profile,
+            scorer_clock_period_ns=frontend.config()[0] / 1_000_000,
+            scorer_ii=frontend.dot_ii_cycles,
+            scorer_latency_pe_cycles=None,
+            scorer_latency_cycles=frontend.dot_tail_cycles,
+            coefficient_ii=frontend.coefficient_service_cycles,
+            coefficient_latency_pe_cycles=None,
+            coefficient_latency_cycles=frontend.coefficient_latency_cycles,
+            frontend_record_interval_cycles=frontend.record_interval_cycles,
+            frontend_record_to_dot_cycles=frontend.record_to_dot_cycles,
+            frontend_record_to_result_cycles=frontend.record_to_result_cycles,
+            frontend_record_release_cycles=frontend.record_release_cycles,
+            frontend_record_slots=frontend.record_slots,
+            frontend_ingress_bytes_per_cycle=frontend.ingress_bytes_per_cycle,
+            frontend_ingress_cdc_cycles=frontend.ingress_cdc_cycles,
+            frontend_result_cdc_pe_cycles=frontend.result_cdc_pe_cycles,
+            frontend_burst_fifo_slots=frontend.burst_fifo_slots,
+            sram_port_contention_wait_ns=out["frontend_ingress_queue_wait_ns"],
+        )
     return records

@@ -1,0 +1,56 @@
+{
+  "expected_result_pipeline_delta_cycles": 2,
+  "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+  "patch": "Split each 22-bit coefficient into two unsigned 11-bit halves, register exact signed partial products and recombine; add a registered 3:2 score/bias compressor before the final carry pass.",
+  "pre_patch_critical_period_ns": 1.8777678610000001,
+  "pre_patch_mapped_sha256": "6eefdbd3d98a189f7494be5789f30ad0d626b269925d2459b339c26d9a1a8c05",
+  "pre_patch_scale_path": {
+    "endpoint": "_214890_",
+    "endpoint_signal": "\\core.head[2].scaled_b [42]",
+    "endpoint_stage": "score_scale",
+    "setup_slack_ns": -0.627767861,
+    "start": "_214937_",
+    "start_signal": "\\core.head[2].sum_b [1]",
+    "start_stage": "dot_accumulate"
+  },
+  "pre_patch_score_sum_path": {
+    "endpoint": "_213069_",
+    "endpoint_signal": "\\core.result [140]",
+    "endpoint_stage": "score_sum",
+    "setup_slack_ns": -0.581798077,
+    "start": "_214893_",
+    "start_signal": "\\core.head[2].scaled_a [1]",
+    "start_stage": "score_scale"
+  },
+  "pre_patch_worst_paths": [
+    {
+      "endpoint": "_214890_",
+      "endpoint_signal": "\\core.head[2].scaled_b [42]",
+      "endpoint_stage": "score_scale",
+      "setup_slack_ns": -0.627767861,
+      "start": "_214937_",
+      "start_signal": "\\core.head[2].sum_b [1]",
+      "start_stage": "dot_accumulate"
+    },
+    {
+      "endpoint": "_214891_",
+      "endpoint_signal": "\\core.head[2].scaled_b [43]",
+      "endpoint_stage": "score_scale",
+      "setup_slack_ns": -0.627767861,
+      "start": "_214937_",
+      "start_signal": "\\core.head[2].sum_b [1]",
+      "start_stage": "dot_accumulate"
+    },
+    {
+      "endpoint": "_214889_",
+      "endpoint_signal": "\\core.head[2].scaled_b [41]",
+      "endpoint_stage": "score_scale",
+      "setup_slack_ns": -0.616742313,
+      "start": "_214937_",
+      "start_signal": "\\core.head[2].sum_b [1]",
+      "start_stage": "dot_accumulate"
+    }
+  ],
+  "source_snapshot_sha256": "41f99c7d9a53fd12e0ba072c23e6702e43939347c3d831f3da82360ac386b612",
+  "target_period_ns": 1.25
+}

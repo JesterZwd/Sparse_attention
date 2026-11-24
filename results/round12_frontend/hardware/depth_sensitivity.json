@@ -1,0 +1,483 @@
+{
+  "designs": {
+    "full96_dual": {
+      "four_record_slots_same_result_credits": {
+        "blocked_ingress_cycles": 381,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 64,
+              "2": 65,
+              "3": 2
+            },
+            "max": 3,
+            "mean": 1.5267175572519085,
+            "min": 1
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 63,
+              "17": 64,
+              "20": 2,
+              "23": 2
+            },
+            "max": 23,
+            "mean": 15.694656488549619,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "19": 63,
+              "22": 64,
+              "25": 2,
+              "28": 2
+            },
+            "max": 28,
+            "mean": 20.69465648854962,
+            "min": 19
+          },
+          "complete_to_output": {
+            "histogram": {
+              "27": 63,
+              "30": 64,
+              "33": 2,
+              "36": 2
+            },
+            "max": 36,
+            "mean": 28.69465648854962,
+            "min": 27
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "8": 131
+            },
+            "max": 8,
+            "mean": 8.0,
+            "min": 8
+          }
+        },
+        "exact_or_sampled_cadence": {
+          "effective_ii_cycles": 6.569105691056911,
+          "interval_pattern": null
+        },
+        "first_burst_to_first_output": [
+          30,
+          30
+        ],
+        "model_checked_against_rtl": false,
+        "observed_peak_record_slots": 4,
+        "record_slots": 4,
+        "result_credits": 2,
+        "steady_completion_intervals": {
+          "histogram": {
+            "10": 59,
+            "16": 2,
+            "3": 62
+          },
+          "max": 16,
+          "mean": 6.569105691056911,
+          "min": 3
+        },
+        "verified_scores": 524
+      },
+      "four_record_slots_three_result_credits": {
+        "blocked_ingress_cycles": 379,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 64,
+              "2": 65,
+              "3": 2
+            },
+            "max": 3,
+            "mean": 1.5267175572519085,
+            "min": 1
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 63,
+              "17": 64,
+              "19": 2,
+              "22": 2
+            },
+            "max": 22,
+            "mean": 15.664122137404581,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "19": 63,
+              "22": 64,
+              "24": 2,
+              "27": 2
+            },
+            "max": 27,
+            "mean": 20.66412213740458,
+            "min": 19
+          },
+          "complete_to_output": {
+            "histogram": {
+              "27": 63,
+              "30": 64,
+              "32": 2,
+              "35": 2
+            },
+            "max": 35,
+            "mean": 28.66412213740458,
+            "min": 27
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "8": 131
+            },
+            "max": 8,
+            "mean": 8.0,
+            "min": 8
+          }
+        },
+        "exact_or_sampled_cadence": {
+          "effective_ii_cycles": 6.560975609756097,
+          "interval_pattern": null
+        },
+        "first_burst_to_first_output": [
+          30,
+          30
+        ],
+        "model_checked_against_rtl": false,
+        "observed_peak_record_slots": 4,
+        "record_slots": 4,
+        "result_credits": 3,
+        "steady_completion_intervals": {
+          "histogram": {
+            "11": 29,
+            "16": 2,
+            "3": 62,
+            "9": 30
+          },
+          "max": 16,
+          "mean": 6.560975609756097,
+          "min": 3
+        },
+        "verified_scores": 524
+      },
+      "main_two_slots": {
+        "blocked_ingress_cycles": 1213,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 66,
+              "2": 65
+            },
+            "max": 2,
+            "mean": 1.4961832061068703,
+            "min": 1
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 66,
+              "17": 65
+            },
+            "max": 17,
+            "mean": 15.488549618320612,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "19": 66,
+              "22": 65
+            },
+            "max": 22,
+            "mean": 20.48854961832061,
+            "min": 19
+          },
+          "complete_to_output": {
+            "histogram": {
+              "27": 66,
+              "30": 65
+            },
+            "max": 30,
+            "mean": 28.48854961832061,
+            "min": 27
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "8": 131
+            },
+            "max": 8,
+            "mean": 8.0,
+            "min": 8
+          }
+        },
+        "exact_or_sampled_cadence": {
+          "effective_ii_cycles": 13.0,
+          "interval_pattern": [
+            3,
+            23
+          ]
+        },
+        "first_burst_to_first_output": [
+          30,
+          30
+        ],
+        "model_checked_against_rtl": true,
+        "observed_peak_record_slots": 2,
+        "record_slots": 2,
+        "result_credits": 2,
+        "steady_completion_intervals": {
+          "histogram": {
+            "23": 61,
+            "3": 62
+          },
+          "max": 23,
+          "mean": 12.91869918699187,
+          "min": 3
+        },
+        "verified_scores": 524
+      }
+    },
+    "patched96_dual": {
+      "four_record_slots_same_result_credits": {
+        "blocked_ingress_cycles": 501,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 64,
+              "2": 65,
+              "3": 2
+            },
+            "max": 3,
+            "mean": 1.5267175572519085,
+            "min": 1
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 2,
+              "17": 2,
+              "18": 61,
+              "21": 62,
+              "22": 2,
+              "25": 2
+            },
+            "max": 25,
+            "mean": 19.51145038167939,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "19": 2,
+              "22": 2,
+              "23": 61,
+              "26": 62,
+              "27": 2,
+              "30": 2
+            },
+            "max": 30,
+            "mean": 24.51145038167939,
+            "min": 19
+          },
+          "complete_to_output": {
+            "histogram": {
+              "29": 2,
+              "32": 2,
+              "33": 61,
+              "36": 62,
+              "37": 2,
+              "40": 2
+            },
+            "max": 40,
+            "mean": 34.51145038167939,
+            "min": 29
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "10": 131
+            },
+            "max": 10,
+            "mean": 10.0,
+            "min": 10
+          }
+        },
+        "exact_or_sampled_cadence": {
+          "effective_ii_cycles": 7.528455284552845,
+          "interval_pattern": null
+        },
+        "first_burst_to_first_output": [
+          32,
+          32
+        ],
+        "model_checked_against_rtl": false,
+        "observed_peak_record_slots": 4,
+        "record_slots": 4,
+        "result_credits": 2,
+        "steady_completion_intervals": {
+          "histogram": {
+            "12": 59,
+            "16": 2,
+            "3": 62
+          },
+          "max": 16,
+          "mean": 7.528455284552845,
+          "min": 3
+        },
+        "verified_scores": 524
+      },
+      "four_record_slots_three_result_credits": {
+        "blocked_ingress_cycles": 379,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 64,
+              "2": 65,
+              "3": 2
+            },
+            "max": 3,
+            "mean": 1.5267175572519085,
+            "min": 1
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 63,
+              "17": 64,
+              "19": 2,
+              "22": 2
+            },
+            "max": 22,
+            "mean": 15.664122137404581,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "19": 63,
+              "22": 64,
+              "24": 2,
+              "27": 2
+            },
+            "max": 27,
+            "mean": 20.66412213740458,
+            "min": 19
+          },
+          "complete_to_output": {
+            "histogram": {
+              "29": 63,
+              "32": 64,
+              "34": 2,
+              "37": 2
+            },
+            "max": 37,
+            "mean": 30.66412213740458,
+            "min": 29
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "10": 131
+            },
+            "max": 10,
+            "mean": 10.0,
+            "min": 10
+          }
+        },
+        "exact_or_sampled_cadence": {
+          "effective_ii_cycles": 6.560975609756097,
+          "interval_pattern": null
+        },
+        "first_burst_to_first_output": [
+          32,
+          32
+        ],
+        "model_checked_against_rtl": false,
+        "observed_peak_record_slots": 4,
+        "record_slots": 4,
+        "result_credits": 3,
+        "steady_completion_intervals": {
+          "histogram": {
+            "11": 29,
+            "16": 2,
+            "3": 62,
+            "9": 30
+          },
+          "max": 16,
+          "mean": 6.560975609756097,
+          "min": 3
+        },
+        "verified_scores": 524
+      },
+      "main_two_slots": {
+        "blocked_ingress_cycles": 1213,
+        "edge_metrics": {
+          "coefficient_complete_to_first_issue": {
+            "histogram": {
+              "1": 66,
+              "2": 65
+            },
+            "max": 2,
+            "mean": 1.4961832061068703,
+            "min": 1
+          },
+          "complete_to_dot_first": {
+            "histogram": {
+              "14": 66,
+              "17": 65
+            },
+            "max": 17,
+            "mean": 15.488549618320612,
+            "min": 14
+          },
+          "complete_to_dot_last": {
+            "histogram": {
+              "19": 66,
+              "22": 65
+            },
+            "max": 22,
+            "mean": 20.48854961832061,
+            "min": 19
+          },
+          "complete_to_output": {
+            "histogram": {
+              "29": 66,
+              "32": 65
+            },
+            "max": 32,
+            "mean": 30.48854961832061,
+            "min": 29
+          },
+          "dot_last_to_output": {
+            "histogram": {
+              "10": 131
+            },
+            "max": 10,
+            "mean": 10.0,
+            "min": 10
+          }
+        },
+        "exact_or_sampled_cadence": {
+          "effective_ii_cycles": 13.0,
+          "interval_pattern": [
+            3,
+            23
+          ]
+        },
+        "first_burst_to_first_output": [
+          32,
+          32
+        ],
+        "model_checked_against_rtl": true,
+        "observed_peak_record_slots": 2,
+        "record_slots": 2,
+        "result_credits": 2,
+        "steady_completion_intervals": {
+          "histogram": {
+            "23": 61,
+            "3": 62
+          },
+          "max": 23,
+          "mean": 12.91869918699187,
+          "min": 3
+        },
+        "verified_scores": 524
+      }
+    }
+  },
+  "model_source_sha256": "741809eba5596f3c0e2190e1788cf8d889b97c24d697ee1ce178cac1a27a9122",
+  "rtl_validation_sha256": "52fdce2488b0f3bcfc6e65b5049b802c74f0da1c3d0aedaec3ed04f4ad3d2f17",
+  "scope": "Calibrated cycle model using exact burst bytes and integer scores; no added-slot RTL synthesis or placement."
+}

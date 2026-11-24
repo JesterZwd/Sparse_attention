@@ -1,0 +1,47 @@
+{
+  "software": {
+    "independent_32k": {
+      "prompts": 128,
+      "group_steps": 3157056,
+      "overruns": 0,
+      "gate_passed": false,
+      "quality_interval": [
+        -0.021484375,
+        0.005859375
+      ],
+      "read_ratio": 0.9201211025159146,
+      "freeze_sha256": "dfc4c903f5ba89420a4b11b7ab9c14852dfa5ee2eed8dabb8a9a377908b17156",
+      "paired_sha256": "94cd25aa2ab82fd0d8fa5013e3d5e18d099c2f232ae74a5c959f2bfe58534d05"
+    },
+    "independent_64k_opened": false,
+    "calibration_64k_eligible": false
+  },
+  "hardware": {
+    "coefficients": 9584,
+    "real_fixture_files": 24,
+    "all_mapped_cases_met_1_25ns": false,
+    "step_rows": 605,
+    "peak_sram_bytes": 52240,
+    "replay_receipt_sha256": "9550a12a650b65460623e7ba260c8b9a9d2d56be7075113f8142b6a0f32efa3f"
+  },
+  "decision": {
+    "main_summary_bytes": 112,
+    "main_point": "M",
+    "saving_point_32k": "B",
+    "full_engine_advance": false
+  },
+  "tests": {
+    "passed": 386,
+    "skipped": 4
+  },
+  "publication": {
+    "reassembled_sha256": "c4bcf26bbc4e0bbd68eecedf9dc2102f50e9395d40d001e93cd40d85deca8f35",
+    "parts": {
+      "32k/extended/states.jsonl.gz.part00": "9ba11789c48ac36d9ae4a82bf85f5196e8a8a0411a412ae15aa05d530263c0ef",
+      "32k/extended/states.jsonl.gz.part01": "10939ec9097838b641f7ad2173f13a738bbfdd55f709f26da7a83951b84aa1b6",
+      "32k/extended/states.jsonl.gz.part02": "230bd7c2d77186ab40eb1c57429e9534ad79281acd80408b5c8bcba0f4e5591d",
+      "32k/extended/states.jsonl.gz.part03": "b4c99136c48651892a42b848e9f86448c93611d3a1037014b505f8ce09d65d39",
+      "32k/extended/states.jsonl.gz.part04": "3e2523a9045b7d32c6340a6e5d47bb3afc9e6cf8928563cb79a6d61d0f123821"
+    }
+  }
+}

@@ -1,0 +1,2678 @@
+{
+  "approximation": "The calibrated ingress uses the cycle recurrence with continuous result ready as in the RTL reference test. LPDDR credit feedback, quantized CDC edges, bounded staging, and score writes are replay assumptions. A projected old128 clock uses the Round 11 summary ingress and coefficient preparation at the PE clock and an optimistic four-head parallel instance of the old one-head preloaded dot core. It preserves eight cycles per four-head record and assumes about four times the old dot core area before shared logic. The equal-FIFO scenarios give A the same burst-return budget with the Round 11 atomic ingress model. All backend compute stays at 1.25 ns.",
+  "archived_baseline_reproduction": [
+    {
+      "cohort": "32k",
+      "comparisons": 18,
+      "fields_per_comparison": [
+        123
+      ],
+      "file": "results/round11_workpoints/32k/replay/step_timing.csv",
+      "sha256": "05192cd5322816e8b4a307a0e0f5cf113528517c655eb4403e5c02aeda81cb54",
+      "state_set": "archived",
+      "unique_rows": 15
+    },
+    {
+      "cohort": "64k",
+      "comparisons": 18,
+      "fields_per_comparison": [
+        123
+      ],
+      "file": "results/round11_workpoints/64k/replay/step_timing.csv",
+      "sha256": "681aa8b11ee8c7d4643503ee0c82dfd91c2657b762e52df049d4608606c2f349",
+      "state_set": "archived",
+      "unique_rows": 15
+    }
+  ],
+  "calibration": {
+    "cdc": "Ingress and query add two scorer cycles after scorer-edge alignment. Scoreboard return adds two PE cycles after PE-edge alignment. Credit feedback uses the modeled last-dot release edge and the next LPDDR scheduling edge. These are replay assumptions.",
+    "clock_domains": "Measured scorer clock and independent 1.25 ns backend PE. The A projection requires four copies of the old native one-head preloaded scorer. Its separate two-cycle coefficient producer continues at the PE clock under the Round 11 proxy.",
+    "conditions": [
+      {
+        "evidence": "Integrated continuous-ready coefficient, dot, result and slot-release edges. The narrow and single-issue profiles use a proxy period where no same-profile map is available.",
+        "legacy_burst_fifo_slots": 0,
+        "legacy_reference_channels": [
+          128
+        ],
+        "legacy_scorer_period_ns": null,
+        "name": "mapped_dual_tight_a125",
+        "records": {
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 0,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_dual",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 11.0,
+              "record_release_cycles": 18,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 25,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "16": 65
+                },
+                "max": 16,
+                "mean": 14.992366412213741,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "17": 66,
+                  "19": 65
+                },
+                "max": 19,
+                "mean": 17.99236641221374,
+                "min": 17
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "25": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 25.99236641221374,
+                "min": 25
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                2,
+                20
+              ],
+              "rtl_log_sha256": "1027dfeb7018aa4b4c7b1323bdbab03de1404a8af68283154c65b92b512343ac",
+              "rtl_profile": "full64_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 0,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full80_dual",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 10.5,
+              "record_release_cycles": 19,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 26,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 129,
+                  "16": 2
+                },
+                "max": 16,
+                "mean": 14.030534351145038,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "20": 2
+                },
+                "max": 20,
+                "mean": 18.03053435114504,
+                "min": 18
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "26": 129,
+                  "28": 2
+                },
+                "max": 28,
+                "mean": 26.03053435114504,
+                "min": 26
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                5,
+                16
+              ],
+              "rtl_log_sha256": "16550677aca8e8cd47a4cf88ffd90c6b0eb0f54e1b0d82849a7c444e157c1fa0",
+              "rtl_profile": "full80_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 0,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full96_dual",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 27,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "17": 65
+                },
+                "max": 17,
+                "mean": 15.488549618320612,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "19": 66,
+                  "22": 65
+                },
+                "max": 22,
+                "mean": 20.48854961832061,
+                "min": 19
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "27": 66,
+                  "30": 65
+                },
+                "max": 30,
+                "mean": 28.48854961832061,
+                "min": 27
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "d33989ce0667acc1025b1b87bd2b4377c7b3955d6fd15e969b82a235b8f883cd",
+              "rtl_profile": "full96_dual",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Integrated continuous-ready coefficient, dot, result and slot-release edges. The narrow and single-issue profiles use a proxy period where no same-profile map is available.",
+        "legacy_burst_fifo_slots": 0,
+        "legacy_reference_channels": [
+          128
+        ],
+        "legacy_scorer_period_ns": null,
+        "name": "mapped_dual_fifo16_a125",
+        "records": {
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_dual",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 11.0,
+              "record_release_cycles": 18,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 25,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "16": 65
+                },
+                "max": 16,
+                "mean": 14.992366412213741,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "17": 66,
+                  "19": 65
+                },
+                "max": 19,
+                "mean": 17.99236641221374,
+                "min": 17
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "25": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 25.99236641221374,
+                "min": 25
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                2,
+                20
+              ],
+              "rtl_log_sha256": "1027dfeb7018aa4b4c7b1323bdbab03de1404a8af68283154c65b92b512343ac",
+              "rtl_profile": "full64_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full80_dual",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 10.5,
+              "record_release_cycles": 19,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 26,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 129,
+                  "16": 2
+                },
+                "max": 16,
+                "mean": 14.030534351145038,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "20": 2
+                },
+                "max": 20,
+                "mean": 18.03053435114504,
+                "min": 18
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "26": 129,
+                  "28": 2
+                },
+                "max": 28,
+                "mean": 26.03053435114504,
+                "min": 26
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                5,
+                16
+              ],
+              "rtl_log_sha256": "16550677aca8e8cd47a4cf88ffd90c6b0eb0f54e1b0d82849a7c444e157c1fa0",
+              "rtl_profile": "full80_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full96_dual",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 27,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "17": 65
+                },
+                "max": 17,
+                "mean": 15.488549618320612,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "19": 66,
+                  "22": 65
+                },
+                "max": 22,
+                "mean": 20.48854961832061,
+                "min": 19
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "27": 66,
+                  "30": 65
+                },
+                "max": 30,
+                "mean": 28.48854961832061,
+                "min": 27
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "d33989ce0667acc1025b1b87bd2b4377c7b3955d6fd15e969b82a235b8f883cd",
+              "rtl_profile": "full96_dual",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Integrated continuous-ready coefficient, dot, result and slot-release edges. The narrow and single-issue profiles use a proxy period where no same-profile map is available.",
+        "legacy_burst_fifo_slots": 0,
+        "legacy_reference_channels": [
+          128
+        ],
+        "legacy_scorer_period_ns": 2.230465531,
+        "name": "mapped_dual_fifo16_a128",
+        "records": {
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_dual",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 11.0,
+              "record_release_cycles": 18,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 25,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "16": 65
+                },
+                "max": 16,
+                "mean": 14.992366412213741,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "17": 66,
+                  "19": 65
+                },
+                "max": 19,
+                "mean": 17.99236641221374,
+                "min": 17
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "25": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 25.99236641221374,
+                "min": 25
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                2,
+                20
+              ],
+              "rtl_log_sha256": "1027dfeb7018aa4b4c7b1323bdbab03de1404a8af68283154c65b92b512343ac",
+              "rtl_profile": "full64_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full80_dual",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 10.5,
+              "record_release_cycles": 19,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 26,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 129,
+                  "16": 2
+                },
+                "max": 16,
+                "mean": 14.030534351145038,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "20": 2
+                },
+                "max": 20,
+                "mean": 18.03053435114504,
+                "min": 18
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "26": 129,
+                  "28": 2
+                },
+                "max": 28,
+                "mean": 26.03053435114504,
+                "min": 26
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                5,
+                16
+              ],
+              "rtl_log_sha256": "16550677aca8e8cd47a4cf88ffd90c6b0eb0f54e1b0d82849a7c444e157c1fa0",
+              "rtl_profile": "full80_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full96_dual",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 27,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "17": 65
+                },
+                "max": 17,
+                "mean": 15.488549618320612,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "19": 66,
+                  "22": 65
+                },
+                "max": 22,
+                "mean": 20.48854961832061,
+                "min": 19
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "27": 66,
+                  "30": 65
+                },
+                "max": 30,
+                "mean": 28.48854961832061,
+                "min": 27
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "d33989ce0667acc1025b1b87bd2b4377c7b3955d6fd15e969b82a235b8f883cd",
+              "rtl_profile": "full96_dual",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Integrated continuous-ready coefficient, dot, result and slot-release edges. The narrow and single-issue profiles use a proxy period where no same-profile map is available.",
+        "legacy_burst_fifo_slots": 0,
+        "legacy_reference_channels": [
+          128
+        ],
+        "legacy_scorer_period_ns": 2.230465531,
+        "name": "single_fifo16_a128_clock_proxy",
+        "records": {
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 16,
+              "coefficient_service_cycles": 8,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_single",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 15.0,
+              "record_release_cycles": 22,
+              "record_slots": 2,
+              "record_to_dot_cycles": 18,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "18": 66,
+                  "24": 65
+                },
+                "max": 24,
+                "mean": 20.977099236641223,
+                "min": 18
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "21": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 23.977099236641223,
+                "min": 21
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "29": 66,
+                  "35": 65
+                },
+                "max": 35,
+                "mean": 31.977099236641223,
+                "min": 29
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "16": 131
+                },
+                "max": 16,
+                "mean": 16.0,
+                "min": 16
+              },
+              "record_interval_pattern": [
+                2,
+                28
+              ],
+              "rtl_log_sha256": "1c7a17a1ca9a6541037df9e37f02b1654bd8aeb721ed21a0c40550f98f29b420",
+              "rtl_profile": "full64_single",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 16,
+              "coefficient_service_cycles": 8,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full80_single",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 12.5,
+              "record_release_cycles": 23,
+              "record_slots": 2,
+              "record_to_dot_cycles": 18,
+              "record_to_result_cycles": 30,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "23": 2
+                },
+                "max": 23,
+                "mean": 18.076335877862597,
+                "min": 18
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "22": 129,
+                  "27": 2
+                },
+                "max": 27,
+                "mean": 22.076335877862597,
+                "min": 22
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "30": 129,
+                  "35": 2
+                },
+                "max": 35,
+                "mean": 30.076335877862597,
+                "min": 30
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "16": 131
+                },
+                "max": 16,
+                "mean": 16.0,
+                "min": 16
+              },
+              "record_interval_pattern": [
+                8,
+                17
+              ],
+              "rtl_log_sha256": "842e39445a009ddfdfd0f52f0962f525558c59471f7afb4bb075e5315b99f8a9",
+              "rtl_profile": "full80_single",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 16,
+              "coefficient_service_cycles": 8,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full96_single",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 16.0,
+              "record_release_cycles": 24,
+              "record_slots": 2,
+              "record_to_dot_cycles": 18,
+              "record_to_result_cycles": 31,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "18": 66,
+                  "23": 65
+                },
+                "max": 23,
+                "mean": 20.480916030534353,
+                "min": 18
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "23": 66,
+                  "28": 65
+                },
+                "max": 28,
+                "mean": 25.480916030534353,
+                "min": 23
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "31": 66,
+                  "36": 65
+                },
+                "max": 36,
+                "mean": 33.48091603053435,
+                "min": 31
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "16": 131
+                },
+                "max": 16,
+                "mean": 16.0,
+                "min": 16
+              },
+              "record_interval_pattern": [
+                3,
+                29
+              ],
+              "rtl_log_sha256": "ce78e791166937bd3accd83a5ebcbb5d176472de178530d4087c4d2705309471",
+              "rtl_profile": "full96_single",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Integrated continuous-ready coefficient, dot, result and slot-release edges. The narrow and single-issue profiles use a proxy period where no same-profile map is available.",
+        "legacy_burst_fifo_slots": 0,
+        "legacy_reference_channels": [
+          128
+        ],
+        "legacy_scorer_period_ns": null,
+        "name": "mapped_patched_fifo16_a125",
+        "records": {
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_dual",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 11.0,
+              "record_release_cycles": 18,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 25,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "16": 65
+                },
+                "max": 16,
+                "mean": 14.992366412213741,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "17": 66,
+                  "19": 65
+                },
+                "max": 19,
+                "mean": 17.99236641221374,
+                "min": 17
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "25": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 25.99236641221374,
+                "min": 25
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                2,
+                20
+              ],
+              "rtl_log_sha256": "1027dfeb7018aa4b4c7b1323bdbab03de1404a8af68283154c65b92b512343ac",
+              "rtl_profile": "full64_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.746854007,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched80_dual",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 10.5,
+              "record_release_cycles": 19,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 28,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched80_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 129,
+                  "16": 2
+                },
+                "max": 16,
+                "mean": 14.030534351145038,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "20": 2
+                },
+                "max": 20,
+                "mean": 18.03053435114504,
+                "min": 18
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "28": 129,
+                  "30": 2
+                },
+                "max": 30,
+                "mean": 28.03053435114504,
+                "min": 28
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                5,
+                16
+              ],
+              "rtl_log_sha256": "4ee2a71a457aaa1295d15cc42ad2943ae393c2f8dccfc7314270e34e0e66162b",
+              "rtl_profile": "patched80_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.741592675,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched96_dual",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "17": 65
+                },
+                "max": 17,
+                "mean": 15.488549618320612,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "19": 66,
+                  "22": 65
+                },
+                "max": 22,
+                "mean": 20.48854961832061,
+                "min": 19
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "29": 66,
+                  "32": 65
+                },
+                "max": 32,
+                "mean": 30.48854961832061,
+                "min": 29
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "750f3a321faad0e8318b70c5f0eab5b04a2f6bd381b225060b34c3506a17a8fb",
+              "rtl_profile": "patched96_dual",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Integrated continuous-ready coefficient, dot, result and slot-release edges. The narrow and single-issue profiles use a proxy period where no same-profile map is available.",
+        "legacy_burst_fifo_slots": 0,
+        "legacy_reference_channels": [
+          128
+        ],
+        "legacy_scorer_period_ns": 2.230465531,
+        "name": "mapped_patched_fifo16_a128",
+        "records": {
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_dual",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 11.0,
+              "record_release_cycles": 18,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 25,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "16": 65
+                },
+                "max": 16,
+                "mean": 14.992366412213741,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "17": 66,
+                  "19": 65
+                },
+                "max": 19,
+                "mean": 17.99236641221374,
+                "min": 17
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "25": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 25.99236641221374,
+                "min": 25
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                2,
+                20
+              ],
+              "rtl_log_sha256": "1027dfeb7018aa4b4c7b1323bdbab03de1404a8af68283154c65b92b512343ac",
+              "rtl_profile": "full64_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.746854007,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched80_dual",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 10.5,
+              "record_release_cycles": 19,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 28,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched80_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 129,
+                  "16": 2
+                },
+                "max": 16,
+                "mean": 14.030534351145038,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "20": 2
+                },
+                "max": 20,
+                "mean": 18.03053435114504,
+                "min": 18
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "28": 129,
+                  "30": 2
+                },
+                "max": 30,
+                "mean": 28.03053435114504,
+                "min": 28
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                5,
+                16
+              ],
+              "rtl_log_sha256": "4ee2a71a457aaa1295d15cc42ad2943ae393c2f8dccfc7314270e34e0e66162b",
+              "rtl_profile": "patched80_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.741592675,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched96_dual",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "17": 65
+                },
+                "max": 17,
+                "mean": 15.488549618320612,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "19": 66,
+                  "22": 65
+                },
+                "max": 22,
+                "mean": 20.48854961832061,
+                "min": 19
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "29": 66,
+                  "32": 65
+                },
+                "max": 32,
+                "mean": 30.48854961832061,
+                "min": 29
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "750f3a321faad0e8318b70c5f0eab5b04a2f6bd381b225060b34c3506a17a8fb",
+              "rtl_profile": "patched96_dual",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Integrated continuous-ready coefficient, dot, result and slot-release edges. The narrow and single-issue profiles use a proxy period where no same-profile map is available.",
+        "legacy_burst_fifo_slots": 16,
+        "legacy_reference_channels": [
+          128
+        ],
+        "legacy_scorer_period_ns": null,
+        "name": "mapped_patched_equalfifo16_a125",
+        "records": {
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_dual",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 11.0,
+              "record_release_cycles": 18,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 25,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "16": 65
+                },
+                "max": 16,
+                "mean": 14.992366412213741,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "17": 66,
+                  "19": 65
+                },
+                "max": 19,
+                "mean": 17.99236641221374,
+                "min": 17
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "25": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 25.99236641221374,
+                "min": 25
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                2,
+                20
+              ],
+              "rtl_log_sha256": "1027dfeb7018aa4b4c7b1323bdbab03de1404a8af68283154c65b92b512343ac",
+              "rtl_profile": "full64_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.746854007,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched80_dual",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 10.5,
+              "record_release_cycles": 19,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 28,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched80_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 129,
+                  "16": 2
+                },
+                "max": 16,
+                "mean": 14.030534351145038,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "20": 2
+                },
+                "max": 20,
+                "mean": 18.03053435114504,
+                "min": 18
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "28": 129,
+                  "30": 2
+                },
+                "max": 30,
+                "mean": 28.03053435114504,
+                "min": 28
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                5,
+                16
+              ],
+              "rtl_log_sha256": "4ee2a71a457aaa1295d15cc42ad2943ae393c2f8dccfc7314270e34e0e66162b",
+              "rtl_profile": "patched80_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.741592675,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched96_dual",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "17": 65
+                },
+                "max": 17,
+                "mean": 15.488549618320612,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "19": 66,
+                  "22": 65
+                },
+                "max": 22,
+                "mean": 20.48854961832061,
+                "min": 19
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "29": 66,
+                  "32": 65
+                },
+                "max": 32,
+                "mean": 30.48854961832061,
+                "min": 29
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "750f3a321faad0e8318b70c5f0eab5b04a2f6bd381b225060b34c3506a17a8fb",
+              "rtl_profile": "patched96_dual",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Integrated continuous-ready coefficient, dot, result and slot-release edges. The narrow and single-issue profiles use a proxy period where no same-profile map is available.",
+        "legacy_burst_fifo_slots": 16,
+        "legacy_reference_channels": [
+          128
+        ],
+        "legacy_scorer_period_ns": 2.230465531,
+        "name": "mapped_patched_equalfifo16_a128",
+        "records": {
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_dual",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 11.0,
+              "record_release_cycles": 18,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 25,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "16": 65
+                },
+                "max": 16,
+                "mean": 14.992366412213741,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "17": 66,
+                  "19": 65
+                },
+                "max": 19,
+                "mean": 17.99236641221374,
+                "min": 17
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "25": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 25.99236641221374,
+                "min": 25
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                2,
+                20
+              ],
+              "rtl_log_sha256": "1027dfeb7018aa4b4c7b1323bdbab03de1404a8af68283154c65b92b512343ac",
+              "rtl_profile": "full64_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.746854007,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched80_dual",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 10.5,
+              "record_release_cycles": 19,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 28,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched80_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 129,
+                  "16": 2
+                },
+                "max": 16,
+                "mean": 14.030534351145038,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "20": 2
+                },
+                "max": 20,
+                "mean": 18.03053435114504,
+                "min": 18
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "28": 129,
+                  "30": 2
+                },
+                "max": 30,
+                "mean": 28.03053435114504,
+                "min": 28
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                5,
+                16
+              ],
+              "rtl_log_sha256": "4ee2a71a457aaa1295d15cc42ad2943ae393c2f8dccfc7314270e34e0e66162b",
+              "rtl_profile": "patched80_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.741592675,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched96_dual",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "17": 65
+                },
+                "max": 17,
+                "mean": 15.488549618320612,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "19": 66,
+                  "22": 65
+                },
+                "max": 22,
+                "mean": 20.48854961832061,
+                "min": 19
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "29": 66,
+                  "32": 65
+                },
+                "max": 32,
+                "mean": 30.48854961832061,
+                "min": 29
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "750f3a321faad0e8318b70c5f0eab5b04a2f6bd381b225060b34c3506a17a8fb",
+              "rtl_profile": "patched96_dual",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      },
+      {
+        "evidence": "All formats include measured integrated coefficients, slots, and burst ingress at equal receive FIFO depth. The full128 cycle trace uses the separately mapped preloaded one-head old128 period as a clock proxy.",
+        "legacy_reference_channels": [],
+        "name": "integrated_a128_clock_proxy_fifo16",
+        "records": {
+          "128": {
+            "stride_bytes": 144,
+            "timing": {
+              "auxiliary_bytes": 608,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 2.230465531,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 8,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full128_dual",
+              "query_load_cycles": 9,
+              "record_interval_cycles": 15.0,
+              "record_release_cycles": 22,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "old128",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "18": 65
+                },
+                "max": 18,
+                "mean": 15.98473282442748,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "21": 66,
+                  "25": 65
+                },
+                "max": 25,
+                "mean": 22.984732824427482,
+                "min": 21
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "29": 66,
+                  "33": 65
+                },
+                "max": 33,
+                "mean": 30.984732824427482,
+                "min": 29
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                4,
+                26
+              ],
+              "rtl_log_sha256": "fe079e4685146150ff6b26c249467ff5ec6a79d4e12faa6522a31a8f244db6e4",
+              "rtl_profile": "full128_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "64": {
+            "stride_bytes": 80,
+            "timing": {
+              "auxiliary_bytes": 352,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.881501973,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 4,
+              "dot_tail_cycles": 8,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "full64_dual",
+              "query_load_cycles": 5,
+              "record_interval_cycles": 11.0,
+              "record_release_cycles": 18,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 25,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "other profile clock proxy; parameter timing is unmeasured",
+              "clock_profile": "full96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "16": 65
+                },
+                "max": 16,
+                "mean": 14.992366412213741,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "17": 66,
+                  "19": 65
+                },
+                "max": 19,
+                "mean": 17.99236641221374,
+                "min": 17
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "25": 66,
+                  "27": 65
+                },
+                "max": 27,
+                "mean": 25.99236641221374,
+                "min": 25
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                2,
+                20
+              ],
+              "rtl_log_sha256": "1027dfeb7018aa4b4c7b1323bdbab03de1404a8af68283154c65b92b512343ac",
+              "rtl_profile": "full64_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "80": {
+            "stride_bytes": 96,
+            "timing": {
+              "auxiliary_bytes": 416,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.746854007,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 5,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched80_dual",
+              "query_load_cycles": 6,
+              "record_interval_cycles": 10.5,
+              "record_release_cycles": 19,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 28,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched80_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 129,
+                  "16": 2
+                },
+                "max": 16,
+                "mean": 14.030534351145038,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "18": 129,
+                  "20": 2
+                },
+                "max": 20,
+                "mean": 18.03053435114504,
+                "min": 18
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "28": 129,
+                  "30": 2
+                },
+                "max": 30,
+                "mean": 28.03053435114504,
+                "min": 28
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                5,
+                16
+              ],
+              "rtl_log_sha256": "4ee2a71a457aaa1295d15cc42ad2943ae393c2f8dccfc7314270e34e0e66162b",
+              "rtl_profile": "patched80_dual",
+              "saturated_model_checked": true
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 480,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.741592675,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 2,
+              "profile": "patched96_dual",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "clock_basis": "mapped pre-layout STA extrapolation",
+              "clock_profile": "patched96_dual",
+              "complete_to_first_dot_cycles": {
+                "histogram": {
+                  "14": 66,
+                  "17": 65
+                },
+                "max": 17,
+                "mean": 15.488549618320612,
+                "min": 14
+              },
+              "complete_to_last_dot_cycles": {
+                "histogram": {
+                  "19": 66,
+                  "22": 65
+                },
+                "max": 22,
+                "mean": 20.48854961832061,
+                "min": 19
+              },
+              "complete_to_result_cycles": {
+                "histogram": {
+                  "29": 66,
+                  "32": 65
+                },
+                "max": 32,
+                "mean": 30.48854961832061,
+                "min": 29
+              },
+              "first_coefficient_issue_to_all_ready_cycles": {
+                "histogram": {
+                  "12": 131
+                },
+                "max": 12,
+                "mean": 12.0,
+                "min": 12
+              },
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "750f3a321faad0e8318b70c5f0eab5b04a2f6bd381b225060b34c3506a17a8fb",
+              "rtl_profile": "patched96_dual",
+              "saturated_model_checked": true
+            }
+          }
+        }
+      }
+    ],
+    "file": "results/round12_frontend/replay/frontend_calibration.json",
+    "old128_projection": {
+      "clock_edge_convention": "difference from first accepted chunk to newly visible result, 1 cycle before handshake convention",
+      "four_parallel_raw_area_um2": 142096.136,
+      "ii_max": 8,
+      "ii_min": 8,
+      "ingress": "128-bit code chunks plus precomputed coefficient/bias, with no burst assembler",
+      "latency_max": 9,
+      "latency_min": 9,
+      "mapped_one_head_area_um2": 35524.034,
+      "mapped_period_ns": 2.230465531,
+      "native_heads": 1,
+      "output_flow_control": "old interface has no backpressure input",
+      "pages": 524,
+      "raw_dot_service_cycles": 8,
+      "replay_assumptions": "old128 RTL uses precomputed coefficients and 16-byte chunks; projected A keeps Round 11 packed-summary ingress and 1.25 ns coeff timing",
+      "verified_head_scores": 524
+    },
+    "sha256": "16ee1b7b13d0eac935af497c25736b5012112a6b9d0da18a9c8b93c0680e106f",
+    "shared_sram": "Each real record slot reserves stride bytes plus 32 bytes for coefficients, tag and derived metadata. Reserve 32 bytes for a shared burst, 32 bytes for four FP64 gains, q8 query storage already provisioned in the Round 11 ledger, extra q8 magnitude storage, and two rounded 32 B result entries. Optional 16 \u00d7 32 B return FIFO uses the same 64 KiB allowance. Per-group phase reuse is allowed.",
+    "sources": [
+      {
+        "file": "results/round12_frontend/hardware/rtl_validation.json",
+        "sha256": "52fdce2488b0f3bcfc6e65b5049b802c74f0da1c3d0aedaec3ed04f4ad3d2f17"
+      },
+      {
+        "file": "results/round12_frontend/hardware/synthesis.json",
+        "sha256": "239070142fe4909b80f7d2e4b9e2dc8350e8ddbcf91c49e4b55fa0e0c756a5d1"
+      },
+      {
+        "file": "results/round12_frontend/hardware/narrow_rtl_validation.json",
+        "sha256": "641c7685dad7e1b19039debfd47524e2923e164aa567bc6f4b4f418201ec1aa9"
+      },
+      {
+        "file": "results/round12_frontend/hardware/narrow_synthesis.json",
+        "sha256": "37bb3160dcedf7fec7e6f4ef1eb87b6fe3cafb9e965a152a40926a6d1198431e"
+      }
+    ],
+    "timing_convention": "Accepted scorer edges, period from a common-library pre-layout STA path. Record release is the edge after the measured last dot. No-stall timing assumes continuously ready result consumer."
+  },
+  "energy": {
+    "additional_coefficients": {
+      "lower": {
+        "coeff_pj_per_product": 0.3,
+        "front_mw": 0.5
+      },
+      "nominal": {
+        "coeff_pj_per_product": 1.5,
+        "front_mw": 2
+      },
+      "upper": {
+        "coeff_pj_per_product": 6.0,
+        "front_mw": 8
+      }
+    },
+    "coefficients": {
+      "lower": {
+        "act_pj_per_command": 200,
+        "control_background_mw": 0.5,
+        "control_pj_per_descriptor_run": 0.5,
+        "control_pj_per_hist_score": 0.1,
+        "control_pj_per_ranked_page": 0.3,
+        "dram_background_mw": 2,
+        "kv4_pj_per_affine_element": 0.06,
+        "kv4_pj_per_side_value": 0.06,
+        "lane_clock_mw_per_lane": 0.001,
+        "pre_pj_per_command": 100,
+        "pv_pj_per_accumulation": 0.1,
+        "pv_pj_per_product": 0.2,
+        "pv_pj_per_weight": 0.25,
+        "qk_pj_per_accumulation": 0.1,
+        "qk_pj_per_logit_scale": 0.15,
+        "qk_pj_per_product": 0.15,
+        "rd_core_pj_per_burst": 150,
+        "read_io_pj_per_byte": 3,
+        "scorer_pj_per_fused_update": 0.08,
+        "scorer_pj_per_term": 0.12,
+        "sram_pj_per_byte": 0.3
+      },
+      "nominal": {
+        "act_pj_per_command": 500,
+        "control_background_mw": 2,
+        "control_pj_per_descriptor_run": 3,
+        "control_pj_per_hist_score": 0.5,
+        "control_pj_per_ranked_page": 1.5,
+        "dram_background_mw": 10,
+        "kv4_pj_per_affine_element": 0.2,
+        "kv4_pj_per_side_value": 0.25,
+        "lane_clock_mw_per_lane": 0.005,
+        "pre_pj_per_command": 250,
+        "pv_pj_per_accumulation": 0.35,
+        "pv_pj_per_product": 0.8,
+        "pv_pj_per_weight": 1,
+        "qk_pj_per_accumulation": 0.35,
+        "qk_pj_per_logit_scale": 0.5,
+        "qk_pj_per_product": 0.6,
+        "rd_core_pj_per_burst": 400,
+        "read_io_pj_per_byte": 16,
+        "scorer_pj_per_fused_update": 0.3,
+        "scorer_pj_per_term": 0.4,
+        "sram_pj_per_byte": 1.5
+      },
+      "upper": {
+        "act_pj_per_command": 1200,
+        "control_background_mw": 8,
+        "control_pj_per_descriptor_run": 15,
+        "control_pj_per_hist_score": 2.0,
+        "control_pj_per_ranked_page": 6.0,
+        "dram_background_mw": 40,
+        "kv4_pj_per_affine_element": 0.8,
+        "kv4_pj_per_side_value": 1.0,
+        "lane_clock_mw_per_lane": 0.02,
+        "pre_pj_per_command": 600,
+        "pv_pj_per_accumulation": 1.3,
+        "pv_pj_per_product": 2.5,
+        "pv_pj_per_weight": 4,
+        "qk_pj_per_accumulation": 1.3,
+        "qk_pj_per_logit_scale": 2,
+        "qk_pj_per_product": 2.0,
+        "rd_core_pj_per_burst": 1000,
+        "read_io_pj_per_byte": 40,
+        "scorer_pj_per_fused_update": 1.0,
+        "scorer_pj_per_term": 1.2,
+        "sram_pj_per_byte": 8
+      }
+    },
+    "front": "Dot terms/fused updates, two coefficient products per head and record, two packed payload accesses, write/read of each result, and illustrative active frontend power. The same cost assumptions apply to all policies. Positive extra-front pJ/record to tie means the candidate may spend that additional energy before losing its modeled advantage.",
+    "scope": "Illustrative sampled decode attention frontend plus DRAM energy, in \u00b5J/step. DDR terms use actual projected ACT/PRE/RD counts and all summary/K/V physical bytes. Backend compute and its SRAM, unmetered logic and leakage are outside this increment."
+  },
+  "files": {
+    "paired_energy.csv": "de9781145aa014428b1eacc6dc8fb87720d9fd0c124e47cbd815d8f96a1fc124",
+    "paired_timing.csv": "bf9b0a2e047a8c657341d8b7f3db38ab3f86dd0b8090f00c664b33498260fe44",
+    "step_timing.csv": "abacba252f903ec9a89496ae1be51c2086cf4d32e9ec2fbf1c31e89bfdb39525",
+    "step_timing_summary.csv": "23d8695acb9c0383875a8ca40a3ce43fb57dbb395c0cc7d535413a7b2b9b266e"
+  },
+  "front_timing": "The in-order physical region is consumed at a finite scorer-clock beat port. A straddling burst is fetched once and needs both record slots at RTL ingress. Coefficient issue, result readiness, dot issue, last dot slot release, and two output credits follow the measured RTL edge recurrence. The no-stall cadence is checked against RTL and emerges from these stages. The final result crosses to the PE domain before normalization. Optional burst FIFO space is reserved inside the same 64 KiB stage SRAM accounting. The backend phases mark normalization/ranking/planner, K/QK, gate/budget, and V/PV/finalization in order.",
+  "geometry": {
+    "backend_lanes": 64,
+    "kv_groups": 8,
+    "layers": 36,
+    "mode": "double_buffer",
+    "pe_period_ns": 1.25,
+    "shared_sram_bytes": 65536
+  },
+  "inputs": [
+    {
+      "file": "results/round11_workpoints/32k/common/states.jsonl.gz",
+      "sha256": "a8b80ff5a196ec48578758c9b3573ec41e722345b55916e7a406ff1ece65ecea",
+      "state_set": "archived"
+    },
+    {
+      "file": "results/round11_workpoints/64k/common/states.jsonl.gz",
+      "sha256": "fc9673053a7e2d5ddedd9004f886f96412a52538ea1940d0bc0182bfda8c0cf2",
+      "state_set": "archived"
+    },
+    {
+      "file": "results/round12_frontend/32k/extended/states.jsonl.gz",
+      "sha256": "c4bcf26bbc4e0bbd68eecedf9dc2102f50e9395d40d001e93cd40d85deca8f35",
+      "state_set": "extended"
+    },
+    {
+      "file": "results/round12_frontend/64k/extended/states.jsonl.gz",
+      "sha256": "953d465c5c7a940fd69a2665064b038ff421fca9be65bfb28a923f22395f7187",
+      "state_set": "extended"
+    }
+  ],
+  "model_source_sha256": {
+    "gqa_probe/round11_energy.py": "f4a1e1fc7bef97e0dab2021e89a142f97d429074d57f064b8fa110463bf9171c",
+    "gqa_probe/round11_timing.py": "8bef48e5c24def77ce67b0d64ef71b306b49ba6867c43513aed9eb41c811dc94",
+    "scripts/replay_round11.py": "772d3a7934030ec5ccab20ecea54e966f65feedf1c3f7a18582992a63cf38848",
+    "scripts/replay_round12.py": "cdad318d5cdf5ac21f5a67a18aee51ece9b68ccd0e687de401949b8a19156fc3",
+    "sim/lpddr5_banked.cpp": "1c9180cc84874e43c1eb2dc1acc9ca6e077dde7e428ccf99f1c77743f5a8a583",
+    "sim/round11_timing.cpp": "ca926e4414c41be05d8059b0c0d0578aceeb7fd9aeecbe2a359af7e1153d60ee"
+  },
+  "paired_timing_rows": 1023,
+  "pairing": "Matched on state set, cohort, prompt and captured decode step. The group schedule preserves one LPDDR state across the complete layer/group traversal.",
+  "population": "Each captured whole step carries equal weight within its cohort and timestamp stratum. P95 is the nearest-rank observed value. A P95 of paired differences and each side's own P95 are both reported.",
+  "populations": [
+    {
+      "captured_groups": [
+        {
+          "cohort": "32k",
+          "groups": 398,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1027,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 843,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 398,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1027,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 843,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 398,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1027,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 843,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 332,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 30,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 651,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 834,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 332,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 30,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 651,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 834,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 332,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 30,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 651,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 834,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        }
+      ],
+      "isolated_groups_excluded": 7224,
+      "state_set": "archived",
+      "whole_step_policy_captures": 18,
+      "whole_steps": 6
+    },
+    {
+      "captured_groups": [
+        {
+          "cohort": "32k",
+          "groups": 343,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 24,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1022,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 1416,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 343,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 24,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1022,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 1416,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 343,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 24,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1022,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 1416,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 343,
+          "policy": "N64",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 24,
+          "policy": "N64",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1022,
+          "policy": "N64",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 1416,
+          "policy": "N64",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 343,
+          "policy": "N80",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 24,
+          "policy": "N80",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1022,
+          "policy": "N80",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 1416,
+          "policy": "N80",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 242,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 21,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 498,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 843,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 242,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 21,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 498,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 843,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 242,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 21,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 498,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 843,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 242,
+          "policy": "N80",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 21,
+          "policy": "N80",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 498,
+          "policy": "N80",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 843,
+          "policy": "N80",
+          "scope": "regular",
+          "whole_step": true
+        }
+      ],
+      "isolated_groups_excluded": 9785,
+      "state_set": "extended",
+      "whole_step_policy_captures": 37,
+      "whole_steps": 8
+    }
+  ],
+  "scope": "CPU event projection of decode attention only",
+  "stall_metrics": "Scorer wait sums idle dot time, including initial service and input starvation. Record service wait measures delay beyond the isolated complete-to-first-dot minimum per record. Ingress queue wait sums visible-to-consumed intervals per burst and includes in-order reassembly and slot blocking. These residency sums may overlap across terms. Result CDC measures final scorer-to-PE alignment and modeled synchronization. Slot and request-window wait retain the Round 11 elapsed blocked-device definitions. Excess span compares observed first complete through last result against the same timed scorer with continuous ready input.",
+  "step_timing_rows": 605,
+  "timestamp": "decode_start is step zero. answer_start is the trace answer-start marker on nonzero steps. later is the remaining nonzero steps. fallback_present is the matched subset where either policy fell back."
+}

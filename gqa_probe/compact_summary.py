@@ -9,9 +9,15 @@ from .vskip_summary import decoded, encode, pack_codes, quantize_vector, unpack_
 
 
 SUMMARY_BYTES = {"q4": 144, "mr25": 144, "mr4": 112,
-                 "mr96": 112, "mr96_k": 112, "mr96_score": 112}
-_CHANNEL_COUNTS = {"mr96": 96, "mr96_k": 96, "mr96_score": 96}
+                 "mr96": 112, "mr96_k": 112, "mr96_score": 112,
+                 "mr80_score": 96, "mr64_score": 80}
+_CHANNEL_COUNTS = {"mr96": 96, "mr96_k": 96, "mr96_score": 96,
+                   "mr80_score": 80, "mr64_score": 64}
 _HEAD_DIM = 128
+
+
+def scored_channels(method):
+    return _CHANNEL_COUNTS.get(method, _HEAD_DIM)
 
 
 def _take_channels(values, channels, method):
@@ -65,13 +71,13 @@ def records_as_bytes(record, method, *, lengths=None):
     return torch.nn.functional.pad(encoded, (0, padding))
 
 
-def scores(query, record, method, scaling, *, channels=None, alpha=.25, temperature=1.):
-    """Score encoded pages with the Round 9 Q8/Q24 convention and full Q8 scale."""
+def score_inputs(query, record, method, scaling, *, channels=None, alpha=.25, temperature=1.):
+    """Build the integer scorer operands with the full Query scale."""
     if temperature <= 0:
         raise ValueError("temperature must be positive")
     scaling = float(scaling) / temperature
     if method == "q4" or (method == "mr25" and alpha == .25):
-        return scorer_int.scores(query, record, method, scaling)
+        return scorer_int.prepare_inputs(query, record, method, scaling)
     if method not in SUMMARY_BYTES:
         raise ValueError(f"unknown summary method: {method}")
 
@@ -97,9 +103,15 @@ def scores(query, record, method, scaling, *, channels=None, alpha=.25, temperat
     count = counts.transpose(1, 2)
     bias = count.clamp_min(1).double().log()
     encoded_bias = (bias * scorer_int.Q24).round().long()
-    data = scorer_int.ScorerInputs(method, q8, mean, radius, coeff_a, coeff_b, encoded_bias,
+    return scorer_int.ScorerInputs(method, q8, mean, radius, coeff_a, coeff_b, encoded_bias,
                                    count > 0, fa, fb, bias)
-    return scorer_int.fixed_scores(data)
+
+
+def scores(query, record, method, scaling, *, channels=None, alpha=.25, temperature=1.):
+    """Score encoded pages with the Round 9 Q8/Q24 convention and full Q8 scale."""
+    inputs = score_inputs(query, record, method, scaling, channels=channels,
+                          alpha=alpha, temperature=temperature)
+    return scorer_int.fixed_scores(inputs)
 
 
 def weights(query, record, method, scaling, *, channels=None, alpha=.25, temperature=1.):

@@ -53,9 +53,10 @@ def gold_spans(row):
 
 
 class WorkpointAttention(Attention):
-    def __init__(self, policy, prefixes, masks, gold):
+    def __init__(self, policy, prefixes, masks, gold, *, allocate=allocation):
         super().__init__(DENSE, None, gold)
         self.workpoint, self.prefixes, self.masks = policy, prefixes, masks
+        self.allocate = allocate
 
     def attention(self, module, query, key, value, attention_mask, **kwargs):
         if self.step < 0 or query.shape[-2] != 1:
@@ -73,7 +74,7 @@ class WorkpointAttention(Attention):
         channel_layers = self.masks.get(policy.method)
         channels = None if channel_layers is None else channel_layers[layer]
         score = weights(q, record, policy.method, scale, channels=channels)
-        alloc = allocation(policy, ranked_pages(score, history), history)
+        alloc = self.allocate(policy, ranked_pages(score, history), history)
         out = screen(alloc, q, key, value, scale, gold_spans=self.gold_spans)
         for name, field in out.ledger.items():
             self._add("read" if name == "total" else name, field)
@@ -110,8 +111,9 @@ class WorkpointAttention(Attention):
         return self.output(query, out.output)
 
 
-def group_result(policy, model, state, masks, tokenizer, eos, row):
-    attention = WorkpointAttention(policy, prefix_layers(state, policy, masks), masks, gold_spans(row))
+def group_result(policy, model, state, masks, tokenizer, eos, row, *, allocate=allocation):
+    attention = WorkpointAttention(policy, prefix_layers(state, policy, masks), masks, gold_spans(row),
+                                   allocate=allocate)
     run = generate_from_prefill(model, state, row["max_new_tokens"], eos, attention)
     answer = make_answer(policy, run, tokenizer, row, eos)
     raw = tokenizer.decode(run.token_ids, skip_special_tokens=True)

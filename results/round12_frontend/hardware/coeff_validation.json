@@ -1,0 +1,14 @@
+{
+  "accepted_to_visible_edges": 8,
+  "bias_codes_compared": 256,
+  "bias_vectors_sha256": "f7a5587a367c393bc118a019391a5d0d32c54346b1dc65eafa5eb9912399dc36",
+  "coefficients_compared": 9584,
+  "cpu_scorer_vectors": 1312,
+  "directed_vectors": 80,
+  "initiation_interval_cycles": 1,
+  "pipeline_stages": 9,
+  "random_vectors": 8192,
+  "rtl_sha256": "159ea88345d7968a008d247df03fca141f1f4419b28cbed789b99ba8f467f85d",
+  "seed": 12024,
+  "vectors_sha256": "7c503c92d6cac53be386ae44408118e8ad2208cf5da6a49b8bb994cadac2dba1"
+}

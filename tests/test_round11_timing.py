@@ -74,6 +74,70 @@ def test_c_sensitivity_does_not_change_work():
     assert faster["rd"] == baseline["rd"]
 
 
+def test_integrated_frontend_uses_whole_record_latency_once_and_keeps_physical_bursts():
+    result = replay_group(trace(), frontend=rtl_timing())
+    assert result["summary_rd"] == 14
+    assert result["rd"] == 185
+    assert result["peak_summary_slots"] == 2
+    assert result["first_score_ns"] - result["frontend_first_record_ns"] == 42
+    assert result["frontend_last_result_ns"] - result["frontend_last_record_ns"] >= 81
+    assert result["scorer_busy_ns"] == 4 * 6 * 3
+    assert result["coefficient_busy_ns"] == 4 * 4 * 3
+    assert 2.5 <= result["score_done_ns"] - result["frontend_last_result_ns"] < 3.75
+    assert result["first_v_command_ns"] >= result["gate_done_ns"] > result["qk_done_ns"]
+
+
+def rtl_timing(**kwargs):
+    from gqa_probe.round11_timing import FrontendTiming
+
+    return FrontendTiming(
+        profile="fixture", clock_period_ns=3, record_interval_cycles=13,
+        record_to_dot_cycles=14, record_to_result_cycles=27, record_release_cycles=20,
+        dot_ii_cycles=6, dot_tail_cycles=8, coefficient_service_cycles=4,
+        coefficient_latency_cycles=12, record_slots=2, ingress_bytes_per_cycle=32,
+        ingress_cdc_cycles=2, result_cdc_pe_cycles=2, auxiliary_bytes=32, **kwargs,
+    )
+
+
+def test_frontend_fifo_bounds_prefetch_without_duplicating_any_shared_burst():
+    tight = replay_group(trace(), frontend=rtl_timing())
+    buffered = replay_group(trace(), frontend=rtl_timing(burst_fifo_slots=8))
+    assert tight["summary_rd"] == buffered["summary_rd"] == 14
+    assert tight["peak_summary_slots"] == buffered["peak_summary_slots"] == 2
+    assert buffered["peak_frontend_reserved_bytes"] - tight["peak_frontend_reserved_bytes"] == 256
+    assert tight["summary_slot_wait_ns"] > buffered["summary_slot_wait_ns"]
+    assert tight["score_done_ns"] > buffered["score_done_ns"]
+
+
+def test_saturated_frontend_matches_full96_dual_rtl_timing():
+    from gqa_probe.round11_timing import saturated_frontend_schedule
+
+    complete, dot, reuse, output = saturated_frontend_schedule(rtl_timing(), 6, 112).T
+    assert complete.tolist() == [3, 6, 29, 32, 55, 58]
+    assert (dot - complete).tolist() == [14, 17] * 3
+    assert (reuse - dot).tolist() == [6] * 6
+    assert (output - dot).tolist() == [13] * 6
+
+
+def test_projected_legacy_dot_clock_does_not_slow_coefficient_or_backend():
+    baseline = replay_group(trace())
+    slow = replay_group(trace(), legacy_scorer_period_ns=2.5)
+    assert slow["scorer_busy_ns"] == 2 * baseline["scorer_busy_ns"]
+    assert slow["coefficient_busy_ns"] == baseline["coefficient_busy_ns"]
+    assert slow["completion_ns"] > baseline["completion_ns"]
+    assert slow["qk_busy_ns"] == baseline["qk_busy_ns"]
+    assert slow["rd"] == baseline["rd"]
+
+
+def test_projected_legacy_accepts_equal_fifo_sensitivity():
+    tight = replay_group(trace(), legacy_scorer_period_ns=2.5)
+    buffered = replay_group(trace(), legacy_scorer_period_ns=2.5, legacy_burst_fifo_slots=16)
+    assert buffered["frontend_burst_fifo_slots"] == 16
+    assert buffered["peak_frontend_reserved_bytes"] >= 16 * 32
+    assert buffered["rd"] == tight["rd"]
+    assert buffered["score_done_ns"] < tight["score_done_ns"]
+
+
 def test_barrier_matches_existing_banked_scan_and_exposes_buffer_stalls():
     row = trace()
     serial = replay_group(row, mode="serial")

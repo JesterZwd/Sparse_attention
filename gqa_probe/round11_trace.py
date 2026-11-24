@@ -4,7 +4,7 @@ from dataclasses import replace
 import numpy as np
 import torch
 
-from .compact_summary import CompactOnline, CompactPrefix, SUMMARY_BYTES, weights
+from .compact_summary import CompactOnline, CompactPrefix, SUMMARY_BYTES, scored_channels, weights
 from .fixed_k_v import ranked_pages, vector_burst
 from .oracle_attention import grouped_logits, grouped_output
 from .page_read_budget import page_history
@@ -23,7 +23,7 @@ def trace_group(policy, plan, group, mask, ids, counts, ledger, prefix, fallback
     history = plan.history
     page_size = history.page_size
     summary_stride = SUMMARY_BYTES[policy.method]
-    scorer_channels = 128 if policy.method == "mr25" else 96
+    scorer_channels = scored_channels(policy.method)
     stride = vector_burst(page_size)
     full = [dict(id=page, records=count, addr=K_BASE + page * stride,
                  bytes=vector_burst(count), v_addr=V_BASE + page * stride)
@@ -57,11 +57,13 @@ def trace_group(policy, plan, group, mask, ids, counts, ledger, prefix, fallback
 
 
 class CommonAttention(Attention):
-    def __init__(self, dense_policy, policies, masks, spans, starts, sample_id, cohort, index, whole):
+    def __init__(self, dense_policy, policies, masks, spans, starts, sample_id, cohort, index, whole, *,
+                 allocate=allocation, matched_pairs=(("A", "B"),), observer=None):
         super().__init__(dense_policy, None, spans)
         self.policies, self.masks, self.starts = policies, masks, starts
         self.identity = dict(sample_id=sample_id, cohort=cohort)
         self.index, self.whole = index, whole
+        self.allocate, self.matched_pairs, self.observer = allocate, matched_pairs, observer
         self.metrics = []
         self.traces = []
 
@@ -86,14 +88,18 @@ class CommonAttention(Attention):
                                              channels=channels.get(method)), history)
                  for method in methods}
         gold = self.starts.get(self.step, self.gold_spans)
-        plans = {p.name: allocation(p, ranks[p.method], history) for p in self.policies}
-        a, b = plans["A"], plans.get("B")
-        if b is not None:
+        plans = {p.name: self.allocate(p, ranks[p.method], history) for p in self.policies}
+        for reference, candidate in self.matched_pairs:
+            if reference not in plans or candidate not in plans:
+                continue
+            a, b = plans[reference], plans[candidate]
             pins = len(history.protected)
             if a.ids.shape != b.ids.shape or not torch.equal(a.ids[:, :pins], b.ids[:, :pins]):
-                raise ValueError("matched A/B pages or protection diverged")
+                raise ValueError(f"{reference}/{candidate} pages or protection diverged")
             if not torch.equal(a.k_counts, b.k_counts):
-                raise ValueError("matched A/B valid K and QK differ")
+                raise ValueError(f"{reference}/{candidate} valid K and QK differ")
+        if self.observer is not None:
+            self.observer(layer, self.step, q, records, channels, scale)
         outcomes = {p.name: screen(plans[p.name], q, key, value, scale, gold_spans=gold)
                     for p in self.policies}
         pressure = torch.stack([out.fallback for out in outcomes.values()]).any(0).tolist()
@@ -113,9 +119,9 @@ class CommonAttention(Attention):
                 self.traces.append(dict(**record, **self.identity, layer=layer, step=self.step,
                                         scope="fallback_pressure" if pressure[group] else "regular",
                                         whole_step=whole, answer_start=self.step in self.starts))
-        if b is not None and torch.any(outcomes["A"].fallback != outcomes["B"].fallback).item():
+        if "A" in plans and "B" in plans and torch.any(outcomes["A"].fallback != outcomes["B"].fallback).item():
             # Match A's V headroom, while keeping the B ranking and accounting.
-
+            a, b = plans["A"], plans["B"]
             check = replace(b, cap=a.cap - a.summary_bytes + b.summary_bytes, safe_count=a.safe_count)
             res = screen(check, q, key, value, scale, gold_spans=gold)
             self.record_metrics("B_matched_v", check, res, dense, heads, dim, layer, whole)

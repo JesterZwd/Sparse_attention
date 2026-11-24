@@ -1,0 +1,1 @@
+{"gates":{"p99_ratio_max":1.05,"v_evidence_loss_max":0.01},"results":[{"abs_p99_ratio":0.9963226057139297,"passes":true,"policy":"N80","same_k":true,"v_token_delta":-0.00030788177339902134},{"abs_p99_ratio":0.9936332156136228,"passes":true,"policy":"N64","same_k":true,"v_token_delta":-0.0012828407224959038}]}
