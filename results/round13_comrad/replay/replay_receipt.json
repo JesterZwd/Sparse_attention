@@ -1,0 +1,773 @@
+{
+  "approximation": "The calibrated ingress uses the cycle recurrence with continuous result ready as in the RTL reference test. LPDDR credit feedback, quantized CDC edges, bounded staging, and score writes are replay assumptions. A projected old128 clock uses the Round 11 summary ingress and coefficient preparation at the PE clock and an optimistic four-head parallel instance of the old one-head preloaded dot core. It preserves eight cycles per four-head record and assumes about four times the old dot core area before shared logic. The equal-FIFO scenarios give A the same burst-return budget with the Round 11 atomic ingress model. All backend compute stays at 1.25 ns.",
+  "archived_baseline_reproduction": [
+    {
+      "cohort": "32k",
+      "comparisons": 18,
+      "fields_per_comparison": [
+        123
+      ],
+      "file": "results/round11_workpoints/32k/replay/step_timing.csv",
+      "sha256": "05192cd5322816e8b4a307a0e0f5cf113528517c655eb4403e5c02aeda81cb54",
+      "state_set": "archived_round11",
+      "unique_rows": 15
+    },
+    {
+      "cohort": "64k",
+      "comparisons": 18,
+      "fields_per_comparison": [
+        123
+      ],
+      "file": "results/round11_workpoints/64k/replay/step_timing.csv",
+      "sha256": "681aa8b11ee8c7d4643503ee0c82dfd91c2657b762e52df049d4608606c2f349",
+      "state_set": "archived_round11",
+      "unique_rows": 15
+    }
+  ],
+  "calibration": {
+    "cdc": "Two modeled scorer cycles for the DRAM-side crossing and one demonstrated synchronous receive FIFO cycle. Two PE cycles for the modeled scorer-result crossing.",
+    "clock_domains": "Separate per-width measured pre-layout scorer clock and common 1.25 ns backend PE.",
+    "conditions": [
+      {
+        "evidence": "Both scored widths use their own mapped scorer period and matched dual issue, tail, FIFO depth, slots, and result credits.",
+        "name": "full_match_s2_c2",
+        "records": {
+          "128": {
+            "stride_bytes": 144,
+            "timing": {
+              "auxiliary_bytes": 610,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.663507909,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 8,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 3,
+              "profile": "full128_s2_c2",
+              "query_load_cycles": 9,
+              "record_interval_cycles": 15.0,
+              "record_release_cycles": 22,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 31,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "cycle_trace_sha256": "217c96226a5ffc229d62816a10a20a057793cfe74430388c59d518bb50b0dfd2",
+              "matched_steady_trace_records": 131,
+              "record_interval_pattern": [
+                4,
+                26
+              ],
+              "rtl_log_sha256": "fc251af24e7188763acb7c77fcc53115a07f60f21b491fd7b9c343146a5998f3",
+              "rtl_profile": "full128_s2_c2",
+              "saturated_model_checked": true,
+              "scope": "Integrated frontend including actual receive FIFO, dual issue, tail, and result credits"
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 482,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.6696124669999999,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 3,
+              "profile": "full96_s2_c2",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 13.0,
+              "record_release_cycles": 20,
+              "record_slots": 2,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "cycle_trace_sha256": "979914fe3e94a57302f4373898f6579390cb125585ca78b87266fed57714db64",
+              "matched_steady_trace_records": 131,
+              "record_interval_pattern": [
+                3,
+                23
+              ],
+              "rtl_log_sha256": "e8f10f082627c332baacff129cb7954b7aafe5e404ef8c0467e1caf1d5502469",
+              "rtl_profile": "full96_s2_c2",
+              "saturated_model_checked": true,
+              "scope": "Integrated frontend including actual receive FIFO, dual issue, tail, and result credits"
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Both scored widths use their own mapped scorer period and matched dual issue, tail, FIFO depth, slots, and result credits.",
+        "name": "full_match_s4_c2",
+        "records": {
+          "128": {
+            "stride_bytes": 144,
+            "timing": {
+              "auxiliary_bytes": 610,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.6579423549999999,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 8,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 3,
+              "profile": "full128_s4_c2",
+              "query_load_cycles": 9,
+              "record_interval_cycles": 8.5,
+              "record_release_cycles": 22,
+              "record_slots": 4,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 31,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "cycle_trace_sha256": "3e1917bb35a09f8dd2408934fc07f7dd88cbfce6f31874312ac664cf7ccd0c3e",
+              "matched_steady_trace_records": 131,
+              "record_interval_pattern": [
+                4,
+                13
+              ],
+              "rtl_log_sha256": "e704f873b9e383e5c749446de9308cfbb4888ab4241bcfcb448d6707482fa816",
+              "rtl_profile": "full128_s4_c2",
+              "saturated_model_checked": true,
+              "scope": "Integrated frontend including actual receive FIFO, dual issue, tail, and result credits"
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 482,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.765990257,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 3,
+              "profile": "full96_s4_c2",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 7.5,
+              "record_release_cycles": 20,
+              "record_slots": 4,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 2
+            },
+            "timing_evidence": {
+              "cycle_trace_sha256": "02217cb3d3bac5980045aa1cec7c9ce348f2612505fa96e7c08b35796f1a0272",
+              "matched_steady_trace_records": 131,
+              "record_interval_pattern": [
+                3,
+                12
+              ],
+              "rtl_log_sha256": "348aa063aafe74d50f645dfd311030b9aed24bb9468922f17aac980e0ca2cde7",
+              "rtl_profile": "full96_s4_c2",
+              "saturated_model_checked": true,
+              "scope": "Integrated frontend including actual receive FIFO, dual issue, tail, and result credits"
+            }
+          }
+        }
+      },
+      {
+        "evidence": "Both scored widths use their own mapped scorer period and matched dual issue, tail, FIFO depth, slots, and result credits.",
+        "name": "full_match_s4_c3",
+        "records": {
+          "128": {
+            "stride_bytes": 144,
+            "timing": {
+              "auxiliary_bytes": 642,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.751186669,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 8,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 3,
+              "profile": "full128_s4_c3",
+              "query_load_cycles": 9,
+              "record_interval_cycles": 8.0,
+              "record_release_cycles": 22,
+              "record_slots": 4,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 31,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 3
+            },
+            "timing_evidence": {
+              "cycle_trace_sha256": "f69e61ba69e3381eee38b85206880a9ba0ad60d65bf2d9a11dee1a892ae56cc8",
+              "matched_steady_trace_records": 131,
+              "record_interval_pattern": [
+                4,
+                12
+              ],
+              "rtl_log_sha256": "1e041eac7072983eabfe5f260a0dc06e92c7e67072ce79f13d0e728398fda2f3",
+              "rtl_profile": "full128_s4_c3",
+              "saturated_model_checked": true,
+              "scope": "Integrated frontend including actual receive FIFO, dual issue, tail, and result credits"
+            }
+          },
+          "96": {
+            "stride_bytes": 112,
+            "timing": {
+              "auxiliary_bytes": 514,
+              "burst_fifo_slots": 16,
+              "clock_period_ns": 1.745416045,
+              "coefficient_latency_cycles": 12,
+              "coefficient_service_cycles": 4,
+              "dot_ii_cycles": 6,
+              "dot_tail_cycles": 10,
+              "ingress_bytes_per_cycle": 32,
+              "ingress_cdc_cycles": 3,
+              "profile": "full96_s4_c3",
+              "query_load_cycles": 7,
+              "record_interval_cycles": 6.5,
+              "record_release_cycles": 20,
+              "record_slots": 4,
+              "record_to_dot_cycles": 14,
+              "record_to_result_cycles": 29,
+              "result_cdc_pe_cycles": 2,
+              "result_fifo_slots": 3
+            },
+            "timing_evidence": {
+              "cycle_trace_sha256": "a55bcd65410b511b07607d1ae1d324e39ba9249c6d3f912168b25fa04839db9e",
+              "matched_steady_trace_records": 131,
+              "record_interval_pattern": [
+                3,
+                9,
+                3,
+                11
+              ],
+              "rtl_log_sha256": "b82e197439de5e8743d3e858ccbd965c36fd1b8d057327a8bf4a18133c5666ed",
+              "rtl_profile": "full96_s4_c3",
+              "saturated_model_checked": true,
+              "scope": "Integrated frontend including actual receive FIFO, dual issue, tail, and result credits"
+            }
+          }
+        }
+      }
+    ],
+    "file": "results/round13_comrad/hardware/frontend_calibration.json",
+    "port_assumptions": "One receive FIFO write and read per scorer edge, ordered 32 B burst feed, up to two independent 16 B record destinations per straddle, and one result FIFO write/read. Clocking and SRAM macro ports follow model assumptions.",
+    "sha256": "9cd066f60574e0df0c60e2f49bfdb9eb2d7691a28157d92e65c7c77c31898e12",
+    "shared_sram": "512 B receive payload, 16 LAST bits, rounded 32 B output per credit, packed record stride and 32 B prepared metadata per slot, Q magnitude and gains; input/result stages share the 64 KiB workset under the established replay.",
+    "sources": [
+      {
+        "file": "results/round13_comrad/hardware/rtl_validation.json",
+        "sha256": "f738d75f0e6007c788c135f891abb478f557c390e2ef5f5bee107b857af879a0"
+      },
+      {
+        "file": "results/round13_comrad/hardware/synthesis.json",
+        "sha256": "c9c9ced465b2001df9c89b81af484507b8ffb4a354b48873fe59e55684eff11b"
+      }
+    ],
+    "verification": "Every continuous-test record crosses the same modeled complete, first-dot, slot-reuse, and output edge relative to the first assembled record. Source recovery and CDC timing are separately modeled."
+  },
+  "energy": {
+    "additional_coefficients": {
+      "lower": {
+        "coeff_pj_per_product": 0.3,
+        "front_mw": 0.5
+      },
+      "nominal": {
+        "coeff_pj_per_product": 1.5,
+        "front_mw": 2
+      },
+      "upper": {
+        "coeff_pj_per_product": 6.0,
+        "front_mw": 8
+      }
+    },
+    "coefficients": {
+      "lower": {
+        "act_pj_per_command": 200,
+        "control_background_mw": 0.5,
+        "control_pj_per_descriptor_run": 0.5,
+        "control_pj_per_hist_score": 0.1,
+        "control_pj_per_ranked_page": 0.3,
+        "dram_background_mw": 2,
+        "kv4_pj_per_affine_element": 0.06,
+        "kv4_pj_per_side_value": 0.06,
+        "lane_clock_mw_per_lane": 0.001,
+        "pre_pj_per_command": 100,
+        "pv_pj_per_accumulation": 0.1,
+        "pv_pj_per_product": 0.2,
+        "pv_pj_per_weight": 0.25,
+        "qk_pj_per_accumulation": 0.1,
+        "qk_pj_per_logit_scale": 0.15,
+        "qk_pj_per_product": 0.15,
+        "rd_core_pj_per_burst": 150,
+        "read_io_pj_per_byte": 3,
+        "scorer_pj_per_fused_update": 0.08,
+        "scorer_pj_per_term": 0.12,
+        "sram_pj_per_byte": 0.3
+      },
+      "nominal": {
+        "act_pj_per_command": 500,
+        "control_background_mw": 2,
+        "control_pj_per_descriptor_run": 3,
+        "control_pj_per_hist_score": 0.5,
+        "control_pj_per_ranked_page": 1.5,
+        "dram_background_mw": 10,
+        "kv4_pj_per_affine_element": 0.2,
+        "kv4_pj_per_side_value": 0.25,
+        "lane_clock_mw_per_lane": 0.005,
+        "pre_pj_per_command": 250,
+        "pv_pj_per_accumulation": 0.35,
+        "pv_pj_per_product": 0.8,
+        "pv_pj_per_weight": 1,
+        "qk_pj_per_accumulation": 0.35,
+        "qk_pj_per_logit_scale": 0.5,
+        "qk_pj_per_product": 0.6,
+        "rd_core_pj_per_burst": 400,
+        "read_io_pj_per_byte": 16,
+        "scorer_pj_per_fused_update": 0.3,
+        "scorer_pj_per_term": 0.4,
+        "sram_pj_per_byte": 1.5
+      },
+      "upper": {
+        "act_pj_per_command": 1200,
+        "control_background_mw": 8,
+        "control_pj_per_descriptor_run": 15,
+        "control_pj_per_hist_score": 2.0,
+        "control_pj_per_ranked_page": 6.0,
+        "dram_background_mw": 40,
+        "kv4_pj_per_affine_element": 0.8,
+        "kv4_pj_per_side_value": 1.0,
+        "lane_clock_mw_per_lane": 0.02,
+        "pre_pj_per_command": 600,
+        "pv_pj_per_accumulation": 1.3,
+        "pv_pj_per_product": 2.5,
+        "pv_pj_per_weight": 4,
+        "qk_pj_per_accumulation": 1.3,
+        "qk_pj_per_logit_scale": 2,
+        "qk_pj_per_product": 2.0,
+        "rd_core_pj_per_burst": 1000,
+        "read_io_pj_per_byte": 40,
+        "scorer_pj_per_fused_update": 1.0,
+        "scorer_pj_per_term": 1.2,
+        "sram_pj_per_byte": 8
+      }
+    },
+    "front": "Dot terms/fused updates, two coefficient products per head and record, two packed payload accesses, write/read of each result, and illustrative active frontend power. The same cost assumptions apply to all policies. Positive extra-front pJ/record to tie means the candidate may spend that additional energy before losing its modeled advantage.",
+    "scope": "Illustrative sampled decode attention frontend plus DRAM energy, in \u00b5J/step. DDR terms use actual projected ACT/PRE/RD counts and all summary/K/V physical bytes. Backend compute and its SRAM, unmetered logic and leakage are outside this increment."
+  },
+  "files": {
+    "paired_energy.csv": "7e0b66d942806f331d126b67e282816a855b83a19eae189f569d22bc8f4a4d29",
+    "paired_timing.csv": "5470e2dd22266a65cbb6be53f7aefe79504ec8bca8e3fc677c7922965640a581",
+    "step_timing.csv": "f848e82a98a5eec173da8938c9cacc1b117578aadde19e185387d2a7a9b7c0b7",
+    "step_timing_summary.csv": "2afec3f2ec0f9838c4edb9c5796f67a8bd0a008160a8413da71a8a9d6fbf9384"
+  },
+  "front_timing": "The in-order physical region is consumed at a finite scorer-clock beat port. A straddling burst is fetched once and needs both record slots at RTL ingress. Coefficient issue, result readiness, dot issue, last dot slot release, and two output credits follow the measured RTL edge recurrence. The no-stall cadence is checked against RTL and emerges from these stages. The final result crosses to the PE domain before normalization. Optional burst FIFO space is reserved inside the same 64 KiB stage SRAM accounting. The backend phases mark normalization/ranking/planner, K/QK, gate/budget, and V/PV/finalization in order.",
+  "geometry": {
+    "backend_lanes": 64,
+    "kv_groups": 8,
+    "layers": 36,
+    "mode": "double_buffer",
+    "pe_period_ns": 1.25,
+    "shared_sram_bytes": 65536
+  },
+  "inputs": [
+    {
+      "file": "results/round11_workpoints/32k/common/states.jsonl.gz",
+      "sha256": "a8b80ff5a196ec48578758c9b3573ec41e722345b55916e7a406ff1ece65ecea",
+      "state_set": "archived_round11"
+    },
+    {
+      "file": "results/round11_workpoints/64k/common/states.jsonl.gz",
+      "sha256": "fc9673053a7e2d5ddedd9004f886f96412a52538ea1940d0bc0182bfda8c0cf2",
+      "state_set": "archived_round11"
+    },
+    {
+      "file": "results/round12_frontend/32k/extended/states.jsonl.gz",
+      "sha256": "c4bcf26bbc4e0bbd68eecedf9dc2102f50e9395d40d001e93cd40d85deca8f35",
+      "state_set": "expanded_round12"
+    },
+    {
+      "file": "results/round12_frontend/64k/extended/states.jsonl.gz",
+      "sha256": "953d465c5c7a940fd69a2665064b038ff421fca9be65bfb28a923f22395f7187",
+      "state_set": "expanded_round12"
+    }
+  ],
+  "model_source_sha256": {
+    "gqa_probe/round11_energy.py": "f4a1e1fc7bef97e0dab2021e89a142f97d429074d57f064b8fa110463bf9171c",
+    "gqa_probe/round11_timing.py": "8bef48e5c24def77ce67b0d64ef71b306b49ba6867c43513aed9eb41c811dc94",
+    "scripts/replay_round11.py": "772d3a7934030ec5ccab20ecea54e966f65feedf1c3f7a18582992a63cf38848",
+    "scripts/replay_round12.py": "3a4f8f6abe19ec01ab7b3848a74fd356f685b213141e829f95e097c02a505ef1",
+    "sim/lpddr5_banked.cpp": "1c9180cc84874e43c1eb2dc1acc9ca6e077dde7e428ccf99f1c77743f5a8a583",
+    "sim/round11_timing.cpp": "ca926e4414c41be05d8059b0c0d0578aceeb7fd9aeecbe2a359af7e1153d60ee"
+  },
+  "paired_timing_rows": 250,
+  "pairing": "Matched on state set, cohort, prompt and captured decode step. The group schedule preserves one LPDDR state across the complete layer/group traversal.",
+  "population": "Each captured whole step carries equal weight within its cohort and timestamp stratum. P95 is the nearest-rank observed value. A P95 of paired differences and each side's own P95 are both reported.",
+  "populations": [
+    {
+      "captured_groups": [
+        {
+          "cohort": "32k",
+          "groups": 398,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1027,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 843,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 398,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1027,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 843,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 398,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1027,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 843,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 332,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 30,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 651,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 834,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 332,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 30,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 651,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 834,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 332,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 30,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 651,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 834,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        }
+      ],
+      "isolated_groups_excluded": 7224,
+      "state_set": "archived_round11",
+      "whole_step_policy_captures": 18,
+      "whole_steps": 6
+    },
+    {
+      "captured_groups": [
+        {
+          "cohort": "32k",
+          "groups": 343,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 24,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1022,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 1416,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 343,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 24,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1022,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 1416,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 343,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 24,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1022,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "32k",
+          "groups": 1416,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 242,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 21,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 498,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 843,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 242,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 21,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 498,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 843,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 242,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 21,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 498,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": false
+        },
+        {
+          "cohort": "64k",
+          "groups": 843,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        }
+      ],
+      "isolated_groups_excluded": 6315,
+      "state_set": "expanded_round12",
+      "whole_step_policy_captures": 24,
+      "whole_steps": 8
+    }
+  ],
+  "scope": "CPU event projection of decode attention only",
+  "stall_metrics": "Scorer wait sums idle dot time, including initial service and input starvation. Record service wait measures delay beyond the isolated complete-to-first-dot minimum per record. Ingress queue wait sums visible-to-consumed intervals per burst and includes in-order reassembly and slot blocking. These residency sums may overlap across terms. Result CDC measures final scorer-to-PE alignment and modeled synchronization. Slot and request-window wait retain the Round 11 elapsed blocked-device definitions. Excess span compares observed first complete through last result against the same timed scorer with continuous ready input.",
+  "step_timing_rows": 210,
+  "timestamp": "decode_start is step zero. answer_start is the trace answer-start marker on nonzero steps. later is the remaining nonzero steps. fallback_present is the matched subset where either policy fell back."
+}

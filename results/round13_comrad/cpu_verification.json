@@ -1,0 +1,14 @@
+{
+  "mapped_frontends": 6,
+  "all_at_1_25_ns": false,
+  "timing_rows": 210,
+  "populations": {
+    "archived_round11": 6,
+    "expanded_round12": 8
+  },
+  "max_peak_sram": 52240,
+  "cpu_tests": {
+    "passed": 348,
+    "skipped": 11
+  }
+}

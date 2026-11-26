@@ -1,0 +1,4 @@
+# Preserve published hashes of generated Round 13 verification artifacts.
+results/round13_comrad/**/*.csv -text whitespace=cr-at-eol
+results/round13_comrad/**/*.json -text
+results/round13_comrad/hardware/sta/*.txt -text -whitespace

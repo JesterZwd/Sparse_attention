@@ -399,11 +399,12 @@ def verify_archive(rows, archive):
                 comparisons=checked, fields_per_comparison=sorted(set(table.values())))
 
 
-def analyze(collections, output, *, calibration=None, archives=None, layers=36, groups=8, workers=1):
+def analyze(collections, output, *, calibration=None, archives=None, layers=36, groups=8, workers=1,
+            policies=POLICIES):
     conditions, spec = read_conditions(calibration)
     tasks, populations, inputs = [], [], []
     for name, paths in sorted(collections.items()):
-        isolated, complete, counts = load_states(paths, POLICIES, layers, groups)
+        isolated, complete, counts = load_states(paths, policies, layers, groups)
         if not complete:
             raise ValueError(f"{name} does not contain whole-step capture endpoints")
         endpoints = defaultdict(set)

@@ -2,6 +2,8 @@
 
 依据 `端侧LLM_GQA联合TopKTopP_研究与实验方案_V1.1.md`，首轮实现 A1、A3、全页候选 A3-B。研究原始方案保持不变。
 
+CoMRAD Round 13 的环境、冻结输入和后续 GPU 实验入口见 [工作站迁移说明](docs/round13-workstation.md)。
+
 ## 已实现的实验口径
 
 - 固定物理 Page 预算，默认 Page=32，Sink=1 Page，Local=128 Tokens，所有保护页去重并计费。
