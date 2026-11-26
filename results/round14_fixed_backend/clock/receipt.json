@@ -1,0 +1,36 @@
+{
+  "evidence": "sampled Qwen3 Attention address replay; no full-engine STA",
+  "change": "shared 1.80/2.00 ns logic and zero result-side CDC cycles; same result credits and memory-side CDC",
+  "calibration_sha256": "9cd066f60574e0df0c60e2f49bfdb9eb2d7691a28157d92e65c7c77c31898e12",
+  "source_receipts": [
+    {
+      "file": "results/round11_workpoints/32k/common/states.jsonl.gz",
+      "sha256": "a8b80ff5a196ec48578758c9b3573ec41e722345b55916e7a406ff1ece65ecea"
+    },
+    {
+      "file": "results/round11_workpoints/64k/common/states.jsonl.gz",
+      "sha256": "fc9673053a7e2d5ddedd9004f886f96412a52538ea1940d0bc0182bfda8c0cf2"
+    },
+    {
+      "file": "results/round12_frontend/32k/extended/states.jsonl.gz",
+      "sha256": "c4bcf26bbc4e0bbd68eecedf9dc2102f50e9395d40d001e93cd40d85deca8f35"
+    },
+    {
+      "file": "results/round12_frontend/64k/extended/states.jsonl.gz",
+      "sha256": "953d465c5c7a940fd69a2665064b038ff421fca9be65bfb28a923f22395f7187"
+    },
+    {
+      "file": "results/round13_comrad/32k/common/states.jsonl.gz",
+      "sha256": "92b030c528bfa010ebd28138e9676b62de528aba5e24c33652b69b30c62a69e2"
+    },
+    {
+      "file": "results/round13_comrad/64k/common/states.jsonl.gz",
+      "sha256": "cbf891ac8f766190b19b54e172e1a8786bbcdd91b248aa1a1e4b8ed9855ab85d"
+    }
+  ],
+  "output_sha256": {
+    "clock_summary.csv": "efceadb78d45de45beaa5ec1c60e58f62444f371f0a307e67a49bae372917e5f",
+    "clock_step_timing.csv": "09267b60b55de858d82e76f6ce49ad106e88d8f05529df4cee25c7d1fd83243e"
+  },
+  "rows": 144
+}

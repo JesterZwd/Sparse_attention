@@ -1,0 +1,4770 @@
+{
+  "vectors": 280,
+  "natural_fallback_vectors": 0,
+  "gpu_cpu_bit_exact": true,
+  "reference": "Independent NumPy CPU integer checks run on AutoDL and on the local workstation",
+  "floating_diagnostic_max_absolute_difference": 1.496198998029996e-16,
+  "local_archive_sha256": "92357070b212f189e2376899407846c556bf66d7471d0f2ab56f3a9fdcccba5f",
+  "checks": [
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s000-l00-g00.npz",
+      "sha256": "91e96b43732c390ca0323f76ff68e4af1ba2cc7923626b11cd226db4ea130184",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248064,
+      "bytes": 230784,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009851680511853032,
+        "16": 0.007030661097195105
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s000-l01-g00.npz",
+      "sha256": "5ead7ea7c8325d1e7c76d80a9ddd5297be46124087fe9735c08f19757fd44b2c",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248064,
+      "bytes": 222624,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0168636582718588,
+        "16": 0.012451397812964997
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s000-l16-g00.npz",
+      "sha256": "133ba290f367a0f73db9ea72ab4ba9848d0a14ebe85e99c4489e03127e8c50bb",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 16,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248064,
+      "bytes": 217376,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.013274033276705656,
+        "16": 0.00786253021280088
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s000-l31-g00.npz",
+      "sha256": "211b4d2e883ab7e5fdf377b7484905562c4d9a2809622ac2d8894587aa156359",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 31,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248064,
+      "bytes": 192160,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01041044294231339,
+        "16": 0.006049108031583255
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s004-l00-g00.npz",
+      "sha256": "d4e1eccb2f89be78278b126261698bfa8371c3cd602b57477559350a89991af5",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248096,
+      "bytes": 218560,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009127361979336496,
+        "16": 0.008035248499730812
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s004-l01-g00.npz",
+      "sha256": "1c580d42ec8310e176a3465bedc7e4c291001d17d13ff2f40f1d7e1a1e2c9ceb",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248096,
+      "bytes": 198336,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.020235303754452618,
+        "16": 0.015836177642385905
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s004-l16-g00.npz",
+      "sha256": "69b85827bb4048498f03094eb885e6a4246f4aa075eb7cb40ed14553a481f2b6",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 16,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248096,
+      "bytes": 219808,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.011758540135236258,
+        "16": 0.0067783597512389
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s004-l31-g00.npz",
+      "sha256": "afd2c97c91c1f8a6c933ad9b4291060fae85ffbccbf204ddbe0cf0746764be43",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 31,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248096,
+      "bytes": 190528,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008892668495917735,
+        "16": 0.008899060347961533
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s012-l00-g00.npz",
+      "sha256": "97d0c425c7e6f130ad5d80c467242667154c55e8d10733d4a6d11e453c7a45ad",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248156,
+      "bytes": 231744,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00987832146939442,
+        "16": 0.006979412160067257
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s012-l01-g00.npz",
+      "sha256": "36e33cd6a997e5d8285c6d65910e8f306e7217288d79379c1b8f519ad990fdce",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248156,
+      "bytes": 209984,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.026460046283485295,
+        "16": 0.013159439683856832
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s012-l16-g00.npz",
+      "sha256": "eadadcb4d3b150013d682284c9ea2628d647ab4d9d285fe224a50832d447e777",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 16,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248156,
+      "bytes": 220096,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008255196211837429,
+        "16": 0.006637368590190944
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p01-s012-l31-g00.npz",
+      "sha256": "a4bfcfdcbf870db929d189d0407f6182d7f8f976b0a79566873451e3c0571252",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 31,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248156,
+      "bytes": 191936,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00581924291199895,
+        "16": 0.005621377611828812
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s000-l00-g00.npz",
+      "sha256": "2b8728890d9d280b853166cac53921e8cf67cfe8f99ebb688ef43b5945c62841",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243436,
+      "bytes": 227488,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01160056445547187,
+        "16": 0.009417046856940782
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s000-l01-g00.npz",
+      "sha256": "09ecdba491b172f17117b0a1dd9592f4c02c28d68deb0ec8874c9aadca180b1f",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243436,
+      "bytes": 218880,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0172321335276148,
+        "16": 0.012512492461117566
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s000-l16-g00.npz",
+      "sha256": "e4f25f9023259efadd63add24928a826e2dfda1ebd33701d06278aae27d647b6",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 16,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243436,
+      "bytes": 210272,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01048060513729739,
+        "16": 0.0058801542645360826
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s000-l31-g00.npz",
+      "sha256": "70f030ae7cfd7ee1650e9fe7f5d9350ec0b1682c42366b0a567886e283e4504b",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 31,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243436,
+      "bytes": 190208,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009017908730063445,
+        "16": 0.0035538495996729497
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s004-l00-g00.npz",
+      "sha256": "be9ac9fa85c1b7a36a7121a3c0d4efd757c6b8d40f9bb51fbf37880359287c4e",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243468,
+      "bytes": 219744,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010497951713055466,
+        "16": 0.009839781091432092
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s004-l01-g00.npz",
+      "sha256": "e7b6c7a4e38ce76903dc2f3628aa14945c4d4e37aab9ab39895b3d68f35bdf5b",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243468,
+      "bytes": 203424,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.023653931067106997,
+        "16": 0.016532265003424557
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s004-l16-g00.npz",
+      "sha256": "ade4392dca986014cc863fa26ee4102b20208d8a8040cea8717cef9911afb0b1",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 16,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243468,
+      "bytes": 216352,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010133267707916976,
+        "16": 0.0062705809338456115
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s004-l31-g00.npz",
+      "sha256": "1908bcc1fc13aa954a16ca257ee4160b95525ce148e6e0d1b416fa4449e08db3",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 31,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243468,
+      "bytes": 186208,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005947428427435397,
+        "16": 0.0056875194324608885
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s012-l00-g00.npz",
+      "sha256": "ee68f20052a5cc118d182f04da656a575833bb932386ed8ad5160414dce88023",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243529,
+      "bytes": 222624,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006208672486850177,
+        "16": 0.005399702792962109
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s012-l01-g00.npz",
+      "sha256": "b999b75cade2c59cf92b816630c42fe34a4ef797bceb3c44c01c8d82e68b621d",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243529,
+      "bytes": 197088,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.018444769241235736,
+        "16": 0.014317167577622313
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s012-l16-g00.npz",
+      "sha256": "9593270a62fdcd5cb47e3bca6859683597aadfa3b12b364a069195bf822e3c9e",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 16,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243529,
+      "bytes": 205248,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006281443261512492,
+        "16": 0.004083192115107436
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p02-s012-l31-g00.npz",
+      "sha256": "d32fba8ed70e128116c8dc3ff288a4834099255dbf5ef039ffc8b15e92b76ef5",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 31,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243529,
+      "bytes": 188000,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008002728829023887,
+        "16": 0.00787386143676754
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s000-l00-g00.npz",
+      "sha256": "03cf31c4bfb593ffe73061ceb3bdbbf4bd3d065704ba7d28d97802be9c598de1",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243484,
+      "bytes": 224288,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.011947076821314314,
+        "16": 0.010718757233371191
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s000-l01-g00.npz",
+      "sha256": "0b6a6b4a85d712db2a777bf7ee33bfad3488645fea5f4a94316f6708a5ed9cec",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243484,
+      "bytes": 219072,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.019957985805190218,
+        "16": 0.013802658157253542
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s000-l16-g00.npz",
+      "sha256": "e2e6c3b1e1361092cfd38abbf9b809466b23bff9ae8c39fe362f1710e0ffec27",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 16,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243484,
+      "bytes": 206944,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010854174565525376,
+        "16": 0.005076785949452028
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s000-l31-g00.npz",
+      "sha256": "a519604287f18a010c3e164df3025519cd734dea918e82ce5e25023acc2fe5d0",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 31,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243484,
+      "bytes": 187456,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00820601530324761,
+        "16": 0.008009945803649565
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s004-l00-g00.npz",
+      "sha256": "3cb7869089cb699c47777882e724360c7a1776460c68da12dff0a9069a97845b",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243516,
+      "bytes": 220512,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.011792027843348122,
+        "16": 0.011407561973786734
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s004-l01-g00.npz",
+      "sha256": "3dea2f75b55c0c4016332999bb7bfb9ad9a5288da4410dc892083c3910c9c05c",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243516,
+      "bytes": 205728,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.02555691123018321,
+        "16": 0.01835942541719354
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s004-l16-g00.npz",
+      "sha256": "0d0f6563831fe11a2146fa88a1a8e5e8664147e436966814a92ea7651e2f9356",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 16,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243516,
+      "bytes": 221248,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009043620632181669,
+        "16": 0.0022511224549802028
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s004-l31-g00.npz",
+      "sha256": "a3468d047069563e9b6c744580cf5851f3ee1332f3ae574cbdcb2d6ccf560006",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 31,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243516,
+      "bytes": 186656,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003165951971729598,
+        "16": 0.0023852580001302434
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s012-l00-g00.npz",
+      "sha256": "3b8927ea7bb0ba6667e883e29d07044f8c24a8a945ba9a2c70636d9e6f0b8ccc",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243577,
+      "bytes": 216736,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0064722150276438056,
+        "16": 0.005292841847316443
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s012-l01-g00.npz",
+      "sha256": "8263c801d417a63a3932aed08bb3e899d36cb2ea8c2e155ef7ae696e1c4e59a5",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243577,
+      "bytes": 216288,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.024954999162993045,
+        "16": 0.01504849674302405
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s012-l16-g00.npz",
+      "sha256": "84e4610684e06786d4ddad980fee7b95dddb66efbe1059444b157e4cf67f7586",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 16,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243577,
+      "bytes": 221120,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008976372900013175,
+        "16": 0.006081593122014667
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint16/vectors/p03-s012-l31-g00.npz",
+      "sha256": "afaac0caa4633ce65b7f7bb369d44fe578b5d1b85c463a60b72bcf29c938a6d2",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 31,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243577,
+      "bytes": 187872,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005386198496566865,
+        "16": 0.003645072849400345
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s000-l00-g00.npz",
+      "sha256": "1439f85d7a7b6edeaf9f65d98408dfdf3046b9d97a4103e70b17efc35fb3bc6d",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248064,
+      "bytes": 230784,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009851680511853032,
+        "16": 0.007030661097195105
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s000-l01-g00.npz",
+      "sha256": "48bf75b09bbed33b218ff782a2de9a67d21c1732b78a51cdcc8268fe999d86fd",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248064,
+      "bytes": 222336,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.017202352622702758,
+        "16": 0.011996522544044106
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s000-l16-g00.npz",
+      "sha256": "cdcadb46654156a662730670c390793e01ae8c9ba384a46760ff04741d44cab3",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 16,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248064,
+      "bytes": 216928,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010718346368994321,
+        "16": 0.004451925623146433
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s000-l31-g00.npz",
+      "sha256": "86ebc087c23f0ea87e46a562485265994815b132928988927246f1081a579320",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 31,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248064,
+      "bytes": 192448,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010149321744523685,
+        "16": 0.004822061915681211
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s004-l00-g00.npz",
+      "sha256": "681932ad805065f15a0729ca6ffa99ba1ddd159dbdfdce8e3b4aa0e2493fd916",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248096,
+      "bytes": 218560,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009127361979336496,
+        "16": 0.008035248499730812
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s004-l01-g00.npz",
+      "sha256": "1e7bfb3fd6f957e586d64f640663efd837b525a2c9e6f4ee0e69937c2e567e9d",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248096,
+      "bytes": 198336,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.018831585452054638,
+        "16": 0.014958763631845179
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s004-l16-g00.npz",
+      "sha256": "0e7a8b20272f45b07ec016c6e057f51c5e31150f4de0015724b12e8b896d7d11",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 16,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248096,
+      "bytes": 222880,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01048672049347633,
+        "16": 0.006953074284398947
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s004-l31-g00.npz",
+      "sha256": "356b8e1b3ec057f5205b6f4f087c3ccdc6ec878eadb320b1d7cc63098ebda10a",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 31,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248096,
+      "bytes": 190528,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008170864656436742,
+        "16": 0.007899964586865798
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s012-l00-g00.npz",
+      "sha256": "eb907ef9ea58be43586bd99658f16f85f014ff269847420714ac6837d1528736",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248156,
+      "bytes": 224480,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005278741386097744,
+        "16": 0.003901059942341911
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s012-l01-g00.npz",
+      "sha256": "3269eba5bea8b9a560a825d61a16404c50b887479f3351b8f88b415d2f914245",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248156,
+      "bytes": 202368,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.017199582526210823,
+        "16": 0.01380661283963014
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s012-l16-g00.npz",
+      "sha256": "a3bd891eb4e98d446766d306678b84d4eb1aaa34a7b9105802343e7cf620c1c7",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 16,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248156,
+      "bytes": 221344,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00591719030799397,
+        "16": 0.003997674269747191
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p01-s012-l31-g00.npz",
+      "sha256": "f3dac07686f778d6eeac203065e12bb3c2eff6e36563c40070ec4fd4fbd0f954",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 31,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248156,
+      "bytes": 192416,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006187657876793143,
+        "16": 0.006097705033369599
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s000-l00-g00.npz",
+      "sha256": "718a9bf9d272c54ae1f19a9b331ebdb112f0c676acf2dc00a9f39ef4df8a81e3",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243436,
+      "bytes": 227488,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01160056445547187,
+        "16": 0.009417046856940782
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s000-l01-g00.npz",
+      "sha256": "b14d8da7b4087aa5562266f945bbd1ecf771f1f16fe8690ae8bef0cb15fb9fec",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243436,
+      "bytes": 218272,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.014784958348142741,
+        "16": 0.010925887405789609
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s000-l16-g00.npz",
+      "sha256": "fc4385b5f7091b68e9bdaf8df55630662b24454579cf5cb413309ff590aabc2b",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 16,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243436,
+      "bytes": 211456,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009545874424969005,
+        "16": 0.0036029929626481875
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s000-l31-g00.npz",
+      "sha256": "7a7ba4f18428607b0e217ad7edd66a8eef9931a4d54df85fb38e640d74b2c3f9",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 31,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243436,
+      "bytes": 190336,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00902092768800891,
+        "16": 0.0047698397499783335
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s004-l00-g00.npz",
+      "sha256": "d693c3aa5fa9078833b489504224cfc5a1b66997ebe4baab686ea9bf05d1b660",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243468,
+      "bytes": 219744,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010497951713055466,
+        "16": 0.009839781091432092
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s004-l01-g00.npz",
+      "sha256": "5ff52b6b96187bfbf57ef28ca9113d61df13e378421560b69b2e5e06e7970d8d",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243468,
+      "bytes": 203424,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.022062703585638457,
+        "16": 0.014598883048838636
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s004-l16-g00.npz",
+      "sha256": "8c4fa0034423ffccb59e48ee6390bf47a33cab3ec45b45444bd26801b95a9f5d",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 16,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243468,
+      "bytes": 218752,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009788256815053669,
+        "16": 0.005456813180201702
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s004-l31-g00.npz",
+      "sha256": "ab31f999892d6a0363fbac7381b91c821320d931c8481ada860d60b58f3c85ed",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 31,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243468,
+      "bytes": 186208,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006905068917895639,
+        "16": 0.006671135266337663
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s012-l00-g00.npz",
+      "sha256": "4a518d3cb77a6b09fe49bdfb6559843cc045616b36332fd395c49392d583bc1f",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243529,
+      "bytes": 222624,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006208672486850177,
+        "16": 0.005399702792962109
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s012-l01-g00.npz",
+      "sha256": "0415b2744a86cce8658d7919ca228c3012349634222215fa0f4437d93ac682ab",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243529,
+      "bytes": 196576,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01861551489954534,
+        "16": 0.013867116687545552
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s012-l16-g00.npz",
+      "sha256": "8148f79f6a41defa92afffbc34c826609abe8412d68cb05bdad666d858fb30c0",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 16,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243529,
+      "bytes": 205888,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0041364233126173055,
+        "16": 0.0025109863048325925
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p02-s012-l31-g00.npz",
+      "sha256": "f2dba7754ca7538837ec0b6d61d2cd641c16c5cf9d7ee4ef6cdb66db48ea76c4",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 31,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 243529,
+      "bytes": 188384,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007364887592694871,
+        "16": 0.007239914284870749
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s000-l00-g00.npz",
+      "sha256": "9a4908e50989e461a0061376c5d1a8d6f902fd073e46970b0dc57d1b9fb96953",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243484,
+      "bytes": 224288,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.011947076821314314,
+        "16": 0.010718757233371191
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s000-l01-g00.npz",
+      "sha256": "b884ba00bb00faed401a788d15925007c90bd6bedbee3e3a49c256bb65b9834e",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243484,
+      "bytes": 218560,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.017040681954510445,
+        "16": 0.012407732724592972
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s000-l16-g00.npz",
+      "sha256": "f6c32297121f6e7d37ff266658218b32dc2c0fd75e2b82d043b085597d7021d9",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 16,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243484,
+      "bytes": 206400,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010212652416870301,
+        "16": 0.006122275561483981
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s000-l31-g00.npz",
+      "sha256": "546ef3d68c65ae63418b13b6035c899d01b83a1035f9f9ab45b0668ffebbd6d8",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 31,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243484,
+      "bytes": 187328,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007345736320343193,
+        "16": 0.006704216274645291
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s004-l00-g00.npz",
+      "sha256": "49d15c90813f6f2d70660d8628b1bc608ce6f10e3f4163fb64ddd6d0e551a0cc",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243516,
+      "bytes": 220512,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.011792027843348122,
+        "16": 0.011407561973786734
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s004-l01-g00.npz",
+      "sha256": "521baae90d01dc9b9b9615f85579803e8b619eac04b1cadca0dec441f3aa886f",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243516,
+      "bytes": 205472,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.02455859234801004,
+        "16": 0.01640029668580019
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s004-l16-g00.npz",
+      "sha256": "074dc5e6dce08714c87aadec8ee324586d6227da2a003371252a12949ebf9cbc",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 16,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243516,
+      "bytes": 220800,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010895394028784129,
+        "16": 0.007047345049185203
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s004-l31-g00.npz",
+      "sha256": "08a133de4af3f31cf5a7b34ba449086f144f13aadbab3733e8168769c403dc78",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 31,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243516,
+      "bytes": 186656,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.012784118089064567,
+        "16": 0.01261343903561863
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s012-l00-g00.npz",
+      "sha256": "ae3b62d7aa759afe3c8d1fb066ea09f05bc59845796ae24f300bd55f9f4c8e5e",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243577,
+      "bytes": 216736,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0064722150276438056,
+        "16": 0.005292841847316443
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s012-l01-g00.npz",
+      "sha256": "4961bef925a3410c87b603d9b48167f5ced59a23686279d66a3edd73acabae44",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243577,
+      "bytes": 210784,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.024348448930918982,
+        "16": 0.015415775810096555
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s012-l16-g00.npz",
+      "sha256": "f6f4ca46ffe2031bf0587a9de32ee3637690862e4147ffd45dd74a98b6578b43",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 16,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243577,
+      "bytes": 220128,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007485711572683196,
+        "16": 0.005798125580283874
+      }
+    },
+    {
+      "vector": "output/llama_32k/uint8/vectors/p03-s012-l31-g00.npz",
+      "sha256": "3ff64ef65691fb59835ef93ef24b25dca9849bbaf671e62a8251e4977814f2ad",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 31,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243577,
+      "bytes": 187872,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007050126309957036,
+        "16": 0.0040601327980167605
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s000-l00-g00.npz",
+      "sha256": "92a6891ca4c6592bb0105c1c0e2cbc34e8d8025ef01b7646cc5ea6f7763a134f",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232572,
+      "bytes": 213952,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003195385892632908,
+        "16": 0.0030934987942076077
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s000-l01-g00.npz",
+      "sha256": "6f1c96939319215a7a2727ddd86bece5e3ab0b8b790a0e6df411632105ef72a6",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232572,
+      "bytes": 213216,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009042056739864149,
+        "16": 0.0077881828596405725
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s000-l18-g00.npz",
+      "sha256": "3ccbcd115dd83663f327c4d52d63571efc6da3fd955efcf76928d0c5eca26b70",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232572,
+      "bytes": 179200,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004129767727857728,
+        "16": 0.003934160488686232
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s000-l35-g00.npz",
+      "sha256": "f5cffd17e924e0baa240c6bf4b3475e0c8ac89f469147cb298efe28c8f96a27f",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232572,
+      "bytes": 200736,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002973990818120316,
+        "16": 0.002082999845360235
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s004-l00-g00.npz",
+      "sha256": "80996af1fa3c22c1d8ff5016e17233a2822c4c4fb91e7a7c9019e90c9f8e8d38",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232601,
+      "bytes": 213152,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0064452585553455835,
+        "16": 0.006238439731570055
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s004-l01-g00.npz",
+      "sha256": "389f1699167845a16595de4b0a77fe2f683e6a2d8019e8adf5a4dfc4ba9ff078",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232601,
+      "bytes": 222816,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008513555358802482,
+        "16": 0.00757039623705709
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s004-l18-g00.npz",
+      "sha256": "f7e81c063a048b4a3fa198a365ce03d2a2e93ca313e48bad51834b8586c47484",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232601,
+      "bytes": 189408,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005005042138871116,
+        "16": 0.004860360047281124
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s004-l35-g00.npz",
+      "sha256": "f650fae6d9e70acfee5f5e6bb1a58374c8b8759cd418fe1cfbf038df915f38fe",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232601,
+      "bytes": 193120,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0033067895511372063,
+        "16": 0.0018006398651237222
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s012-l00-g00.npz",
+      "sha256": "f0a730b4f52ee965dab84deaa788eccce5462f0ffa9ff2fcce7dbf9fbf80a32c",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232662,
+      "bytes": 215520,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005608886797172253,
+        "16": 0.0043042731994459805
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s012-l01-g00.npz",
+      "sha256": "2de26341b7e5e78c03539a31f13fb79f117487237fa81385e03b51f70b84fac0",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232662,
+      "bytes": 214560,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008646095781550064,
+        "16": 0.00307390863729727
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s012-l18-g00.npz",
+      "sha256": "fe85d59a5ef44742c0e99fe1e0ebca7bbc61c9bccd530f64efc4b95bc9e764af",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232662,
+      "bytes": 180992,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005555438143864471,
+        "16": 0.005203419466504597
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p01-s012-l35-g00.npz",
+      "sha256": "6df4f82620f5e4804dc67b3019353c9937086bce2b835a57560dfb78a0b733c9",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232662,
+      "bytes": 199776,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004872685844920992,
+        "16": 0.00260960155965248
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p02-s000-l00-g00.npz",
+      "sha256": "b4888b5b1855faf71cfaf8ee24752d9563d589883e0d8f080e0598733bec5e69",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227302,
+      "bytes": 213536,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006282343779138167,
+        "16": 0.004982119504255303
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p02-s000-l01-g00.npz",
+      "sha256": "9a3e6baddeff826102648613e63039303068167ee505fb83d31b39818987c38a",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227302,
+      "bytes": 213056,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0078120763088075995,
+        "16": 0.0063039040341305455
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p02-s000-l18-g00.npz",
+      "sha256": "e196275b8a82461daa860bc150038b8b0f571101af03dbe9614f913f47c81b8d",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227302,
+      "bytes": 176800,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003972709348833237,
+        "16": 0.002892722434225457
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p02-s000-l35-g00.npz",
+      "sha256": "e132b520326bb225543258a7bb8c7caa9347450bf0f26fad596b09bd5cdb3f91",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227302,
+      "bytes": 177056,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007422224765563897,
+        "16": 0.0037880208946404646
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p02-s004-l00-g00.npz",
+      "sha256": "8405ab3f46ab720845fe91a6746eec4cb0955f890446a63cb5a48c4c2a6c737b",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227331,
+      "bytes": 213120,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004544757456542375,
+        "16": 0.0031271781638999474
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p02-s004-l01-g00.npz",
+      "sha256": "94969b159f544ea9b5d8c63e3509e236df6df0f931cb928189d091eb8ad159a1",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227331,
+      "bytes": 211328,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007830341318233519,
+        "16": 0.006513753372579586
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p02-s004-l18-g00.npz",
+      "sha256": "591ce4b1110528b84e74ebc0aff94f4eb0efd85ad5a630b0dd8be231f495ecc4",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227331,
+      "bytes": 176608,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007254152005643153,
+        "16": 0.004821260225256987
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p02-s004-l35-g00.npz",
+      "sha256": "fe6510a59bf1b30128ded1c022e19c4f312c1c6b68cb1cfc807d68c50f231297",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227331,
+      "bytes": 182176,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0029866867075556414,
+        "16": 0.0009569350958078411
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s000-l00-g00.npz",
+      "sha256": "718d8d3d87054570087aab4a714d149dca6a7781e3cf13cb7a2e69076dbc0e06",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243382,
+      "bytes": 214432,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004195787763444308,
+        "16": 0.0028468402354183482
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s000-l01-g00.npz",
+      "sha256": "d41159dd221f656d8c4f76864e16953a409a2615735416dfb7c0703f385a945e",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243382,
+      "bytes": 220448,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008973250767905392,
+        "16": 0.007833638750574561
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s000-l18-g00.npz",
+      "sha256": "c0147c4ab3959835b4cd1bfa364f2db48525e34a8d3b469c028db35a1984f134",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243382,
+      "bytes": 188736,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004750391106485701,
+        "16": 0.00439306229613597
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s000-l35-g00.npz",
+      "sha256": "0c43ea0b70c68ace2c58b3ec4de1b70f1104b047128a2316b7dac17a02e04413",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243382,
+      "bytes": 208608,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005563408761643262,
+        "16": 0.0009341874074696293
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s004-l00-g00.npz",
+      "sha256": "62215a4a66694a42aa5a0dc6a4327572114ba813015e702797ad097739f1a948",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243414,
+      "bytes": 228352,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0054171692637531394,
+        "16": 0.0042490999377881354
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s004-l01-g00.npz",
+      "sha256": "596ab9a9d027832236afca1579b2c966722d895a2fea72b78c073432bb313eca",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243414,
+      "bytes": 225728,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008237048458356528,
+        "16": 0.006766995055234755
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s004-l18-g00.npz",
+      "sha256": "9664f3266fce91832299f4e40d233d983d74ad582d21e0cfb2f7065144069dd3",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243414,
+      "bytes": 192864,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005352252127581373,
+        "16": 0.0051177337225401884
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s004-l35-g00.npz",
+      "sha256": "662738614a34600f84827dd7763e2b9ae316fbbb8eecc44611abe4b8965775ea",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243414,
+      "bytes": 203072,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00787623984638016,
+        "16": 0.003120702340597689
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s012-l00-g00.npz",
+      "sha256": "5f37fa9a7efb384f82a43813faf2d5f96b4e3a2261271949e6c5efbb99e9f9af",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243475,
+      "bytes": 223168,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004449226728677317,
+        "16": 0.004285654189628945
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s012-l01-g00.npz",
+      "sha256": "7a91e40631658915d0722a3a1addcd37afeb70399bb42d27cf371c497db122e2",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243475,
+      "bytes": 229376,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006403959093929508,
+        "16": 0.005774093452530274
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s012-l18-g00.npz",
+      "sha256": "7e495f7e0f2f6429aa712d75ea4a8d246dc66677cc6872d439b209a780af660c",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243475,
+      "bytes": 193536,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005453530026576694,
+        "16": 0.0050440224292979344
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint16/vectors/p03-s012-l35-g00.npz",
+      "sha256": "f810802b219dddfec21e27d9e6431fa7331aad1eca8b082e9f23aa587e78bcd0",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243475,
+      "bytes": 204576,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002917276872113473,
+        "16": 0.0017283725716437457
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s000-l00-g00.npz",
+      "sha256": "d91254a05717778a9cbc8e410a567e33b8eaf4876c41bfccca2c15047bfd42f8",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232572,
+      "bytes": 213952,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003195385892632908,
+        "16": 0.0030934987942076077
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s000-l01-g00.npz",
+      "sha256": "30d17c8da8c776431c53ce4d1e1d3d087534033df8129de51c20d674cc159e4c",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232572,
+      "bytes": 213280,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006857246462670815,
+        "16": 0.006111121445805357
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s000-l18-g00.npz",
+      "sha256": "ee88a94f05f918d9635ed20d571275d5300f8666c0a167fa66aadc49f6aace16",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232572,
+      "bytes": 179200,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00448301878189025,
+        "16": 0.003989363099445231
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s000-l35-g00.npz",
+      "sha256": "080b6d70a6e8d1c28d3af44aaaebf6c3d887e28f70f16f4262d23c711e061c62",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232572,
+      "bytes": 199776,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0036151791980171934,
+        "16": 0.002421970761570269
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s004-l00-g00.npz",
+      "sha256": "f58f4a53500631d670d11cbcea1c403c617af76d8aebf53282babeeae00ae087",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232601,
+      "bytes": 213152,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0064452585553455835,
+        "16": 0.006238439731570055
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s004-l01-g00.npz",
+      "sha256": "98b729c26060051477a1327959f43d20041e1070d80052717708d7909f92712b",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232601,
+      "bytes": 222816,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008521870903490828,
+        "16": 0.007476791117156175
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s004-l18-g00.npz",
+      "sha256": "24ca0e04465b874426ae3f980396009ea05f9da5008dbff4ec7c2dfbff4e89e9",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232601,
+      "bytes": 190208,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004316029335018056,
+        "16": 0.004198797973851964
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s004-l35-g00.npz",
+      "sha256": "b286aedae030319c0f1f6a82dd2f9fe366b5537f80c47ff7b22cd0d3e1c06d4f",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232601,
+      "bytes": 192480,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0032683396976163574,
+        "16": 0.0014834091789321046
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s012-l00-g00.npz",
+      "sha256": "b9c2d3868aff6ba21f79325330b5e8010ae1f5766d1b74147caee7aebeeca923",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232662,
+      "bytes": 215520,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005608886797172253,
+        "16": 0.0043042731994459805
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s012-l01-g00.npz",
+      "sha256": "bbe32ba9f91abe000087559a721bf6b3a01ab53edfd60531cd9af0e6417c6b35",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232662,
+      "bytes": 214016,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009703994802448589,
+        "16": 0.0032064627077964315
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s012-l18-g00.npz",
+      "sha256": "b377ececbee84bd69918f805663deff08dfcef5b14027c4a5e78a388c5266842",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232662,
+      "bytes": 180992,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005164602995444225,
+        "16": 0.004217700049884518
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p01-s012-l35-g00.npz",
+      "sha256": "422b59024534a76a8390223fb928c8626edca5d5cde97bac108fdf904a15c61a",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 232662,
+      "bytes": 199200,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003460118416422263,
+        "16": 0.001661005689152157
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p02-s000-l00-g00.npz",
+      "sha256": "f89aaba89388729d474b31ff5cbab395984281d6f5e29c2d67f4cc6f3c52e647",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227302,
+      "bytes": 213536,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006282343779138167,
+        "16": 0.004982119504255303
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p02-s000-l01-g00.npz",
+      "sha256": "c8bb083ba554fc89cb258d4dbfef00296cf5d97b9debb2d39b127d2f1613de3c",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227302,
+      "bytes": 212864,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008581134213577818,
+        "16": 0.006495122640050144
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p02-s000-l18-g00.npz",
+      "sha256": "90219e44a4fd9860ef1e7a195cc0467dc6319c302401630a9b386d84ad46d773",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227302,
+      "bytes": 177760,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005539040106769807,
+        "16": 0.004831053286686958
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p02-s000-l35-g00.npz",
+      "sha256": "9eeead44d599cda4d9aa8bff028087d0977eb8b33b5e604278a2265eaa44ec22",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227302,
+      "bytes": 177056,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007488840809150781,
+        "16": 0.004426973815817068
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p02-s004-l00-g00.npz",
+      "sha256": "bb75b1c0c432a5971ed34bc7be3bf3339f52617e9ad3b7da2c615e46d7586536",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227331,
+      "bytes": 213120,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004544757456542375,
+        "16": 0.0031271781638999474
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p02-s004-l01-g00.npz",
+      "sha256": "b9f9ed102e5f35fe6b9e45329f567b12d0e86538a4806811859685975a7a37a0",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227331,
+      "bytes": 212288,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008475640050893346,
+        "16": 0.007765345441337889
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p02-s004-l18-g00.npz",
+      "sha256": "8c98ba0d8e47efcbc77c2f5bfa806714625066f6726058ea966496b3a6af055c",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227331,
+      "bytes": 176608,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006822990307090964,
+        "16": 0.005014225542312658
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p02-s004-l35-g00.npz",
+      "sha256": "a870c4b57d0b9ce885ebcf1b4a846608eccad0a1f3b1de00b26f0f5e3a253181",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 227331,
+      "bytes": 179520,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005424787330201222,
+        "16": 0.0032094073679362865
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s000-l00-g00.npz",
+      "sha256": "e895b49946f7e581f255e12a481ecb948dc79899058360479fa38c4b90ef0d80",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243382,
+      "bytes": 214432,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004195787763444308,
+        "16": 0.0028468402354183482
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s000-l01-g00.npz",
+      "sha256": "da3568712b0b968df6709c2736be32a8a60d0fa25008b4fe6dcb6552c42f8305",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243382,
+      "bytes": 220640,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009207438071979086,
+        "16": 0.0059578252682387384
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s000-l18-g00.npz",
+      "sha256": "7644aa2cb1135df8fe3f49148c681b6cdada91605183fb60e9332e506555a6a8",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243382,
+      "bytes": 188736,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004766938358308184,
+        "16": 0.00421437403836748
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s000-l35-g00.npz",
+      "sha256": "9b7b59b1d40027683583251a96c260cd83e6776d1da7128563b02baf85169477",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243382,
+      "bytes": 212416,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005139097819538487,
+        "16": 0.0011731121948508865
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s004-l00-g00.npz",
+      "sha256": "f459ddbd5d38a300ccd4019b3a1dc40f7bed743f8644dd96b19c458068b8e99d",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243414,
+      "bytes": 228352,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0054171692637531394,
+        "16": 0.0042490999377881354
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s004-l01-g00.npz",
+      "sha256": "f555a324894e6a48881f1ca8265e129326a47ca01b04aac0c0c506622b74e9cd",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243414,
+      "bytes": 226048,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007703287248431862,
+        "16": 0.006135548405527046
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s004-l18-g00.npz",
+      "sha256": "db6fe353493e51837dbbb4d5aaf24bdf8e8e21657d2aaf2573712f29342d7fa1",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243414,
+      "bytes": 193792,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00421008634523497,
+        "16": 0.003935651803553846
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s004-l35-g00.npz",
+      "sha256": "72b452b92583eb1f9ee862df3c71f5f018179dc339a1db379461a8d5fca85542",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243414,
+      "bytes": 202240,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007940891247749325,
+        "16": 0.004082798225642728
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s012-l00-g00.npz",
+      "sha256": "53a353d5f5d1bfa052c6a0d824ffb7d16a6b4b54c4b596eddbe239b9a8fd7aca",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243475,
+      "bytes": 223168,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004449226728677317,
+        "16": 0.004285654189628945
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s012-l01-g00.npz",
+      "sha256": "df209c544534cfdfaf4e53b823408caf6bf6820c505afd78f7233890e5b7f24e",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243475,
+      "bytes": 229376,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006231505306704336,
+        "16": 0.005766603507517633
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s012-l18-g00.npz",
+      "sha256": "dd9b3625372aad5cc455f9dc7c043c6acf065572c32c714668d241fc8fabbda1",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243475,
+      "bytes": 191552,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0030378771891056344,
+        "16": 0.002842491265601366
+      }
+    },
+    {
+      "vector": "output/qwen3_32k/uint8/vectors/p03-s012-l35-g00.npz",
+      "sha256": "0b1183fa435099b6c730b15364d4eb7000b5a83f20d686c8af90675f2f78a24d",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 243475,
+      "bytes": 204832,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0029170064503027935,
+        "16": 0.0023866877076456857
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s000-l00-g00.npz",
+      "sha256": "efbf656b379eac0cecefaf96bcf7e9599e0336923ac0994b0fa1c4992deac5de",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248028,
+      "bytes": 224192,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0035119168090214487,
+        "16": 0.003137425760507687
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s000-l01-g00.npz",
+      "sha256": "54e48b4244ca7dbff2adb36192e9c1e84347bfe08a1bffa417892d66d75f38f6",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248028,
+      "bytes": 222944,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008289601690756347,
+        "16": 0.005809498459841758
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s000-l18-g00.npz",
+      "sha256": "f04448b8afa55ca28c41639b77ddaf07334a4719b01582a3fcd9c839bfe02d3e",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248028,
+      "bytes": 191360,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004173519050583417,
+        "16": 0.00393719642724385
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s000-l35-g00.npz",
+      "sha256": "7a425498d2017d8b875ffb02ff166dfadd4c5ae3eb52dcf750de3fc6b94329af",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248028,
+      "bytes": 225760,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010242972353322393,
+        "16": 0.0026518813078550284
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s004-l00-g00.npz",
+      "sha256": "ba3b172d31f5352cfc0c36849cdd7c3e6e928f26a071a651f975aa747f91c258",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248057,
+      "bytes": 229472,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002286746369208466,
+        "16": 0.0017281933152237688
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s004-l01-g00.npz",
+      "sha256": "2d64c5520f12fbe7fa182b5ca98d9aa05fd0b88268e242bbfd0330ff011fc67f",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248057,
+      "bytes": 219424,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0095875510545524,
+        "16": 0.004057267867150323
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s004-l18-g00.npz",
+      "sha256": "24b09de99779198c652ed22b27614066c176c2b2b38313ddd53c6216e7a54906",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248057,
+      "bytes": 192064,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005025491878833225,
+        "16": 0.003748455828667558
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s004-l35-g00.npz",
+      "sha256": "0f90293d6865327f3cc3ee44523bbca59ea2acd366070045d6be3982d39ca5b3",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248057,
+      "bytes": 216672,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007767535312363763,
+        "16": 0.002422096795277546
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s012-l00-g00.npz",
+      "sha256": "ea85bbb47c0c329dbff8f33c477d571d0dce9a57f51e0e92c7838161e5ef8c66",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248118,
+      "bytes": 233984,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002515782055139114,
+        "16": 0.0020579117369336087
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s012-l01-g00.npz",
+      "sha256": "48fe5c6023994c7bc3446f01e9219f07a05d542a64b09dcfc2dcecb90d33f445",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248118,
+      "bytes": 218048,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009877741793948715,
+        "16": 0.009301693216841983
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s012-l18-g00.npz",
+      "sha256": "b9a955198875eab171f6a659efefcc334add568ceca6bee2f50e090c4337a744",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248118,
+      "bytes": 191232,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004205747793432692,
+        "16": 0.003909037383389515
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p01-s012-l35-g00.npz",
+      "sha256": "6de672929bbfaf8a7555a2d25c6454397da7dd15efc9002709e34a13d8544c81",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248118,
+      "bytes": 229504,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004696563399165096,
+        "16": 0.0027559393285447892
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s000-l00-g00.npz",
+      "sha256": "5731f9a75a025695763635d8e628760ad5b43dad69fd79b644c219a2f3d73286",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 228160,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0041166727428937405,
+        "16": 0.004067501272780636
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s000-l01-g00.npz",
+      "sha256": "f0cacbe535104f4f6881105e1d7cfc2d66354c5f488bf3b0f5212c47aceee924",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 215520,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010420476275857281,
+        "16": 0.005878473077397692
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s000-l18-g00.npz",
+      "sha256": "afc9a592c9ac8eced04693d11f8c42b5f52619184c1a675eeca9d214494a2b8b",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 190016,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0026680193968402627,
+        "16": 0.002464288060260793
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s000-l35-g00.npz",
+      "sha256": "b9ad8f2dce342e662ab48bb91e1c1fd0ce00be26066d195b6ed9ea73a5b35280",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 222080,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00703955954967109,
+        "16": 0.0025921936648793443
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s004-l00-g00.npz",
+      "sha256": "ef905bbcf4b5d1ce64bd27e66c3f64507901e9bfb5e07b004c4cf0129a1b9d66",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 229760,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0020839266600837384,
+        "16": 0.0016340105903853413
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s004-l01-g00.npz",
+      "sha256": "54c7a77032d050ee7a01b40a3a97e46d9a8daa2edc2dc2c68892bf81e1b5fae0",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 227008,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008855943511518,
+        "16": 0.008930969915751841
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s004-l18-g00.npz",
+      "sha256": "cc7041edbb9efac893201885878fdf9a2d210c14c1c1cdf551d54968bb56f711",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 190592,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003735901088347778,
+        "16": 0.003650391504340856
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s004-l35-g00.npz",
+      "sha256": "3b26435169480cee071bcd48b99558f8ff2538ac8f74686328f61b5e4717622f",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 212320,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00338741948481675,
+        "16": 0.0015709032738213152
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s012-l00-g00.npz",
+      "sha256": "d92b3cb0e91405d0022c104cf799d2748061726f3a82175d3e7fc7f8a1154a74",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 227712,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004364383577591658,
+        "16": 0.0043409608576613174
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s012-l01-g00.npz",
+      "sha256": "6123d69d47557b67fdf7138c9cd28d93b262b359318eba90025655ee33ff6d54",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 223872,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005530617370821005,
+        "16": 0.004634525195132061
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s012-l18-g00.npz",
+      "sha256": "cc1cf8344780e0a0ab17ea003c9e83f56d51423f4c8d8eb1617b1541aa8fdbee",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 191808,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003405163237426112,
+        "16": 0.0029731940361455798
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p02-s012-l35-g00.npz",
+      "sha256": "f5b95fbb4c0b816ec9900454e2b7cec861e5f72801b26b2276eaa087c6903216",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 232064,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0035919804114476397,
+        "16": 0.002298477072964904
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s000-l00-g00.npz",
+      "sha256": "018b358e509863636758ac8e6a2cc680a7a79a5adf7d2b45870aa06949bf5321",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 224704,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004173013278500319,
+        "16": 0.003951440222585052
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s000-l01-g00.npz",
+      "sha256": "7f381afae02332d33c279f7e0dfde7ba0821bff3cf89ba186af8a9cf9a517b8b",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 218016,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006743823047710043,
+        "16": 0.005175056682030753
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s000-l18-g00.npz",
+      "sha256": "7e31447f0859d0158faf1c05ce5a53319ba1781802f1ee5cf1892a861772868d",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 190144,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005570557256841079,
+        "16": 0.005417541621284992
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s000-l35-g00.npz",
+      "sha256": "4e3a7e187da999c8c28214df3dd2b64e65ba57326e7e91ca213f8e024bbd2856",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 223296,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004692204389627761,
+        "16": 0.0014397169039502837
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s004-l00-g00.npz",
+      "sha256": "f2030d362e6933c33e28d0e51cf0833d3bcaec420bc503a2aa95e554d2efa69c",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 231488,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002052021044461301,
+        "16": 0.0016483696357161462
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s004-l01-g00.npz",
+      "sha256": "57dc29ae8f9de32001484e04e03ca2d5bd4c6ab50828df62900f3caca6a27d62",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 225056,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008398472189745473,
+        "16": 0.008019215881822415
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s004-l18-g00.npz",
+      "sha256": "74bb627ceb8ef4cc981bbd82b0c23e071c9777fa8a78344c8b8039edd17e29e3",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 190720,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004211003440676612,
+        "16": 0.0037766470557055983
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s004-l35-g00.npz",
+      "sha256": "96dbfd0276e37275feb882285feb714572dd3b61e43058dbcfdc1dc518f8b22f",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 213376,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0042212224231621565,
+        "16": 0.0023329500594489673
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s012-l00-g00.npz",
+      "sha256": "c5197c83876ed45f4bfa7badca810ade88a889a1e98c9eb7dea335dc2fc219d4",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 223968,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004555656331410694,
+        "16": 0.004982612957992247
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s012-l01-g00.npz",
+      "sha256": "b2607505dd46ddd60fe7198638de6f0431b4d10abfbc416972a23deb0f1fc734",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 227424,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006409702558396636,
+        "16": 0.005016279128188011
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s012-l18-g00.npz",
+      "sha256": "c0174ab9c7b455845e8ce7bdad98be74b2f48a9b286ac797c3c277df3b8c0450",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 191936,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0045504483924071375,
+        "16": 0.004236886966257551
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint16/vectors/p03-s012-l35-g00.npz",
+      "sha256": "547c58b00bd543b9d311b84b7eca56fb3a58d68799df437d12f0ce0572848093",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 227936,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0038327307183759138,
+        "16": 0.0016430833491998954
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s000-l00-g00.npz",
+      "sha256": "4742df9adf7a2522176b652bbfd2aec6c896b23b0339f74dab2c9da679ba9fd8",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248028,
+      "bytes": 224192,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0035119168090214487,
+        "16": 0.003137425760507687
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s000-l01-g00.npz",
+      "sha256": "fbea80ab41af8308f147861e4db8e130f95eb9853e1cd55ea672758194ca8021",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248028,
+      "bytes": 223072,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008012838444471707,
+        "16": 0.006761610870506291
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s000-l18-g00.npz",
+      "sha256": "67e31d6d7f7ea97c0611a515c23cb74148e1357f806da1de5e38ac76481a2b13",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248028,
+      "bytes": 191360,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003498966783302163,
+        "16": 0.003042567666922989
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s000-l35-g00.npz",
+      "sha256": "49d21b073976a9d774199644d3a2e3099206ac253f12add5570ecdd2f072fdf6",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248028,
+      "bytes": 223744,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009350320358827432,
+        "16": 0.0021291648608767373
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s004-l00-g00.npz",
+      "sha256": "f889b35b7f6efa42b6ec72014d3c51f14f0fc81746d3bbc20cbca1c529bb6771",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248057,
+      "bytes": 229472,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002286746369208466,
+        "16": 0.0017281933152237688
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s004-l01-g00.npz",
+      "sha256": "854f443753e1693b3f28e32811bcb94a75831a892fb34d7fdc7e84497006faf2",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248057,
+      "bytes": 218560,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009498752864213447,
+        "16": 0.003962167628066978
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s004-l18-g00.npz",
+      "sha256": "bfa473305472a4c4070f1046a41b514c55a39380ab8b850852759ec40d98067d",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248057,
+      "bytes": 192064,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004254530190552036,
+        "16": 0.003313873198268692
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s004-l35-g00.npz",
+      "sha256": "fca2caee5aee4463815e2f89ce89a0a54b907100f6803c83c842a1d08d9e9363",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248057,
+      "bytes": 213696,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0060252123065915675,
+        "16": 0.0031764195854102582
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s012-l00-g00.npz",
+      "sha256": "6ec380d51e56600d4a768bd359d31fcc2833146dcdbb25359e0ed9af9640e41d",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248118,
+      "bytes": 233984,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002515782055139114,
+        "16": 0.0020579117369336087
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s012-l01-g00.npz",
+      "sha256": "54f004aa8d2c503597f425e5fafea2b8dc591fe616cb0000b1f82c5bd1b6e847",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248118,
+      "bytes": 218048,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010784281120918088,
+        "16": 0.008569145642636717
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s012-l18-g00.npz",
+      "sha256": "d82d63f340c9ee0c368f26d512375405b2d9adbfd66d7f5fb8fd7c8846c955ef",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248118,
+      "bytes": 190976,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004542592136195146,
+        "16": 0.004155319687072063
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p01-s012-l35-g00.npz",
+      "sha256": "4f284b8b626f97c6b582c3d5b5e45cbca82cdb84ee7113b1b1ebaf21b1d3a08f",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 248118,
+      "bytes": 229024,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004318714292926762,
+        "16": 0.0027559771531470295
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s000-l00-g00.npz",
+      "sha256": "cc9e655beecd0dec7296fcea15901aacb27cb3074cba25e8a8253715da2a645a",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 228160,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0041166727428937405,
+        "16": 0.004067501272780636
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s000-l01-g00.npz",
+      "sha256": "3f7e527f2f5347139740e5b20d16171140540650ccb34eb5c126ee83594750e2",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 216480,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01028743565939274,
+        "16": 0.005622948227261177
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s000-l18-g00.npz",
+      "sha256": "4354215d0837c38650039e829a2b095dc7037122d5b97b2e30c0c9d48ffcc975",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 190016,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00396801927914519,
+        "16": 0.0034011920197130354
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s000-l35-g00.npz",
+      "sha256": "ac597ccd68cc2d842f6a5cb75ba4eba47a4371d5b4aedc9057fd0bde9a4f70f1",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 223040,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006111091550575216,
+        "16": 0.001343353946208569
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s004-l00-g00.npz",
+      "sha256": "cd5317c259610bb9b642c4d7be792e170052c3836eee5bca0679057066893f3b",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 229760,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0020839266600837384,
+        "16": 0.0016340105903853413
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s004-l01-g00.npz",
+      "sha256": "86dbe757efb0a3797c79a275379d5c539c138d995a3bb805e8c17a9817072a99",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 227584,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009545019052955815,
+        "16": 0.008880464644003817
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s004-l18-g00.npz",
+      "sha256": "66fe3c0eac8c409255269ae32cabdd22fcb9a1aac2b589968fbef3bcf046018a",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 190592,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0031217230323233487,
+        "16": 0.003312792095938429
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s004-l35-g00.npz",
+      "sha256": "052fbcc890a308549049e24099e45610cb7faa17fb425463e2f544dd9b97da76",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 212480,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004415589535085397,
+        "16": 0.0021290859339989374
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s012-l00-g00.npz",
+      "sha256": "9d4f80acfc1bf11db6ed1e82ce09e2c87680619952654d18a185db434fc0f6b5",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 227712,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004364383577591658,
+        "16": 0.0043409608576613174
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s012-l01-g00.npz",
+      "sha256": "b32377d27656608d949395c60228d90ef5ed1eb96a67ce1e422c2cfa7db00683",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 224672,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00549988542661317,
+        "16": 0.005235697990705725
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s012-l18-g00.npz",
+      "sha256": "18d3d86ad7bce93b69c2187adb791cd6ee8bc55e4fea943a2d86e92b3058f834",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 191808,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0031840385178207335,
+        "16": 0.0026832492867212843
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p02-s012-l35-g00.npz",
+      "sha256": "f9e1e9690470dd3faaf106d400baac8768735b436b888dc97da38e4888819cc0",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 233888,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002914520798730973,
+        "16": 0.0014096636818588656
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s000-l00-g00.npz",
+      "sha256": "82cbfc7ec899de0b5e76dd38a519805ad623e646f790c39d4cba9e4201633647",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 224704,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004173013278500319,
+        "16": 0.003951440222585052
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s000-l01-g00.npz",
+      "sha256": "887d92e4172e16bd4363149b3267ed77bdc5b433e8c101c15d7f6485d2163823",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 218560,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006238018212895876,
+        "16": 0.004855065278945206
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s000-l18-g00.npz",
+      "sha256": "83529bab6a48709eebbf052ff42dd82b6c8704808c924b0e251dc0ba9a70ea66",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 190144,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0033472592027111348,
+        "16": 0.003231915996195849
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s000-l35-g00.npz",
+      "sha256": "aaf3d2e6dd4ab4bad31b147f9a6c448e53cd3b787968614af8092c7643284495",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248076,
+      "bytes": 224288,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005541403607515953,
+        "16": 0.0018645233765934024
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s004-l00-g00.npz",
+      "sha256": "baacad48b6d6e21aa6a0f1766e3537f89f986f348cfda86f850f402f7824da11",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 231488,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002052021044461301,
+        "16": 0.0016483696357161462
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s004-l01-g00.npz",
+      "sha256": "524426842f29a7c29d3e21123bb8394482de79149a808da39e2f1decffbd45da",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 224960,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00884171968154465,
+        "16": 0.008262689670671735
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s004-l18-g00.npz",
+      "sha256": "4b748a0a4280cc4f14da63110f5dd240d6fec474b5e8cf1e95658804ed7ff3bf",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 190720,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004047393003206177,
+        "16": 0.0038070274943385034
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s004-l35-g00.npz",
+      "sha256": "c74bbbda888da6425ee0b54b834700ba86da3cd7afc5b872efeb2b222f7f3c63",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248105,
+      "bytes": 213984,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004979954192285874,
+        "16": 0.003234869751430981
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s012-l00-g00.npz",
+      "sha256": "9e64388e3411e6d5673340c438684879019e03551612f7cc5ca5891ef8bcc13e",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 223968,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004555656331410694,
+        "16": 0.004982612957992247
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s012-l01-g00.npz",
+      "sha256": "b66e34cbf0f9aaf88d3ac45207893cc60293966d49ca6436957cff9999a8a3a3",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 227584,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005349804882511629,
+        "16": 0.004340713644040534
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s012-l18-g00.npz",
+      "sha256": "4b1247ebd450c8acf788bfb42cfb305bb33392ab1c149986858abe450c3fce99",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 191936,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003467424825951555,
+        "16": 0.0030823193249577417
+      }
+    },
+    {
+      "vector": "output/qwen3_32k_mv/uint8/vectors/p03-s012-l35-g00.npz",
+      "sha256": "314074922f04093bca7f8d5f05a068b2818f401cc58cfcec038d9029c860c329",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 248166,
+      "bytes": 230976,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003641794080598118,
+        "16": 0.0029759522595606057
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s000-l00-g00.npz",
+      "sha256": "7df86cf412b191d3fa896a73a4673f3778e8db42a63aeacc6170e160a3704396",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497004,
+      "bytes": 457472,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003332139930948098,
+        "16": 0.0030682262813426777
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s000-l01-g00.npz",
+      "sha256": "beedb4a11a2db0ac3a8eb67effc65b8993f881b37c8d6b21420f15de69de34d2",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497004,
+      "bytes": 425920,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009020622009414716,
+        "16": 0.00887776845345423
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s000-l18-g00.npz",
+      "sha256": "cdb5f0b0646c9b14bf6fdb92e9eeb5da2ac22fe4e804c129c666ffd7beedfc70",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497004,
+      "bytes": 363456,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005375556414283853,
+        "16": 0.003810269844399146
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s000-l35-g00.npz",
+      "sha256": "4147d9967548bfe0c7e36be776910dcf6ebd7b0281042f8628c574805d96aaa9",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497004,
+      "bytes": 434208,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007772997591894331,
+        "16": 0.0027523631260867993
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s004-l00-g00.npz",
+      "sha256": "fed5707cfce0815f6f96ee9e6a07faf4418c4e818654118d01311dc8187d5dc2",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497033,
+      "bytes": 461408,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0015546348132945231,
+        "16": 0.0013564820410847914
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s004-l01-g00.npz",
+      "sha256": "d4300973f4a0c5636db8c95e586a74e1e275101e6093afdb39e04ba1a014d7b9",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497033,
+      "bytes": 415296,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01034987568951982,
+        "16": 0.006692505569788317
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s004-l18-g00.npz",
+      "sha256": "da091884221b0e5124ca6747d8841cd97d68361a12cf67c08c5192f72882c2dc",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497033,
+      "bytes": 369216,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003965708023586489,
+        "16": 0.002052200262777012
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s004-l35-g00.npz",
+      "sha256": "692cb2aa7fa4c8b8278192e0f8cc20095e7bc63679cf1bfbf0cf79a4e000dd29",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497033,
+      "bytes": 404320,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0038039989517415274,
+        "16": 0.002858824416467872
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s012-l00-g00.npz",
+      "sha256": "4a007c3d10e5e68964fdc444580dc36e7c4cc19b2acddb653a6bb350fdb39874",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 461056,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002653838027802008,
+        "16": 0.002417191783903984
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s012-l01-g00.npz",
+      "sha256": "65eb9185dd9fbcced23bb02048f6305c475c7f3195dda1be757e9ce4242f4ec2",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 419872,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009492145424840982,
+        "16": 0.0075752120784935454
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s012-l18-g00.npz",
+      "sha256": "f1e9be0a3f1c46e4dc39cfcd595dc4e462acc34622d5bfa8c02300c8e86185ab",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 362944,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004442270596272653,
+        "16": 0.003293364789427563
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p01-s012-l35-g00.npz",
+      "sha256": "fc81911cddb45fcc9bec4ed5b354f800a41421da95eb5c7946e6e511ee8f265b",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 414688,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007396731348748019,
+        "16": 0.0017310738068633605
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s000-l00-g00.npz",
+      "sha256": "35437f794185b846e52b8ba12f722640a50dbcd5fb5d1b5a85b9eaf7d9f679b6",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492499,
+      "bytes": 450784,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00459951158360123,
+        "16": 0.003325339942041142
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s000-l01-g00.npz",
+      "sha256": "80ffc6ad35be6cfc018c8473a2d0ba3551393491bb9d043acf65faed60d567b4",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492499,
+      "bytes": 423552,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.011053441231578406,
+        "16": 0.0058397207010937304
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s000-l18-g00.npz",
+      "sha256": "6cd36ce4c051ace63cd568721381df3b3959d05dd555818b136a844d5b77b00e",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492499,
+      "bytes": 359520,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003828002205949077,
+        "16": 0.003407342934708742
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s000-l35-g00.npz",
+      "sha256": "e8c75537ccb5df7452c10fe913b17d29e916b42560a1328cdab872883b8b39e9",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492499,
+      "bytes": 421248,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0024424869511284566,
+        "16": 0.002206987938322512
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s004-l00-g00.npz",
+      "sha256": "94de68f491f2db1c06ce3018e278569506b6da25b6f1adb00d0629f60912a520",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492528,
+      "bytes": 461472,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0019447175141458135,
+        "16": 0.0015317368933762327
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s004-l01-g00.npz",
+      "sha256": "faaa91a5dfce57ac5f9953e610e7848e4cdc2f7152d5510b375967f80bde3af3",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492528,
+      "bytes": 431936,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.01003583850930068,
+        "16": 0.0093567508680529
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s004-l18-g00.npz",
+      "sha256": "a5f25299de0289b8ee63c39ddf6d75c4862a2199a44ccee2bbb570aad355e0fe",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492528,
+      "bytes": 363808,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0029619914180847246,
+        "16": 0.0025303038419995758
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s004-l35-g00.npz",
+      "sha256": "bcd147ec44b8252ba075b176b20fed338443978359f8114f2c86044e9a9c1d52",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492528,
+      "bytes": 404672,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0028213505289769398,
+        "16": 0.0025780118809742986
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s012-l00-g00.npz",
+      "sha256": "15769ce59a987f46d5fdb00728a19603225775c6c8e1d8983649af952b9b8d86",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492588,
+      "bytes": 452448,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0023406033287179037,
+        "16": 0.002229122250262113
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s012-l01-g00.npz",
+      "sha256": "30045a8a82c574ed68938bea1acf59b7d62cbf36ec70a4beae9be0569c72378c",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492588,
+      "bytes": 420512,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0064862013027923784,
+        "16": 0.005586867965691958
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s012-l18-g00.npz",
+      "sha256": "1a12552404f614e646fa9249b05592fed16f6dffd07dd3e24ec979d1e85efbd2",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492588,
+      "bytes": 358240,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0032083453482482913,
+        "16": 0.0031611604301349364
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p02-s012-l35-g00.npz",
+      "sha256": "16b00dc7daf1f6c5b6ef9a461837a89b7e6582d27c4d989e4064187a96b8181d",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492588,
+      "bytes": 412992,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006172899285335882,
+        "16": 0.0026444819071665382
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s000-l00-g00.npz",
+      "sha256": "55938c981374966b19673b5ff9fbb093546486793fbcdd928a58f5dab5748d81",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 458816,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004349759101095338,
+        "16": 0.004052164162544795
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s000-l01-g00.npz",
+      "sha256": "152d500cddd73219b8c78d39fee701d1fb1103cd3feb1af9f45dd0fe205936fc",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 422848,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0075936873536332035,
+        "16": 0.006125196695163268
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s000-l18-g00.npz",
+      "sha256": "9e48b776bcf60b6f7439ab117c269b9ed2f944b417cbfa7a12c7fcda3d850349",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 363072,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004484885967877605,
+        "16": 0.003522324583463998
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s000-l35-g00.npz",
+      "sha256": "d36fb61cf902a139e1dadffe0fe1bdf60a42ad1fb47f057f4546c97d462829c5",
+      "bits": 16,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 418496,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004725564772765279,
+        "16": 0.0030253434373455055
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s004-l00-g00.npz",
+      "sha256": "82007d4226f8e6a187e505055b7f9ba64359c098f3d97b4df660a3ff403c8169",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497126,
+      "bytes": 462272,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00187605523141833,
+        "16": 0.0015486700019746089
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s004-l01-g00.npz",
+      "sha256": "3e59b218f3b9fd9277671beb2b10f79649d87959da5051b828fbcb5b44cf5ddb",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497126,
+      "bytes": 420960,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009044209801526825,
+        "16": 0.007665418896756576
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s004-l18-g00.npz",
+      "sha256": "e3f39465c731fea9c33418a65219b18c75b5f03fc95a43fdc4add5e92c2af6fe",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497126,
+      "bytes": 368384,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005264298715677372,
+        "16": 0.00388113815717924
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s004-l35-g00.npz",
+      "sha256": "04314aa46fdd784c204a0d1c0bf6686e1ba93c29823eda14018da85a2147a5ed",
+      "bits": 16,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497126,
+      "bytes": 397568,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002241644211103437,
+        "16": 0.0020144329586731244
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s012-l00-g00.npz",
+      "sha256": "b097cdc0fd78796b22caefdde7859e5849d0edfc2ca6fcc9bafa676f53974416",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497187,
+      "bytes": 461504,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0028174884577423153,
+        "16": 0.00265556391563887
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s012-l01-g00.npz",
+      "sha256": "e3b83aa7e2fcdbdbaaf5d8d18fd66eac5cec30676154c93dfb97b70a8a1c77fd",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497187,
+      "bytes": 431808,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008936870889640052,
+        "16": 0.007545883318792368
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s012-l18-g00.npz",
+      "sha256": "72f1775e6ba99cf4fbf2b3a4774a20c6d43216514f83d5def568ef4857b93334",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497187,
+      "bytes": 362496,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0038720587932103774,
+        "16": 0.003482629899820943
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint16/vectors/p03-s012-l35-g00.npz",
+      "sha256": "4293f02234486ce09cac1cc80d0e8c704a2bfe94448a7b054118419c238d0a90",
+      "bits": 16,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497187,
+      "bytes": 413344,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004299739223734654,
+        "16": 0.002328860607396161
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s000-l00-g00.npz",
+      "sha256": "455ff8c212583e2320e63d1e5e3f0448398e7d64e42c9642f8e9e3f1f89d1615",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497004,
+      "bytes": 457472,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003332139930948098,
+        "16": 0.0030682262813426777
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s000-l01-g00.npz",
+      "sha256": "78c3ac4425b62137bb1b05c01dd33d80564a9910ba7f5d1031f98298f5d0c6ff",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497004,
+      "bytes": 426400,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009670134527154317,
+        "16": 0.010202603310271318
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s000-l18-g00.npz",
+      "sha256": "c409ced014593eaa603a56152a85f30af8927e079c99d171f0ba68b2af28632b",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497004,
+      "bytes": 363456,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004121154074580987,
+        "16": 0.0035952171027796177
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s000-l35-g00.npz",
+      "sha256": "f2fb749e4200bce2fb4c1a78bfe081fdc668ec2391ead8b370dbd4a54307534b",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497004,
+      "bytes": 433792,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006423558920319534,
+        "16": 0.0017687957213228561
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s004-l00-g00.npz",
+      "sha256": "768e0d0d685b362c9250d7506001511cb79a23ff1a2b327ae1183b0533a233db",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497033,
+      "bytes": 461408,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0015546348132945231,
+        "16": 0.0013564820410847914
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s004-l01-g00.npz",
+      "sha256": "dec533f8711d296b4260989c94f4d1c2441e3d55d2397cdc38f9c71c8365e5f4",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497033,
+      "bytes": 419168,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010902842597162864,
+        "16": 0.008458585626376325
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s004-l18-g00.npz",
+      "sha256": "efa8ba362ef82b81cff3954ea55d6c7a57975ce652373c983dfb4bfc6bcd207c",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497033,
+      "bytes": 369216,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004049689166107234,
+        "16": 0.0024987820423530514
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s004-l35-g00.npz",
+      "sha256": "107837a5a5b0a288c24f5012f32126d4490471cef8976ce386e0267c114fb712",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497033,
+      "bytes": 401216,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003914035561945859,
+        "16": 0.0021308566690865054
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s012-l00-g00.npz",
+      "sha256": "3ac8538ae165ca0c6b9b48ba221a3879bad07e7ded33b2de4ec34628b24e4989",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 461056,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.002653838027802008,
+        "16": 0.002417191783903984
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s012-l01-g00.npz",
+      "sha256": "2c4c8b8761703efeb801d0cacddd8165297b221e5ec3dd5eda9d63e238bcfbaa",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 419104,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009240621077533664,
+        "16": 0.007127811127534315
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s012-l18-g00.npz",
+      "sha256": "d094af8414c0993de0c190d990130a2ff4c5dc3c5905ad9c9a76b28462a2acbb",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 362816,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003609301549315092,
+        "16": 0.0031947327776618044
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p01-s012-l35-g00.npz",
+      "sha256": "ceec8520a51b493114267d8b015a51326bd6a0f7708f6c0ee6d9ccd12d22b126",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 1,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 415872,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007117226064661171,
+        "16": 0.0024107291213168814
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s000-l00-g00.npz",
+      "sha256": "2125e0f6218e47407d52e7a1c6e5c26bdd90d89321be638ac2d819763b670006",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492499,
+      "bytes": 450784,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00459951158360123,
+        "16": 0.003325339942041142
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s000-l01-g00.npz",
+      "sha256": "149816ff666adfa99a6ac663455646bce76e267123ba64ed96f6928865014322",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492499,
+      "bytes": 423360,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.010539237797845701,
+        "16": 0.005571501803112665
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s000-l18-g00.npz",
+      "sha256": "280c5346594494480106df833ed7c876106b08fe3d931cb29018c806fefa8ec9",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492499,
+      "bytes": 359136,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0036862988077321734,
+        "16": 0.0035393264229632224
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s000-l35-g00.npz",
+      "sha256": "8a82475a5d381f43c351891599c3454dd07906b865a72966b251e9c9fbeecdab",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492499,
+      "bytes": 425952,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0023709354387788767,
+        "16": 0.0022025429515420748
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s004-l00-g00.npz",
+      "sha256": "0507edd9599f0aa6150f03892584fb75155b12f15e8c9cf6885b04046c624fff",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492528,
+      "bytes": 455616,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.001980068901183944,
+        "16": 0.0015357608877796815
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s004-l01-g00.npz",
+      "sha256": "8cddbed419dd0c0100c855efebbaf30c93bad7afbb0b2d1b1ae62d5c801f8004",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492528,
+      "bytes": 444416,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008966471372315618,
+        "16": 0.008267665880224003
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s004-l18-g00.npz",
+      "sha256": "0a7004aaeed4c293edb9413212a8837eeff28d5839bd56784427331abe042bcf",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492528,
+      "bytes": 366816,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004888021739043256,
+        "16": 0.004687169104615765
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s004-l35-g00.npz",
+      "sha256": "088e0be221a75b6b692878b4aa47c136da3b52346e4d2773268bd29c4c1447a9",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492528,
+      "bytes": 411072,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0025250457699810018,
+        "16": 0.0013056030550036705
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s012-l00-g00.npz",
+      "sha256": "a05cf69047117d17b7a5cf60659fd3059a1e18f6476b50a1fe7474a8179bb3e0",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492588,
+      "bytes": 454272,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0031835130927940266,
+        "16": 0.002510462775281856
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s012-l01-g00.npz",
+      "sha256": "113d76f69b6088a5d8366a3153bc813afe7466061d92fd3816498f515bd48eb6",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492588,
+      "bytes": 413568,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.006644232621429998,
+        "16": 0.0065902294569612045
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s012-l18-g00.npz",
+      "sha256": "3636b12262f3a8a7fbb7513438a06bcac8909e2f45997691c48aa5c10ed208a5",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492588,
+      "bytes": 358240,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004627214947597445,
+        "16": 0.004091790557957928
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p02-s012-l35-g00.npz",
+      "sha256": "752c52d65af5ba1b1a1521ba2a7f45c0fe18960dfeb70f1c9f8a7e799b2920aa",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 2,
+      "scale": 0.08838834764831845,
+      "cap": 492588,
+      "bytes": 439584,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0022165452739773446,
+        "16": 0.0015661104049550692
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s000-l00-g00.npz",
+      "sha256": "0fcb0be9cf248bd863ab6a49f74da27d908524fb5ead44c3c3a8353b76afb59f",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 458816,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004349759101095338,
+        "16": 0.004052164162544795
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s000-l01-g00.npz",
+      "sha256": "20a320e4c6ace9ab632ae5c47fbc0e1ce6ba055d5d90ed83cbb9a906f738ab32",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 421728,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.008431333613140692,
+        "16": 0.006738010335941723
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s000-l18-g00.npz",
+      "sha256": "c616a68a8104320752c6c31bf5f46289f5e3989d358b604bc78603f343c30197",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 363072,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.005769753214374808,
+        "16": 0.005132273979201645
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s000-l35-g00.npz",
+      "sha256": "a54723da912c3f5c7a53b38eac063adc1d47f8e51b8f6b08b7d669a3eb929fe6",
+      "bits": 8,
+      "group": 0,
+      "step": 0,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497094,
+      "bytes": 421664,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.007830466149650923,
+        "16": 0.002088903675966823
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s004-l00-g00.npz",
+      "sha256": "ade097cb1c71e7c38f5d96da966e4cc07ae1e9d61be081abd922ff689fabdef8",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497126,
+      "bytes": 462272,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.00187605523141833,
+        "16": 0.0015486700019746089
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s004-l01-g00.npz",
+      "sha256": "40b940ab9216deda1b3272bed54b48e4ba476f4d0e5672ab4f21b87f26daaf2c",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497126,
+      "bytes": 415648,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009966886470274529,
+        "16": 0.007038880170712395
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s004-l18-g00.npz",
+      "sha256": "01c8ac4e7c76b9b020dbadc5957b6af61c421f1bc7c3c830b21010791ca21a74",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497126,
+      "bytes": 371712,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.004662785561960839,
+        "16": 0.0032549051411605093
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s004-l35-g00.npz",
+      "sha256": "d697e1487b415402f3fdfdb9b7103621441d74990d080e9406156bd972498a0c",
+      "bits": 8,
+      "group": 0,
+      "step": 4,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497126,
+      "bytes": 396576,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003071622187675471,
+        "16": 0.0031208578234071653
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s012-l00-g00.npz",
+      "sha256": "0a07ca383ffaeb7f44779c7b7931506b99721ee035d10c512f58cc27a6ddfacf",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 0,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497187,
+      "bytes": 461504,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0028174884577423153,
+        "16": 0.00265556391563887
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s012-l01-g00.npz",
+      "sha256": "b8e0beeb1e3c25030c55fc9151adae687b7273e8ae400d47befbb3ab29b86695",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 1,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497187,
+      "bytes": 431648,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.009145083793792362,
+        "16": 0.008066892266412683
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s012-l18-g00.npz",
+      "sha256": "3d95e04eaae546a5f50bc763603935f6bb9019192b3534477b9a566bc34ca468",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 18,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497187,
+      "bytes": 362496,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.0035862045218036064,
+        "16": 0.002896559305783385
+      }
+    },
+    {
+      "vector": "output/qwen3_64k/uint8/vectors/p03-s012-l35-g00.npz",
+      "sha256": "67c1a28b517eef9c2941c72b0665773c70161d65bdf32e55a891e92c905472f4",
+      "bits": 8,
+      "group": 0,
+      "step": 12,
+      "layer": 35,
+      "prompt": 3,
+      "scale": 0.08838834764831845,
+      "cap": 497187,
+      "bytes": 417440,
+      "natural_fallback": false,
+      "pv_relative_l2_same_state": {
+        "8": 0.003758458074136054,
+        "16": 0.0026408115265692906
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "source_commit": "aafbabe",
+  "published_base_commit": "8f0ca65e121b087a1d0ebd98332a45ae75ddfe28",
+  "source_archive_sha256": "92357070b212f189e2376899407846c556bf66d7471d0f2ab56f3a9fdcccba5f",
+  "records": [
+    {
+      "panel": "llama_32k",
+      "route": "reference",
+      "prompts": 16,
+      "original_predictions_sha256": "37017bb2e069d6b53f9e424e57a76567d64a39e75b50846f6c3c67879dd7cbbf",
+      "published_predictions_sha256": "9a10f8858f0f5ef7656113b89b0b646ac3df38e543b3ccd133a5b73ce9166282"
+    },
+    {
+      "panel": "llama_32k",
+      "route": "uint16",
+      "prompts": 16,
+      "original_predictions_sha256": "5959f5c981dafeb9df81945cacbff1a52bf1f35a62d11b2553caa20c6b4afcaf",
+      "published_predictions_sha256": "378360c4e072e933dfe978b1b41bf3c6e61c2fcf4b60882fbeb2283f7c2b7229"
+    },
+    {
+      "panel": "llama_32k",
+      "route": "uint8",
+      "prompts": 16,
+      "original_predictions_sha256": "1090e109e60be1412ecf74837fd1f915ab916b271de525e978d4774ead421a4f",
+      "published_predictions_sha256": "79fe9628ce5a8a3ebfae3995eb380e4d0e4b889b1d10a4e1691276e4bba6d02e"
+    },
+    {
+      "panel": "qwen3_32k",
+      "route": "reference",
+      "prompts": 8,
+      "original_predictions_sha256": "fb93a5f01f9cb1c9f8a76fa1e2a720a43fc961e40c00343e608a389099ac2488",
+      "published_predictions_sha256": "0553f760a19e84799c30852bd689e80a7c114af8ac34ad9edf429837189b9925"
+    },
+    {
+      "panel": "qwen3_32k",
+      "route": "uint16",
+      "prompts": 8,
+      "original_predictions_sha256": "776345242a70b5b89e90ce2b61fe4dc13aa528bb6d0320047f4e975d1ae7542b",
+      "published_predictions_sha256": "ece44ca2ce746a34adf855fac86bb5613205771c4af5ec5089e8cffa5c924a32"
+    },
+    {
+      "panel": "qwen3_32k",
+      "route": "uint8",
+      "prompts": 8,
+      "original_predictions_sha256": "c242794b735cd8721d6775ad0727ab529b6153beaeee5dbc04c7e8231bb73e3f",
+      "published_predictions_sha256": "c314f5e98923dde70fb6ebd3c5705e961ab9f6d9ee4789cb3b93f83d0be7edc7"
+    },
+    {
+      "panel": "qwen3_32k_mv",
+      "route": "reference",
+      "prompts": 16,
+      "original_predictions_sha256": "548abf6f4489f40d9e7a1868862d35e0fbc58397a2fced108e05bd5fb9830b1b",
+      "published_predictions_sha256": "7e68fa390a4221355d26a2db872b2118ffde380f37bad3eb2911fc71f436159f"
+    },
+    {
+      "panel": "qwen3_32k_mv",
+      "route": "uint16",
+      "prompts": 16,
+      "original_predictions_sha256": "c2204df183e96f4bb476a5d6867582219c04cbabcf0c1a5e03f3b62a4fa5cb3a",
+      "published_predictions_sha256": "97e465865e269618ead8757ca61e5fe6aeeea79d2fceca742b967b72ab8cb5b0"
+    },
+    {
+      "panel": "qwen3_32k_mv",
+      "route": "uint8",
+      "prompts": 16,
+      "original_predictions_sha256": "76cb63e271614918892a72014f7c7b3f0c7a5c8ae6466feb1c97f2de2910ce4c",
+      "published_predictions_sha256": "7088d2d5cda93502d31f060f14bde15b0e77dcce2eeeaa0737b8a464b8f6cc4a"
+    },
+    {
+      "panel": "qwen3_64k",
+      "route": "reference",
+      "prompts": 12,
+      "original_predictions_sha256": "25ea5906da7e1eb57d6e75fd3fbfbb45ee9faa1e02a84e540d26394fc4dea2cf",
+      "published_predictions_sha256": "2371b07ed7ea13fa180619b6b10799490c9b31952ae47878d818815de8ae88d8"
+    },
+    {
+      "panel": "qwen3_64k",
+      "route": "uint16",
+      "prompts": 12,
+      "original_predictions_sha256": "f0d64905b76681d0e105da499b2a59e5ac8d630d3a0ea2aad8af9888a714cbae",
+      "published_predictions_sha256": "87402a8139cf823ebdbe984bbb6efe35c5b2f9bf626bebb677459c89165bcd30"
+    },
+    {
+      "panel": "qwen3_64k",
+      "route": "uint8",
+      "prompts": 12,
+      "original_predictions_sha256": "318eee08a2752187875534a9b0a3f7d4da0fa5e5c496df0f4a49ea8e46f9ed68",
+      "published_predictions_sha256": "ecc2114e35fb3699bbd7c9f6a1aab8ed4c3ce9732e3effe7baf0b1fa8b990f78"
+    }
+  ],
+  "vector_receipt_sha256": "6975373f8082fe550f7cdff01defec373c46de93c3d6c3bffcc69b9c8be8d03f",
+  "case_count": 12
+}
