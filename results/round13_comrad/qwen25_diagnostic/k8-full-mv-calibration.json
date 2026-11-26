@@ -1,0 +1,177 @@
+{
+  "summary": [
+    {
+      "task": "Multi-Value",
+      "mode": "K8G32+V4G32",
+      "samples": 16,
+      "score": 0.9375
+    }
+  ],
+  "records": [
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0000",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 45,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0001",
+      "mode": "K8G32+V4G32",
+      "official_score": 0.75,
+      "complete_correct": false,
+      "generated_tokens": 62,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0002",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 74,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0003",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 66,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0004",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 89,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0005",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 45,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0006",
+      "mode": "K8G32+V4G32",
+      "official_score": 0.75,
+      "complete_correct": false,
+      "generated_tokens": 57,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0007",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 88,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0008",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 66,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0009",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 45,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0010",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 45,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0011",
+      "mode": "K8G32+V4G32",
+      "official_score": 0.75,
+      "complete_correct": false,
+      "generated_tokens": 73,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0012",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 45,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0013",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 66,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0014",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 57,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0015",
+      "mode": "K8G32+V4G32",
+      "official_score": 0.75,
+      "complete_correct": false,
+      "generated_tokens": 57,
+      "first_token": 1447,
+      "truncated": false
+    }
+  ],
+  "fwe_split_sha256": "592d8280f19817f008c6e32d69d3a0fef78d3934fdb4c0a20d28500b71d76dd0",
+  "multi_value_receipt_sha256": "62777e990406eea9b14bbb4b6ad29e5937e6f47642e8cc48140e16339e0d6b02",
+  "source_sha256": "d3a64e756386932617475c16953efcb68715b618f6b4de0287f5370f83829151",
+  "model": "models/Qwen2.5-7B-Instruct",
+  "device": "NVIDIA A800-SXM4-80GB"
+}

@@ -1,0 +1,13 @@
+Pinned model assets match source SHA256
+32k calibration 16 32 BF16 1.0 KV4 1.0
+32k test 64 640 groups 5504256
+M budget paired 32k 5 7 14.844 9.375 20.703
+M budget paired 32k 7 10 4.688 -0.391 9.766
+M budget paired 32k 5 10 19.531 12.891 26.172
+64k calibration 16 32 BF16 1.0 KV4 1.0
+64k test 64 640 groups 6491648
+M budget paired 64k 5 7 11.719 6.641 16.797
+M budget paired 64k 7 10 7.031 3.516 10.938
+M budget paired 64k 5 10 18.75 12.891 24.219
+All summary tables and paired intervals recomputed
+Bundles and rows: {'bundles': 160, 'records': 1344} Sparse groups: 11995904 {('32k', 5): 2536192, ('32k', 7): 1569536, ('32k', 10): 1398528, ('64k', 5): 3145984, ('64k', 7): 1906688, ('64k', 10): 1438976}

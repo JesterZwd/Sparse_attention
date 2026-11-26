@@ -1,0 +1,104 @@
+[
+  {
+    "sample": "calibration/niah_multivalue/0000",
+    "mode": "BF16",
+    "score": 1.0,
+    "prefill_first": 1447,
+    "generated": 80,
+    "finite_logits": true,
+    "logits_relative_rmse": 0.0,
+    "ended_with_eos": true
+  },
+  {
+    "sample": "calibration/niah_multivalue/0000",
+    "mode": "KV4",
+    "score": 0.0,
+    "prefill_first": 11,
+    "generated": 128,
+    "finite_logits": true,
+    "logits_relative_rmse": 1.10828697681427,
+    "ended_with_eos": false,
+    "native_prefix_equal": true
+  },
+  {
+    "sample": "calibration/niah_multivalue/0000",
+    "mode": "K4-only",
+    "score": 0.0,
+    "prefill_first": 498,
+    "generated": 128,
+    "finite_logits": true,
+    "logits_relative_rmse": 1.2021400928497314,
+    "ended_with_eos": false
+  },
+  {
+    "sample": "calibration/niah_multivalue/0000",
+    "mode": "V4-only",
+    "score": 1.0,
+    "prefill_first": 1447,
+    "generated": 71,
+    "finite_logits": true,
+    "logits_relative_rmse": 0.07981247454881668,
+    "ended_with_eos": true
+  },
+  {
+    "sample": "calibration/niah_multivalue/0000",
+    "mode": "BF16-prefill-then-KV4",
+    "score": 0.0,
+    "prefill_first": 1447,
+    "generated": 20,
+    "finite_logits": true,
+    "logits_relative_rmse": 0.0,
+    "ended_with_eos": true
+  },
+  {
+    "sample": "calibration/niah_multivalue/0001",
+    "mode": "BF16",
+    "score": 0.75,
+    "prefill_first": 1447,
+    "generated": 121,
+    "finite_logits": true,
+    "logits_relative_rmse": 0.0,
+    "ended_with_eos": true
+  },
+  {
+    "sample": "calibration/niah_multivalue/0001",
+    "mode": "KV4",
+    "score": 0.0,
+    "prefill_first": 279,
+    "generated": 128,
+    "finite_logits": true,
+    "logits_relative_rmse": 1.467963457107544,
+    "ended_with_eos": false,
+    "native_prefix_equal": false
+  },
+  {
+    "sample": "calibration/niah_multivalue/0001",
+    "mode": "K4-only",
+    "score": 0.0,
+    "prefill_first": 220,
+    "generated": 128,
+    "finite_logits": true,
+    "logits_relative_rmse": 1.6228276491165161,
+    "ended_with_eos": false
+  },
+  {
+    "sample": "calibration/niah_multivalue/0001",
+    "mode": "V4-only",
+    "score": 0.75,
+    "prefill_first": 1447,
+    "generated": 121,
+    "finite_logits": true,
+    "logits_relative_rmse": 0.13321714103221893,
+    "ended_with_eos": true
+  },
+  {
+    "sample": "calibration/niah_multivalue/0001",
+    "mode": "BF16-prefill-then-KV4",
+    "score": 0.0,
+    "prefill_first": 1447,
+    "generated": 128,
+    "finite_logits": true,
+    "logits_relative_rmse": 0.0,
+    "ended_with_eos": false
+  }
+]

@@ -365,10 +365,10 @@
     "scope": "Illustrative sampled decode attention frontend plus DRAM energy, in \u00b5J/step. DDR terms use actual projected ACT/PRE/RD counts and all summary/K/V physical bytes. Backend compute and its SRAM, unmetered logic and leakage are outside this increment."
   },
   "files": {
-    "paired_energy.csv": "7e0b66d942806f331d126b67e282816a855b83a19eae189f569d22bc8f4a4d29",
-    "paired_timing.csv": "5470e2dd22266a65cbb6be53f7aefe79504ec8bca8e3fc677c7922965640a581",
-    "step_timing.csv": "f848e82a98a5eec173da8938c9cacc1b117578aadde19e185387d2a7a9b7c0b7",
-    "step_timing_summary.csv": "2afec3f2ec0f9838c4edb9c5796f67a8bd0a008160a8413da71a8a9d6fbf9384"
+    "paired_energy.csv": "be2bbb2989054dc81276ca8584e1b872a7c9d3cee869daf169a83e5730311310",
+    "paired_timing.csv": "4786aa85205abd7d0e903ce7b5c7307e84c0b6125703e9dc0423cdeb44a5f942",
+    "step_timing.csv": "f1fc5903441f27599fb023442c9c21e7083971c21a40600cc9da958211112c5a",
+    "step_timing_summary.csv": "8226bb490c76b5a2c914d403602b0418fcda2679c41a3261f776f812b1380104"
   },
   "front_timing": "The in-order physical region is consumed at a finite scorer-clock beat port. A straddling burst is fetched once and needs both record slots at RTL ingress. Coefficient issue, result readiness, dot issue, last dot slot release, and two output credits follow the measured RTL edge recurrence. The no-stall cadence is checked against RTL and emerges from these stages. The final result crosses to the PE domain before normalization. Optional burst FIFO space is reserved inside the same 64 KiB stage SRAM accounting. The backend phases mark normalization/ranking/planner, K/QK, gate/budget, and V/PV/finalization in order.",
   "geometry": {
@@ -399,6 +399,16 @@
       "file": "results/round12_frontend/64k/extended/states.jsonl.gz",
       "sha256": "953d465c5c7a940fd69a2665064b038ff421fca9be65bfb28a923f22395f7187",
       "state_set": "expanded_round12"
+    },
+    {
+      "file": "results/round13_comrad/32k/common/states.jsonl.gz",
+      "sha256": "92b030c528bfa010ebd28138e9676b62de528aba5e24c33652b69b30c62a69e2",
+      "state_set": "new_round13"
+    },
+    {
+      "file": "results/round13_comrad/64k/common/states.jsonl.gz",
+      "sha256": "cbf891ac8f766190b19b54e172e1a8786bbcdd91b248aa1a1e4b8ed9855ab85d",
+      "state_set": "new_round13"
     }
   ],
   "model_source_sha256": {
@@ -409,7 +419,7 @@
     "sim/lpddr5_banked.cpp": "1c9180cc84874e43c1eb2dc1acc9ca6e077dde7e428ccf99f1c77743f5a8a583",
     "sim/round11_timing.cpp": "ca926e4414c41be05d8059b0c0d0578aceeb7fd9aeecbe2a359af7e1153d60ee"
   },
-  "paired_timing_rows": 250,
+  "paired_timing_rows": 390,
   "pairing": "Matched on state set, cohort, prompt and captured decode step. The group schedule preserves one LPDDR state across the complete layer/group traversal.",
   "population": "Each captured whole step carries equal weight within its cohort and timestamp stratum. P95 is the nearest-rank observed value. A P95 of paired differences and each side's own P95 are both reported.",
   "populations": [
@@ -764,10 +774,102 @@
       "state_set": "expanded_round12",
       "whole_step_policy_captures": 24,
       "whole_steps": 8
+    },
+    {
+      "captured_groups": [
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1419,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1419,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 21,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "32k",
+          "groups": 1419,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 36,
+          "policy": "A",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 1404,
+          "policy": "A",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 36,
+          "policy": "B",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 1404,
+          "policy": "B",
+          "scope": "regular",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 36,
+          "policy": "M",
+          "scope": "fallback_pressure",
+          "whole_step": true
+        },
+        {
+          "cohort": "64k",
+          "groups": 1404,
+          "policy": "M",
+          "scope": "regular",
+          "whole_step": true
+        }
+      ],
+      "isolated_groups_excluded": 0,
+      "state_set": "new_round13",
+      "whole_step_policy_captures": 30,
+      "whole_steps": 10
     }
   ],
   "scope": "CPU event projection of decode attention only",
   "stall_metrics": "Scorer wait sums idle dot time, including initial service and input starvation. Record service wait measures delay beyond the isolated complete-to-first-dot minimum per record. Ingress queue wait sums visible-to-consumed intervals per burst and includes in-order reassembly and slot blocking. These residency sums may overlap across terms. Result CDC measures final scorer-to-PE alignment and modeled synchronization. Slot and request-window wait retain the Round 11 elapsed blocked-device definitions. Excess span compares observed first complete through last result against the same timed scorer with continuous ready input.",
-  "step_timing_rows": 210,
+  "step_timing_rows": 360,
   "timestamp": "decode_start is step zero. answer_start is the trace answer-start marker on nonzero steps. later is the remaining nonzero steps. fallback_present is the matched subset where either policy fell back."
 }

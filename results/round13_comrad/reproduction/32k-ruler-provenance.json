@@ -1,0 +1,10 @@
+{
+  "published_manifest_sha256": "b177a8622d407f67e2d7d887adb46daeeae211287bf90117a26b618ac8561af1",
+  "rebuilt_manifest_sha256": "8699830ff4c4fa2cfee897efb171869bc8ddcfc14060dedfd87b0a126bfe42e7",
+  "registered_corpus_sources_sha256": "093bb5c1bfa1e1b9f0c7c13486fd23c31eac1ab51a569f7b5a090801c359edd6",
+  "rebuilt_corpus_sources_sha256": "70bd6d23fdb54ccd5937f2d63afc12cba2055b6b4c37ecd848de84d9d2a29530",
+  "corpus_sha256": "58e352531a80cef2d22c205dbebfbfd64a8afe55a32434de845f200718756c65",
+  "exact_frozen_split_sha256": {
+    "test": "ec2ba2c0474d2b1a562c69adda40e1281eb9fcad1903aeb48d3b59ecf344b38f"
+  }
+}

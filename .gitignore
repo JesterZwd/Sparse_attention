@@ -64,3 +64,12 @@ results/round13_comrad/data/
 results/round13_comrad/local_inputs/
 results/round13_comrad/**/bundles/
 results/round13_comrad/**/group_timing.csv.gz
+
+results/round13_llama_budgets/data/
+results/round13_llama_budgets/**/bundles/
+results/round13_llama_budgets/*/calibration-preflight-*/
+results/round13_llama_budgets/*.ready
+results/round13_llama_budgets/*.lock
+results/round13_llama_budgets/run.log
+results/round13_llama_budgets/prepare.log
+results/round13_llama_budgets/smoke.log

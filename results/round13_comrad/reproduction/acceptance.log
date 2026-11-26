@@ -1,0 +1,9 @@
+qwen3_64k_multivalue test 64 256 checks OK
+qwen25_32k_multivalue test 64 256 checks OK
+qwen3_32k_fwe test 64 256 checks OK
+qwen3_longbench_v2 test 64 256 checks OK
+LongBench Dense-correct subset 20 {'dense_kv4': 20, 'Quest': 19, 'A': 20, 'M': 20}
+qwen25_32k_multivalue calibration 16 80 checks OK
+qwen3_32k_fwe calibration 8 32 checks OK
+QA totals 280 1136 {'test': 9274080, 'calibration': 807168}
+Replay receipts, 10 capture bundles and 8640 new group-policy trace records OK

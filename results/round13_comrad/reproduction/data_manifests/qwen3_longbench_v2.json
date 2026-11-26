@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "benchmark": "LongBench v2",
+  "generator": {
+    "repository": "https://github.com/THUDM/LongBench",
+    "commit": "2e00731f8d0bff23dc4325161044d0ed8af94c1e",
+    "license": "MIT",
+    "script": "pred.py",
+    "prompt": "prompts/0shot.txt"
+  },
+  "configuration": {
+    "max_seq_length": 32768,
+    "max_new_tokens": 128,
+    "prompt_min_tokens": 16384,
+    "prompt_max_tokens": 32640,
+    "model": "Qwen3-4B-Instruct-2507",
+    "template": "official direct-answer zero-shot, one user message; original context; no truncation",
+    "selection": "first 64 eligible IDs in ascending SHA256(JSON([seed, official_id])) order",
+    "seed": 2026121901
+  },
+  "source": {
+    "repository": "https://huggingface.co/datasets/zai-org/LongBench-v2",
+    "revision": "2b48e494f2c7a2f0af81aae178e05c7e1dde0fe9",
+    "official_split": "train",
+    "official_rows": 503,
+    "card_license": "Apache-2.0",
+    "local_data_only": true,
+    "sources": {
+      "data.json": {
+        "url": "https://huggingface.co/datasets/zai-org/LongBench-v2/resolve/2b48e494f2c7a2f0af81aae178e05c7e1dde0fe9/data.json",
+        "sha256": "15d61c22d92c96900b3c4948b6aeea218d3214b676a65df48e7b8555604c7fe2"
+      },
+      "dataset_card.md": {
+        "url": "https://huggingface.co/datasets/zai-org/LongBench-v2/resolve/2b48e494f2c7a2f0af81aae178e05c7e1dde0fe9/README.md",
+        "sha256": "9fdd1a3ebe86507253c124a18e9f78c898ce6341c12990af17ab868b8f600c35"
+      },
+      "pred.py": {
+        "url": "https://raw.githubusercontent.com/THUDM/LongBench/2e00731f8d0bff23dc4325161044d0ed8af94c1e/pred.py",
+        "sha256": "ab63f77866a1c0dc770582bc3fe6b014c3b4be4667399b0ee267075780c6a138"
+      },
+      "prompts/0shot.txt": {
+        "url": "https://raw.githubusercontent.com/THUDM/LongBench/2e00731f8d0bff23dc4325161044d0ed8af94c1e/prompts/0shot.txt",
+        "sha256": "68a162252bc9ff71d5d7abca3d69bb31aac3c35f832d657a2866f2018b8a6950"
+      },
+      "LICENSE": {
+        "url": "https://raw.githubusercontent.com/THUDM/LongBench/2e00731f8d0bff23dc4325161044d0ed8af94c1e/LICENSE",
+        "sha256": "bf7f05f274d65931bdf14f060b6855f1c359b8424eb74fd3091d25de89d700c3"
+      }
+    }
+  },
+  "tokenizer": {
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "a62ff0a2472a0fa1b8eaabcb57c59b58afa42a22831dc141400b6e0cf2b65ce3",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+  },
+  "chat_template_sha256": "64f85b198065d0fba2a81f37e10ed68161ce2c19a754c7100e67e0ca2ee9c326",
+  "gold_span_policy": "No official per-question evidence positions",
+  "splits": {
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "5867cc7ab80692cc70cacfcaccfae915b33837a0cf397092ce4ee6e696735159",
+      "count": 64,
+      "input_tokens_min": 16466,
+      "input_tokens_max": 31848
+    }
+  }
+}

@@ -1,10 +1,10 @@
 # CoMRAD Round 13 工作站迁移
 
-本次发布含六档前端对拍与综合收据、14 个完整解码步的同资源回放、Qwen2.5 短上下文对拍，以及后续 GPU 阶段所需脚本、种子、样本哈希和配置。Qwen3 64K、Qwen2.5 32K、FWE/CWE、LongBench v2 的新闭环和新增整步采集仍待运行。 [阶段结果](../results/round13_comrad/checkpoint.md)
+AutoDL 已完成 Round 13 的四个闭环面板、10 个新增整步和 Llama 六档扩展。GPU 产物使用 A800 80 GB、PyTorch 2.5.1+cu124 和 Transformers 4.51.3。前端综合与仿真工具见硬件复现说明。 [Round 13 结案](../results/round13_comrad/checkpoint.md) · [Llama 六档与复现](../results/round13_llama_budgets/README.md)
 
 ## 1. 环境和权重
 
-从 GitHub 克隆后在仓库根目录运行。原环境为 Linux x86-64、Python 3.12.3、PyTorch 2.5.1+cu121、Transformers 4.51.3、RTX 3090 和 NVIDIA 驱动 535.183.01。回放需要 C++17 编译器。GPU 冒烟会记录实际显存峰值。
+从 GitHub 克隆后在仓库根目录运行。原环境为 Linux x86-64、Python 3.12.3、PyTorch 2.5.1+cu121、Transformers 4.51.3、RTX 3090 和 NVIDIA 驱动 535.183.01。回放需要 C++17 编译器。GPU 冒烟会记录实际显存峰值。AutoDL 的 FWE 生成另外使用 SciPy 1.15.3。
 
 ```bash
 git clone --filter=blob:none https://github.com/JesterZwd/Sparse_attention.git
@@ -16,7 +16,7 @@ python3 scripts/download_model.py
 .venv/bin/python -m scripts.fetch_round13_weights
 ```
 
-已下载的模型也可通过工作站间复制。保留 `models/Qwen3-4B-Instruct-2507/` 和 `models/Qwen2.5-7B-Instruct/` 的完整目录及各自的 `source_manifest.json`。两组权重由脚本按固定版本校验。Llama 条件实验当前只有权重可用性收据。 [Qwen3 文件清单](../configs/qwen3-4b-modelscope-files.json) · [Qwen2.5 权重收据](../results/round13_comrad/model_adaptation/weight_availability.json)
+已下载的模型也可通过工作站间复制。保留 `models/Qwen3-4B-Instruct-2507/` 和 `models/Qwen2.5-7B-Instruct/` 的完整目录及各自的 `source_manifest.json`。两组权重由脚本按固定版本校验。Llama 权重来源、固定 Git LFS 对照和下载脚本见 [Llama 六档复现](../results/round13_llama_budgets/README.md)。 [Qwen3 文件清单](../configs/qwen3-4b-modelscope-files.json) · [Qwen2.5 权重收据](../results/round13_comrad/model_adaptation/weight_availability.json)
 
 ## 2. 恢复冻结输入
 
@@ -27,7 +27,7 @@ tar -xzf /path/to/round13-inputs.tar.gz
 .venv/bin/python -m scripts.prepare_round13_data verify-workspace
 ```
 
-也可在干净克隆中按固定提交重建。语料来自 RULER 指定的上游 URL。若上游内容改变导致哈希不符，使用原工作站迁移包，保持冻结样本。
+也可在干净克隆中按固定提交重建。语料来自 RULER 指定的上游 URL。若上游内容改变导致语料正文或样本哈希不符时，使用原工作站迁移包。AutoDL 重建语料正文和逐题输入哈希与冻结记录相同，原始来源清单的差异见 [32K 收据](../results/round13_comrad/reproduction/32k-ruler-provenance.json) 和 [64K 收据](../results/round13_comrad/reproduction/64k-ruler-provenance.json)。
 
 ```bash
 mkdir -p .cache/ruler-corpus .cache/ruler-upstream
@@ -42,7 +42,7 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 HF_HUB_OFFLINE=1
 .venv/bin/python -m scripts.prepare_round13_data workspace
 ```
 
-使用迁移包时，只有 FWE 触发 CWE 回退才需要上述 RULER Git checkout。数据准备入口对照发布收据逐项检查测试行、顺序和哈希。重新生成的清单保留本机的创建时间和来源文件记录。 [数据口径与种子](../results/round13_comrad/data_protocol.md)
+从上游重建出 AutoDL 收据里的来源清单时，可以把 [核验入口](../results/round13_comrad/reproduction/launch.py) 复制到 `.cache/round13-cloud/launch.py`，然后用同一环境运行 `.venv/bin/python .cache/round13-cloud/launch.py workspace`。入口会逐字节核对语料正文和冻结的 32K、64K 逐题输入。使用迁移包时，只有 FWE 触发 CWE 回退才需要上述 RULER Git checkout。数据准备入口对照发布收据逐项检查测试行、顺序和哈希。重新生成的清单保留本机的创建时间和来源文件记录。 [数据口径与种子](../results/round13_comrad/data_protocol.md)
 
 ## 3. 接续 GPU 实验
 

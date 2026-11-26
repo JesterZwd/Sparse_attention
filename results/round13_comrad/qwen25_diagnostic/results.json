@@ -1,0 +1,247 @@
+{
+  "summary": [
+    {
+      "task": "FWE",
+      "mode": "BF16",
+      "samples": 4,
+      "score": 0.75
+    },
+    {
+      "task": "FWE",
+      "mode": "KV4G32",
+      "samples": 4,
+      "score": 0.0
+    },
+    {
+      "task": "FWE",
+      "mode": "K4G16+V4G32",
+      "samples": 4,
+      "score": 0.0
+    },
+    {
+      "task": "FWE",
+      "mode": "K8G32+V4G32",
+      "samples": 4,
+      "score": 0.75
+    },
+    {
+      "task": "Multi-Value",
+      "mode": "K4G16+V4G32",
+      "samples": 2,
+      "score": 0.0
+    },
+    {
+      "task": "Multi-Value",
+      "mode": "K8G32+V4G32",
+      "samples": 2,
+      "score": 0.875
+    }
+  ],
+  "records": [
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0000",
+      "mode": "BF16",
+      "official_score": 0.6666666666666666,
+      "complete_correct": false,
+      "generated_tokens": 20,
+      "first_token": 715,
+      "truncated": false
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0000",
+      "mode": "KV4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 50,
+      "first_token": 1147,
+      "truncated": true
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0000",
+      "mode": "K4G16+V4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 50,
+      "first_token": 330,
+      "truncated": true
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0000",
+      "mode": "K8G32+V4G32",
+      "official_score": 0.6666666666666666,
+      "complete_correct": false,
+      "generated_tokens": 20,
+      "first_token": 715,
+      "truncated": false
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0001",
+      "mode": "BF16",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 15,
+      "first_token": 259,
+      "truncated": false
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0001",
+      "mode": "KV4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 50,
+      "first_token": 330,
+      "truncated": true
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0001",
+      "mode": "K4G16+V4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 50,
+      "first_token": 25,
+      "truncated": true
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0001",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 15,
+      "first_token": 259,
+      "truncated": false
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0002",
+      "mode": "BF16",
+      "official_score": 0.6666666666666666,
+      "complete_correct": false,
+      "generated_tokens": 20,
+      "first_token": 715,
+      "truncated": false
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0002",
+      "mode": "KV4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 50,
+      "first_token": 968,
+      "truncated": true
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0002",
+      "mode": "K4G16+V4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 50,
+      "first_token": 4710,
+      "truncated": true
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0002",
+      "mode": "K8G32+V4G32",
+      "official_score": 0.6666666666666666,
+      "complete_correct": false,
+      "generated_tokens": 20,
+      "first_token": 715,
+      "truncated": false
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0003",
+      "mode": "BF16",
+      "official_score": 0.6666666666666666,
+      "complete_correct": false,
+      "generated_tokens": 14,
+      "first_token": 65254,
+      "truncated": false
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0003",
+      "mode": "KV4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 50,
+      "first_token": 16032,
+      "truncated": true
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0003",
+      "mode": "K4G16+V4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 50,
+      "first_token": 1112,
+      "truncated": true
+    },
+    {
+      "task": "FWE",
+      "sample": "calibration/fwe/0003",
+      "mode": "K8G32+V4G32",
+      "official_score": 0.6666666666666666,
+      "complete_correct": false,
+      "generated_tokens": 14,
+      "first_token": 65254,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0000",
+      "mode": "K4G16+V4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 128,
+      "first_token": 678,
+      "truncated": true
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0000",
+      "mode": "K8G32+V4G32",
+      "official_score": 1.0,
+      "complete_correct": true,
+      "generated_tokens": 45,
+      "first_token": 1447,
+      "truncated": false
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0001",
+      "mode": "K4G16+V4G32",
+      "official_score": 0.0,
+      "complete_correct": false,
+      "generated_tokens": 128,
+      "first_token": 498,
+      "truncated": true
+    },
+    {
+      "task": "Multi-Value",
+      "sample": "calibration/niah_multivalue/0001",
+      "mode": "K8G32+V4G32",
+      "official_score": 0.75,
+      "complete_correct": false,
+      "generated_tokens": 62,
+      "first_token": 1447,
+      "truncated": false
+    }
+  ],
+  "fwe_split_sha256": "592d8280f19817f008c6e32d69d3a0fef78d3934fdb4c0a20d28500b71d76dd0",
+  "multi_value_receipt_sha256": "62777e990406eea9b14bbb4b6ad29e5937e6f47642e8cc48140e16339e0d6b02",
+  "source_sha256": "27f75aaef6c726dd3665cef4732b375311d99d042267906254638ce4a3a2a6e0",
+  "model": "models/Qwen2.5-7B-Instruct",
+  "device": "NVIDIA A800-SXM4-80GB"
+}
